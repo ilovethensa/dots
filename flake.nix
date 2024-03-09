@@ -89,6 +89,14 @@
             ./nixos/thinkpad
           ];
         };
+        server = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            # > Our main nixos configuration file <
+            chaotic.nixosModules.default
+            ./nixos/server
+          ];
+        };
 
       };
     };
