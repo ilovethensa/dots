@@ -22,7 +22,6 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
     ./../common/users.nix
-    ./../common/misc.nix
 
 
 
@@ -85,7 +84,14 @@
   time.timeZone = "Europe/Sofia";
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    # require public key authentication for better security
+    settings.PasswordAuthentication = true;
+    settings.KbdInteractiveAuthentication = true;
+    #settings.PermitRootLogin = "yes";
+  };
+
   # Disable the firewall
   networking.firewall.enable = false;
 
