@@ -25,6 +25,7 @@
     ./../common/home.nix
     ./../common/openssh.nix
     ./../common/optimizations.nix
+    ./../common/nix-ld.nix
 
     inputs.home-manager.nixosModules.home-manager
   ];
