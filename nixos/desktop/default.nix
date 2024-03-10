@@ -19,7 +19,6 @@
     ./../common/kde.nix
     ./../common/sound.nix
     ./../common/users.nix
-    ./../common/misc.nix
     ./../common/amd.nix
     ./../common/gaming.nix
     ./../common/home.nix
@@ -54,10 +53,12 @@
       allowUnfree = true;
     };
   };
-  environment.etc = lib.mapAttrs' (name: value: {
-    name = "nix/path/${name}";
-    value.source = value.flake;
-  }) config.nix.registry;
+  environment.etc = lib.mapAttrs'
+    (name: value: {
+      name = "nix/path/${name}";
+      value.source = value.flake;
+    })
+    config.nix.registry;
   nix = {
     settings = {
       # Enable flakes and new 'nix' command
