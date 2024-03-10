@@ -1,10 +1,4 @@
-{ inputs
-, outputs
-, lib
-, config
-, pkgs
-, ...
-}: {
+{ inputs, outputs, lib, config, pkgs, ... }: {
   networking.firewall.enable = false;
   networking.dhcpcd.extraConfig = ''
     noarp

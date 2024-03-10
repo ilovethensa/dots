@@ -1,10 +1,4 @@
-{ inputs
-, outputs
-, lib
-, config
-, pkgs
-, ...
-}: {
+{ inputs, outputs, lib, config, pkgs, ... }: {
   powerManagement.enable = true;
   powerManagement.powertop.enable = true;
   services = {

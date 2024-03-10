@@ -1,10 +1,4 @@
-{ inputs
-, outputs
-, lib
-, config
-, pkgs
-, ...
-}: {
+{ inputs, outputs, lib, config, pkgs, ... }: {
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [
@@ -21,7 +15,8 @@
       "workbench.preferredDarkColorTheme" = "Gruvbox Dark Medium";
       "workbench.colorTheme" = "Gruvbox Dark Hard";
       "files.autoSave" = "afterDelay";
-      "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
+      "editor.bracketPairColorization.independentColorPoolPerBracketType" =
+        true;
       "editor.formatOnPaste" = true;
       "editor.formatOnSave" = true;
       "editor.formatOnType" = true;
