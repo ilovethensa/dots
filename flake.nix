@@ -9,6 +9,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    impermanence.url = "github:nix-community/impermanence";
 
     # Home manager
     home-manager = {
@@ -34,7 +35,14 @@
   };
 
   outputs =
-    { self, nixpkgs, home-manager, chaotic, firefox-addons, ... }@inputs:
+    { self
+    , nixpkgs
+    , home-manager
+    , chaotic
+    , firefox-addons
+    , impermanence
+    , ...
+    }@inputs:
     let
       inherit (self) outputs;
       # Supported systems for your flake packages, shell, etc.
@@ -93,6 +101,8 @@
           modules = [
             # > Our main nixos configuration file <
             chaotic.nixosModules.default
+            impermanence.nixosModules.impermanence
+
             ./nixos/server
           ];
         };

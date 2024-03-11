@@ -84,6 +84,18 @@
 
   # Disable the firewall
   networking.firewall.enable = false;
+  environment.persistence."/persistent" = {
+    hideMounts = true;
+    directories = [
+      "/var/log"
+      "/var/lib/nixos"
+      "/etc/NetworkManager/system-connections"
+      "/srv"
+    ];
+    files = [
+      "/etc/machine-id"
+    ];
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
