@@ -34,7 +34,7 @@
   };
 
   outputs =
-    { self, nixpkgs, home-manager, chaotic, firefox-addons, nix-on-droid ... }@inputs:
+    { self, nixpkgs, home-manager, chaotic, firefox-addons, nix-on-droid, ... }@inputs:
     let
       inherit (self) outputs;
       # Supported systems for your flake packages, shell, etc.
