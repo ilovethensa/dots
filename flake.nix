@@ -20,10 +20,10 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-on-droid = {
-      url = "github:nix-community/nix-on-droid/release-23.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #nix-on-droid = {
+    #  url = "github:nix-community/nix-on-droid/release-23.11";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
@@ -34,7 +34,7 @@
   };
 
   outputs =
-    { self, nixpkgs, home-manager, chaotic, firefox-addons, nix-on-droid, ... }@inputs:
+    { self, nixpkgs, home-manager, chaotic, firefox-addons, ... }@inputs:
     let
       inherit (self) outputs;
       # Supported systems for your flake packages, shell, etc.
@@ -96,9 +96,9 @@
             ./nixos/server
           ];
         };
-        nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-          modules = [ ./nixos/pixel ];
-        };
+        #nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
+        #  modules = [ ./nixos/pixel ];
+        #};
 
       };
     };
