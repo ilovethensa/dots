@@ -84,7 +84,7 @@
 
   # Disable the firewall
   networking.firewall.enable = false;
-  environment.persistence."/persistent" = {
+  environment.persistence."/nix/persist" = {
     hideMounts = true;
     directories = [
       "/var/log"
