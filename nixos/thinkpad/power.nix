@@ -3,7 +3,7 @@
   powerManagement.powertop.enable = true;
   services = {
     tlp = {
-      #enable = true;
+      enable = true;
       settings = {
         CPU_SCALING_GOVERNOR_ON_AC = "performance";
         CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
@@ -36,6 +36,7 @@
       };
     };
     thermald.enable = true;
+    power-profiles-daemon.enable = false;
   };
 
 }
