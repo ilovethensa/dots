@@ -34,8 +34,8 @@
           turbo = "auto";
         };
       };
-      thermald.enable = true;
     };
+    thermald.enable = true;
   };
 
 }

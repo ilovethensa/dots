@@ -53,10 +53,12 @@
     };
   };
 
-  environment.etc = lib.mapAttrs' (name: value: {
-    name = "nix/path/${name}";
-    value.source = value.flake;
-  }) config.nix.registry;
+  environment.etc = lib.mapAttrs'
+    (name: value: {
+      name = "nix/path/${name}";
+      value.source = value.flake;
+    })
+    config.nix.registry;
   nix = {
     settings = {
       # Enable flakes and new 'nix' command
@@ -73,6 +75,12 @@
   # Enable CUPS to print documents.
   networking.hostName = "desktop";
   boot.kernelParams = [ "mitigations=off" ];
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
