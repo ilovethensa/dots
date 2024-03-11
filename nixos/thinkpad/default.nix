@@ -19,7 +19,7 @@
     ./../common/kde.nix
     ./../common/sound.nix
     ./../common/users.nix
-    ./../common/misc.nix
+    #./../common/misc.nix
     ./../common/home.nix
     ./../common/openssh.nix
     ./../common/optimizations.nix
@@ -73,8 +73,9 @@
   };
 
   # Enable CUPS to print documents.
-  networking.hostName = "desktop";
+  networking.hostName = "thinkpad";
   boot.kernelParams = [ "mitigations=off" ];
+  networking.networkmanager.enable = true;
   boot = {
     loader = {
       systemd-boot.enable = true;
