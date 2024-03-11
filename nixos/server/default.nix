@@ -91,6 +91,8 @@
       "/var/lib/nixos"
       "/etc/NetworkManager/system-connections"
       "/srv"
+      "/var/lib/jellyfin"
+      "/etc/jellyfin"
     ];
     files = [
       "/etc/machine-id"
