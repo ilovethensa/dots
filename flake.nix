@@ -20,6 +20,10 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/release-23.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
@@ -44,7 +48,8 @@
       # This is a function that generates an attribute by calling a function you
       # pass to it, with each system as an argument
       forAllSystems = nixpkgs.lib.genAttrs systems;
-    in {
+    in
+    {
       # Your custom packages
       # Accessible through 'nix build', 'nix shell', etc
       packages =
@@ -90,6 +95,9 @@
             chaotic.nixosModules.default
             ./nixos/server
           ];
+        };
+        nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
+          modules = [ ./nixos/pixel ];
         };
 
       };

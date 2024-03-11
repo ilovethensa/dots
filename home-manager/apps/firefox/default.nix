@@ -18,6 +18,21 @@
         bitwarden
         augmented-steam
         enhanced-github
+        #wikiwand-wikipedia-modernized
+        temporary-containers
+        stylus
+        steam-database
+        side-view
+        omnisearch
+        #modrinthify
+        lovely-forks
+        #honey
+        decentraleyes
+        buster-captcha-solver
+        steam-database
+        augmented-steam
+        protondb-for-steam
+
       ];
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
