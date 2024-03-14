@@ -23,5 +23,6 @@
     dates = "02:00";
     randomizedDelaySec = "45min";
   };
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
 }

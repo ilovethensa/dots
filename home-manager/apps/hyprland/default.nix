@@ -13,6 +13,7 @@
         shadow_offset = "0 5";
         "col.shadow" = "rgba(00000099)";
       };
+      exec-once = "waybar";
 
       "$mod" = "ALT";
 
@@ -52,6 +53,11 @@
         );
 
     };
+    extraConfig = ''
+      windowrulev2 = workspace 3, class:^(Firefox)$
+      windowrulev2 = workspace 4, class:^(Code)$
+      windowrulev2 = workspace 2, title:^(Vesktop)$
+    '';
 
   };
 }
