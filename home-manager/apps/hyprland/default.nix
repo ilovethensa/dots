@@ -1,7 +1,6 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
   home.packages = with pkgs; [
     rofi
-    foot
   ];
   wayland.windowManager.hyprland = {
     enable = true;
@@ -27,7 +26,9 @@
         [
           "$mod, F, exec, firefox"
           ", Print, exec, grimblast copy area"
-          "$mod, Return, exec, rofi -show drun"
+          "$mod, D, exec, rofi -show drun"
+          "$mod, Return, exec, foot"
+          "$mod, Q, killactive,"
         ]
         ++ (
           # workspaces
@@ -50,10 +51,7 @@
             10)
         );
 
-    }
+    };
 
-      };
   };
-
-
 }

@@ -14,6 +14,7 @@
     ./apps/vscode
     ./apps/firefox
     ./apps/hyprland
+    ./apps/foot
   ];
 
   nixpkgs = {
