@@ -15,6 +15,7 @@
     ./apps/firefox
     ./apps/hyprland
     ./apps/foot
+    ./apps/waybar
   ];
 
   nixpkgs = {
