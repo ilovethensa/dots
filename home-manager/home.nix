@@ -13,6 +13,7 @@
     # ./nvim.nix
     ./apps/vscode
     ./apps/firefox
+    ./apps/hyprland
   ];
 
   nixpkgs = {
