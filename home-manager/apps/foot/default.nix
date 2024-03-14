@@ -11,8 +11,8 @@
         font = "Fira Code:size=13";
         dpi-aware = "yes";
       };
-    }
+    };
 
-      };
+  };
 
-  }
+}

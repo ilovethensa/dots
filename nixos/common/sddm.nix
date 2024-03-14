@@ -1,8 +1,8 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
-  services = {
-    xserver = {
+  services.xserver.displayManager = {
+    sddm = {
       enable = true;
-      desktopManager.plasma6.enable = true;
+      wayland.enable = true;
     };
   };
 }

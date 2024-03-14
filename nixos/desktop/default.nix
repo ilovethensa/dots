@@ -16,7 +16,8 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
     ./boot.nix
-    ./../common/kde.nix
+    #./../common/kde.nix
+    ./../common/sddm.nix
     ./../common/sound.nix
     ./../common/users.nix
     ./../common/amd.nix
