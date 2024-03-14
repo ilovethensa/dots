@@ -1,7 +1,4 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
-  home.packages = with pkgs; [
-    rofi
-  ];
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
