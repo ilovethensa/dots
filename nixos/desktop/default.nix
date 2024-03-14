@@ -16,7 +16,7 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
     ./boot.nix
-    #./../common/kde.nix
+    ./../common/kde.nix
     ./../common/sound.nix
     ./../common/users.nix
     ./../common/amd.nix
@@ -76,6 +76,7 @@
   networking.hostName = "desktop";
   boot.kernelParams = [ "mitigations=off" ];
   hardware.bluetooth.enable = false;
+  programs.hyprland.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
