@@ -1,4 +1,12 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
+  services.dbus.enable = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    # gtk portal needed to make gtk apps happy
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+  services.gnome.gnome-keyring.enable = true;
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
