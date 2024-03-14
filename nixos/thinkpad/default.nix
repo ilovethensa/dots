@@ -19,7 +19,7 @@
     ./../common/kde.nix
     ./../common/sound.nix
     ./../common/users.nix
-    ./../common/misc.nix
+    #./../common/misc.nix
     ./../common/home.nix
     ./../common/openssh.nix
     ./../common/optimizations.nix
@@ -53,10 +53,12 @@
     };
   };
 
-  environment.etc = lib.mapAttrs' (name: value: {
-    name = "nix/path/${name}";
-    value.source = value.flake;
-  }) config.nix.registry;
+  environment.etc = lib.mapAttrs'
+    (name: value: {
+      name = "nix/path/${name}";
+      value.source = value.flake;
+    })
+    config.nix.registry;
   nix = {
     settings = {
       # Enable flakes and new 'nix' command
@@ -71,8 +73,15 @@
   };
 
   # Enable CUPS to print documents.
-  networking.hostName = "desktop";
+  networking.hostName = "thinkpad";
   boot.kernelParams = [ "mitigations=off" ];
+  networking.networkmanager.enable = true;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

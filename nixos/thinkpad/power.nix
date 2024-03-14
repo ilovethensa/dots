@@ -34,8 +34,9 @@
           turbo = "auto";
         };
       };
-      thermald.enable = true;
     };
+    thermald.enable = true;
+    power-profiles-daemon.enable = false;
   };
 
 }
