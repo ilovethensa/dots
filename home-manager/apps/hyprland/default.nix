@@ -1,6 +1,7 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
   home.packages = with pkgs; [
     rofi
+    foot
   ];
   wayland.windowManager.hyprland = {
     enable = true;
