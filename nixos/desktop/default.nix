@@ -25,6 +25,7 @@
     config = {
       allowUnfree = true; # Enable unfree packages
     };
+
   };
 
   # Nix settings
@@ -33,8 +34,10 @@
       experimental-features = "nix-command flakes"; # Enable flakes and 'nix' command
       auto-optimise-store = true; # Deduplicate and optimize nix store
     };
-    nixPath = [ "/etc/nix/path" ]; # Define nix path
-    registry = (lib.mapAttrs (_: flake: { inherit flake; })) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
+    nixPath = [ "/etc/nix/path" ];
+    registry = (lib.mapAttrs (_: flake: { inherit flake; }))
+      ((lib.filterAttrs (_: lib.isType "flake")) inputs);
+
   };
 
   # Networking and system configurations

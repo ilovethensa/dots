@@ -64,6 +64,10 @@
       "/srv"
       "/var/lib/jellyfin"
       "/etc/jellyfin"
+      {
+        directory = "/home/tht";
+        user = "tht";
+      }
     ];
     files = [
       "/etc/machine-id"
