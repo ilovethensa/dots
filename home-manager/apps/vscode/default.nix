@@ -1,6 +1,9 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
+  # Configure Visual Studio Code
   programs.vscode = {
     enable = true;
+
+    # Define extensions to be installed
     extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
       usernamehw.errorlens
@@ -11,12 +14,13 @@
       continue.continue
       christian-kohler.path-intellisense
     ];
+
+    # Define user settings for Visual Studio Code
     userSettings = {
       "workbench.preferredDarkColorTheme" = "Gruvbox Dark Medium";
       "workbench.colorTheme" = "Gruvbox Dark Hard";
       "files.autoSave" = "afterDelay";
-      "editor.bracketPairColorization.independentColorPoolPerBracketType" =
-        true;
+      "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
       "editor.formatOnPaste" = true;
       "editor.formatOnSave" = true;
       "editor.formatOnType" = true;
@@ -24,5 +28,4 @@
       "notebook.formatOnCellExecution" = true;
     };
   };
-
 }

@@ -1,4 +1,6 @@
 { pkgs, lib, inputs, ... }: {
+
+  # Configure Firefox program
   programs.firefox = {
     enable = true;
     profiles.default = {
@@ -32,8 +34,9 @@
         steam-database
         augmented-steam
         protondb-for-steam
-
       ];
+
+      # Firefox settings
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "browser.uidensity" = 0;
@@ -186,7 +189,10 @@
         "findbar.highlightAll" = true;
         "layout.word_select.eat_space_to_next_word" = false;
         "ui.key.menuAccessKeyFocuses" = false;
+
       };
+
+      # Firefox search configurations
       search = {
         default = "Brave";
         privateDefault = "Brave";
@@ -207,9 +213,7 @@
                 }
               ];
             }];
-
-            icon =
-              "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             definedAliases = [ "np" ];
           };
 
@@ -221,21 +225,22 @@
             updateInterval = 24 * 60 * 60 * 1000; # every day
             definedAliases = [ "nw" ];
           };
+
           "Brave" = {
             urls = [{
               template = "https://search.brave.com/search?q={searchTerms}";
             }];
-            iconUpdateURL =
-              "https://brave.com/static-assets/images/brave-logo-sans-text.svg";
+            iconUpdateURL = "https://brave.com/static-assets/images/brave-logo-sans-text.svg";
             updateInterval = 24 * 60 * 60 * 1000; # every day
             definedAliases = [ "br" ];
           };
+
+          # Hide default search engines
           "Bing".metaData.hidden = true;
           "Google".metaData.hidden = true;
           "Amazon".metaData.hidden = true;
         };
       };
-
     };
   };
 }

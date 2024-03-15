@@ -1,22 +1,8 @@
-# This is your system's configuration file.
-# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 { inputs, outputs, lib, config, pkgs, ... }: {
-  # You can import other NixOS modules here
+  # Import modules and configuration pieces
   imports = [
-    # If you want to use modules your own flake exports (from modules/nixos):
-    # outputs.nixosModules.example
-
-    # Or modules from other flakes (such as nixos-hardware):
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
-
-    # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
     ./boot.nix
-    #./../common/kde.nix
     ./../common/sddm.nix
     ./../common/sound.nix
     ./../common/users.nix
@@ -26,58 +12,36 @@
     ./../common/openssh.nix
     ./../common/optimizations.nix
     ./../common/nix-ld.nix
-
     inputs.home-manager.nixosModules.home-manager
   ];
 
+  # Nixpkgs configuration
   nixpkgs = {
-    # You can add overlays here
     overlays = [
-      # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
-
-      # You can also add overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
     ];
-    # Configure your nixpkgs instance
     config = {
-      # Disable if you don't want unfree packages
-      allowUnfree = true;
+      allowUnfree = true; # Enable unfree packages
     };
   };
-  environment.etc = lib.mapAttrs'
-    (name: value: {
-      name = "nix/path/${name}";
-      value.source = value.flake;
-    })
-    config.nix.registry;
+
+  # Nix settings
   nix = {
     settings = {
-      # Enable flakes and new 'nix' command
-      experimental-features = "nix-command flakes";
-      # Deduplicate and optimize nix store
-      auto-optimise-store = true;
+      experimental-features = "nix-command flakes"; # Enable flakes and 'nix' command
+      auto-optimise-store = true; # Deduplicate and optimize nix store
     };
-    nixPath = [ "/etc/nix/path" ];
-    registry = (lib.mapAttrs (_: flake: { inherit flake; }))
-      ((lib.filterAttrs (_: lib.isType "flake")) inputs);
-
+    nixPath = [ "/etc/nix/path" ]; # Define nix path
+    registry = (lib.mapAttrs (_: flake: { inherit flake; })) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
   };
 
-  # Enable CUPS to print documents.
-  networking.hostName = "desktop";
-  boot.kernelParams = [ "mitigations=off" ];
-  hardware.bluetooth.enable = false;
-  programs.hyprland.enable = true;
+  # Networking and system configurations
+  networking.hostName = "desktop"; # Set hostname
+  boot.kernelParams = [ "mitigations=off" ]; # Kernel parameters
+  hardware.bluetooth.enable = false; # Disable Bluetooth
+  programs.hyprland.enable = true; # Enable Hyprland program
   system.environment = {
     GDK_BACKEND = "wayland,x11";
     QT_QPA_PLATFORM = "wayland;xcb";
@@ -88,8 +52,9 @@
     XDG_SESSION_DESKTOP = "Hyprland";
     QT_AUTO_SCREEN_SCALE_FACTOR = 1;
     QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
+    NIXOS_OZONE_WL = "1";
   };
 
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  # System state version
   system.stateVersion = "23.05";
 }

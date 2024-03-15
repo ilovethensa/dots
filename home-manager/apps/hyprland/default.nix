@@ -1,33 +1,63 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
+
+  # Enable services
   services.dbus.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+
+  # Configure xdg portal
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    # gtk portal needed to make gtk apps happy
+    # Additional portals
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
-  services.gnome.gnome-keyring.enable = true;
+
+  # Configure Wayland window manager
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
+
+    # Enable systemd service
     systemd = {
       enable = true;
     };
+
+    # Window manager settings
     settings = {
       decoration = {
-        shadow_offset = "0 5";
-        "col.shadow" = "rgba(00000099)";
+        rounding = 20;
+        blur = {
+          enabled = true;
+          xray = true;
+          special = false;
+          new_optimizations = true;
+          size = 5;
+          passes = 4;
+          brightness = 1;
+          noise = 0.01;
+          contrast = 1;
+        };
+        drop_shadow = false;
+        shadow_ignore_window = true;
+        shadow_range = 20;
+        shadow_offset = [ 0 2 ];
+        shadow_render_power = 2;
+        col = { shadow = "rgba(0000001A)"; };
+        dim_inactive = false;
+        dim_strength = 0.1;
+        dim_special = 0;
       };
-      exec-once = "waybar";
 
+      exec-once = "waybar";
       "$mod" = "ALT";
 
+      # Key bindings
       bindm = [
-        # mouse movements
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
         "$mod ALT, mouse:272, resizewindow"
       ];
+
       bind =
         [
           "$mod, F, exec, firefox"
@@ -37,8 +67,7 @@
           "$mod, Q, killactive,"
         ]
         ++ (
-          # workspaces
-          # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
+          # Workspace bindings
           builtins.concatLists (builtins.genList
             (
               x:
@@ -56,13 +85,13 @@
             )
             10)
         );
-
     };
+
+    # Additional configurations
     extraConfig = ''
       windowrulev2 = workspace 3, class:^(Firefox)$
       windowrulev2 = workspace 4, class:^(Code)$
       windowrulev2 = workspace 2, title:^(Vesktop)$
     '';
-
   };
 }

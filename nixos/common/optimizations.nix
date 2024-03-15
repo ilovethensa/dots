@@ -8,21 +8,19 @@
     settings = { auto-optimise-store = true; };
     optimise = {
       automatic = true;
-      dates = [ "03:45" ]; # Optional; allows customizing optimisation schedule
-
+      dates = [ "03:45" ];
     };
   };
+
   system.autoUpgrade = {
     enable = true;
     flake = inputs.self.outPath;
     flags = [
       "--update-input"
       "nixpkgs"
-      "-L" # print build logs
+      "-L"
     ];
     dates = "02:00";
     randomizedDelaySec = "45min";
   };
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
 }
