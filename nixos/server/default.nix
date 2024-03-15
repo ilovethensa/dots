@@ -9,6 +9,7 @@
     ./services/jellyfin.nix
     ./services/jellyseerr.nix
     ./services/cloudflared-web.nix
+    ./services/qbittorrent.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
