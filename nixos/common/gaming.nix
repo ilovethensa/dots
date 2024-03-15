@@ -10,15 +10,16 @@
   # Game-related programs and packages
   programs.gamemode.enable = true;
   environment.systemPackages = with pkgs; [
-    lutris.override
-    {
-      extraPkgs = pkgs: [
-        # List package dependencies here
-      ];
+    (lutris.override {
       extraLibraries = pkgs: [
         # List library dependencies here
       ];
-    }
+      extraPkgs = pkgs: [
+        # List package dependencies here
+      ];
+
+    })
+
     gnome3.adwaita-icon-theme
     qbittorrent
     vlc
