@@ -4,7 +4,7 @@
     image = "lscr.io/linuxserver/qbittorrent:latest";
     autoStart = true;
     volumes = [
-      "/AppData/qbittorrent:/config"
+      "/srv/AppData/qbittorrent:/config"
       "/srv:/srv"
     ];
     ports = [
