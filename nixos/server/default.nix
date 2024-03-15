@@ -8,6 +8,7 @@
     ./../common/optimizations.nix
     ./services/jellyfin.nix
     ./services/jellyseerr.nix
+    ./services/cloudflared-web.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
