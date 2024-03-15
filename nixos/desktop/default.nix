@@ -60,6 +60,9 @@
   # Enable services
   services.dbus.enable = true;
   services.gnome.gnome-keyring.enable = true;
+  environment.systemPackages = with pkgs; [
+    krita
+  ];
 
   # Configure xdg portal
   xdg.portal = {
