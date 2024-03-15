@@ -10,6 +10,7 @@
     ./services/jellyseerr.nix
     ./services/cloudflared-web.nix
     ./services/qbittorrent.nix
+    ./services/n8n.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
