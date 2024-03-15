@@ -6,9 +6,6 @@
     volumes = [
       "/srv/AppData/cloudflared-web:/config"
     ];
-    ports = [
-      "5055:5055"
-    ];
-
+    extraOptions = [ "--network=host" ];
   };
 }
