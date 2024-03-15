@@ -42,7 +42,7 @@
   boot.kernelParams = [ "mitigations=off" ]; # Kernel parameters
   hardware.bluetooth.enable = false; # Disable Bluetooth
   programs.hyprland.enable = true; # Enable Hyprland program
-  system.environment = {
+  environment.sessionVariables = {
     GDK_BACKEND = "wayland,x11";
     QT_QPA_PLATFORM = "wayland;xcb";
     SDL_VIDEODRIVER = "wayland";
