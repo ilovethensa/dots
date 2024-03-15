@@ -7,7 +7,7 @@
     ./../common/openssh.nix
     ./../common/optimizations.nix
     ./services/jellyfin.nix
-    .services/jellyseerr.nix
+    ./services/jellyseerr.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
