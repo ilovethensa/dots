@@ -55,7 +55,7 @@
   # Disable the firewall
   networking.firewall.enable = false;
 
-  virtualisation.oci-containers.backend = "docker";
+  virtualisation.oci-containers.backend = "podman";
 
   # Persistence configuration
   environment.persistence."/nix/persist" = {
