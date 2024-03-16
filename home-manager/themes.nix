@@ -30,7 +30,7 @@
       };
     };
     iconTheme = {
-      package = gruvboxPlus;
+      package = pkgs.gruvboxPlus;
       name = "GruvboxPlus";
     };
   };
