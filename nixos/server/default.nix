@@ -67,6 +67,7 @@
       "/srv"
       "/var/lib/jellyfin"
       "/etc/jellyfin"
+      "/var/lib/docker"
       {
         directory = "/home/tht";
         user = "tht";
