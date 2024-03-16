@@ -12,6 +12,7 @@
     ./../common/optimizations.nix
     ./../common/nix-ld.nix
     ./../common/sddm.nix
+    ./../common/hyprland.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
