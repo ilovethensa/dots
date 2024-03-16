@@ -4,13 +4,14 @@
   imports = [
     ./hardware-configuration.nix
     ./power.nix
-    ./../common/kde.nix
+    #./../common/kde.nix
     ./../common/sound.nix
     ./../common/users.nix
     ./../common/home.nix
     ./../common/openssh.nix
     ./../common/optimizations.nix
     ./../common/nix-ld.nix
+    ./../common/sddm.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -44,7 +45,7 @@
   # Bootloader configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
+  programs.hyprland.enable = true;
   # System state version
   system.stateVersion = "23.05";
 }

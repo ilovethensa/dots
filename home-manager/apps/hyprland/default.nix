@@ -16,7 +16,14 @@
     settings = {
       exec-once = "waybar";
       "$mod" = "ALT";
-
+      input.touchpad = {
+        natural_scroll = true;
+      };
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_fingers = 3;
+        workspace_swipe_forever = true;
+      };
       # Key bindings
       bindm = [
         "$mod, mouse:272, movewindow"
