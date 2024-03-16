@@ -16,6 +16,7 @@
     ./apps/hyprland
     ./apps/foot
     ./apps/waybar
+    ./apps/rofi
   ];
 
   nixpkgs = {

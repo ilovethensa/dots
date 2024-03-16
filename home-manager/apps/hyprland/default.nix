@@ -66,6 +66,7 @@
       windowrulev2 = workspace 3, class:^(Firefox)$
       windowrulev2 = workspace 4, class:^(Code)$
       windowrulev2 = workspace 2, title:^(Vesktop)$
+      windowrule = stayfocused,^(Ulauncher)$
       exec-once = gammastep-indicator - t 6500:2500 -l 42.13058:24.73996
       exec-once = waybar
     '';
