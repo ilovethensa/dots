@@ -27,7 +27,7 @@
     };
   };
   environment.variables = {
-    NIX_PATH = "nixpkgs=https://github.com/NixOS/nixpkgs/archive/master.tar.gz"; # Until i can figure out how to fix it
+    NIX_PATH = lib.mkForce "nixpkgs=https://github.com/NixOS/nixpkgs/archive/master.tar.gz"; # Until i can figure out how to fix it
   };
 
 }
