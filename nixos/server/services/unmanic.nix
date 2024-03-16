@@ -4,9 +4,9 @@
     image = "josh5/unmanic:latest";
     autoStart = true;
     volumes = [
-      "/srv/AppData/unmanic:/config"
+      "/srv/AppData/unmanic/data:/config"
       "/srv/Media:/library"
-      "/tmp/unmanic:/tmp/unmanic"
+      "/srv/AppData/unmanic/cache:/tmp/unmanic"
     ];
     ports = [
       "8888:8888"
