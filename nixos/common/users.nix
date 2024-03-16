@@ -1,5 +1,7 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
+  programs.fish.enable = true;
   users = {
+    defaultUserShell = pkgs.fish;
     mutableUsers = false;
     users = {
       root = {
