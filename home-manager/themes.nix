@@ -29,10 +29,10 @@
         variant = "mocha";
       };
     };
-    iconTheme = {
+    /*     iconTheme = {
       package = pkgs.gruvboxPlus;
       name = "GruvboxPlus";
-    };
+    }; */
   };
 
 }
