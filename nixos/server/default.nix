@@ -55,6 +55,8 @@
   # Disable the firewall
   networking.firewall.enable = false;
 
+  virtualisation.oci-containers.backend = "docker";
+
   # Persistence configuration
   environment.persistence."/nix/persist" = {
     hideMounts = true;
@@ -69,6 +71,11 @@
         directory = "/home/tht";
         user = "tht";
       }
+      {
+        directory = "/root";
+        user = "root";
+      }
+
     ];
     files = [
       "/etc/machine-id"
