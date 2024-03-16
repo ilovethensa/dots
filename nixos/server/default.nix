@@ -68,6 +68,7 @@
       "/var/lib/jellyfin"
       "/etc/jellyfin"
       "/var/lib/docker"
+      "/var/lib/containers"
       {
         directory = "/home/tht";
         user = "tht";
