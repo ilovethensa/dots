@@ -15,6 +15,7 @@
     # Window manager settings
     settings = {
       exec-once = "waybar";
+      exec = "${pkgs.psmisc}/bin/killall -SIGUSR2 .waybar-wrapped";
       "$mod" = "ALT";
       input.touchpad = {
         natural_scroll = true;
@@ -34,7 +35,7 @@
       bind =
         [
           "$mod, F, exec, firefox"
-          ", Print, exec, grimblast copy area"
+          ", Print, exec, ${pkgs.grimblast}/bin/grimblast copy area"
           "$mod, D, exec, rofi -show drun"
           "$mod, Return, exec, foot"
           "$mod, Q, killactive,"
