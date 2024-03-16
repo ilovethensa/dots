@@ -17,6 +17,7 @@
     ./apps/foot
     ./apps/waybar
     ./apps/rofi
+    ./themes.nix
   ];
 
   nixpkgs = {
