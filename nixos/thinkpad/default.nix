@@ -11,7 +11,7 @@
     ./../common/openssh.nix
     ./../common/optimizations.nix
     ./../common/nix-ld.nix
-    ./../common/sddm.nix
+    ./../common/greetd.nix
     ./../common/hyprland.nix
     inputs.home-manager.nixosModules.home-manager
   ];

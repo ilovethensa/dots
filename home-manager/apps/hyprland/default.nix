@@ -1,6 +1,7 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
   home.packages = with pkgs; [
     rofi
+    gammastep
   ];
   # Configure Wayland window manager
   wayland.windowManager.hyprland = {
@@ -14,7 +15,6 @@
 
     # Window manager settings
     settings = {
-      exec-once = "waybar";
       exec = "${pkgs.psmisc}/bin/killall -SIGUSR2 .waybar-wrapped";
       "$mod" = "ALT";
       input.touchpad = {
@@ -66,6 +66,8 @@
       windowrulev2 = workspace 3, class:^(Firefox)$
       windowrulev2 = workspace 4, class:^(Code)$
       windowrulev2 = workspace 2, title:^(Vesktop)$
+      exec-once = gammastep-indicator - t 6500:2500 -l 42.13058:24.73996
+      exec-once = waybar
     '';
   };
 }

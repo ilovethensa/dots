@@ -3,7 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ./boot.nix
-    ./../common/sddm.nix
+    ./../common/greetd.nix
     ./../common/sound.nix
     ./../common/users.nix
     ./../common/amd.nix
