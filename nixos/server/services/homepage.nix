@@ -16,10 +16,44 @@
     };
 
     # https://gethomepage.dev/latest/configs/bookmarks/
-    bookmarks = [ ];
+    bookmarks = [
+      {
+        Developer = [
+          { Github = [{ abbr = "GH"; href = "https://github.com/"; }]; }
+        ];
+      }
+      {
+        Entertainment = [
+          { YouTube = [{ abbr = "YT"; href = "https://youtube.com/"; }]; }
+        ];
+      }
+    ];
+
 
     # https://gethomepage.dev/latest/configs/services/
-    services = [ ];
+    services = [
+      {
+        "My First Group" = [
+          {
+            "My First Service" = {
+              href = "http://localhost/";
+              description = "Homepage is awesome";
+            };
+          }
+        ];
+      }
+      {
+        "My Second Group" = [
+          {
+            "My Second Service" = {
+              href = "http://localhost/";
+              description = "Homepage is the best";
+            };
+          }
+        ];
+      }
+    ];
+
 
     # https://gethomepage.dev/latest/configs/service-widgets/
     widgets = [ ];
