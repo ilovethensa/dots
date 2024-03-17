@@ -126,15 +126,23 @@
         ];
       }
       {
-        "Tools" = [
+        "Downloaders" = [
           {
-            "My Second Service" = {
-              href = "http://localhost/";
-              description = "Homepage is the best";
+            "Qbittorrent" = {
+              href = "http://192.168.1.111:8080";
+              icon = "qbittorrent.png";
+              description = "Homepage is awesome";
+              widget = {
+                type = "qbittorrent";
+                url = "http://192.168.1.111:8080";
+                username = secrets.qbittorrent.username;
+                password = secrets.qbittorrent.password;
+              };
             };
           }
         ];
       }
+
     ];
 
 
