@@ -105,7 +105,8 @@
                 type = "jellyfin";
                 url = "http://192.168.1.111:8096";
                 key = secrets.homepage.jellyfin_api_key;
-                enableNowPlaying = false;
+                enableBlocks = true; # optional, defaults to false
+                enableNowPlaying = false; # optional, defaults to true
               };
             };
           }
