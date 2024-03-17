@@ -1,6 +1,5 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, secrets, ... }:
 {
-  sops.secrets."homepage/jellyfin_api_key" = { };
   services.homepage-dashboard = {
 
     # These options were already present in my configuration.
@@ -22,6 +21,17 @@
         image = "https://wallpaperaccess.com/full/1959374.jpg";
         opacity = "60";
       };
+      layout = {
+        Section_A = {
+          header = false;
+        };
+        "Metrics" = {
+          style = "row";
+          columns = 4;
+          header = false;
+        };
+      };
+
     };
 
     # https://gethomepage.dev/latest/configs/bookmarks/
@@ -42,6 +52,48 @@
     # https://gethomepage.dev/latest/configs/services/
     services = [
       {
+        "Metrics" = [
+          {
+            "Network" = {
+              widget = {
+                type = "glances";
+                url = "http://192.168.1.111:61208";
+                metric = "network:eth0";
+              };
+            };
+
+          }
+          {
+            "CPU" = {
+              widget = {
+                type = "glances";
+                url = "http://192.168.1.111:61208";
+                metric = "cpu";
+              };
+            };
+          }
+          {
+            "Disk" = {
+              widget = {
+                type = "glances";
+                url = "http://192.168.1.111:61208";
+                metric = "disk:sda";
+              };
+            };
+          }
+          {
+            "Memory" = {
+              widget = {
+                type = "glances";
+                url = "http://192.168.1.111:61208";
+                metric = "memory";
+              };
+            };
+          }
+
+        ];
+      }
+      {
         "Media" = [
           {
             "Jellyfin" = {
@@ -50,7 +102,7 @@
               widget = {
                 type = "jellyfin";
                 url = "http://192.168.1.111:8096";
-                key = (builtins.readFile config.sops.secrets."homepage/jellyfin_api_key".path);
+                key = secrets.homepage.jellyfin_api_key;
                 enableBlocks = true; # optional, defaults to false
                 enableNowPlaying = true; # optional, defaults to true
               };
@@ -72,7 +124,42 @@
 
 
     # https://gethomepage.dev/latest/configs/service-widgets/
-    widgets = [ ];
+    widgets = [
+      {
+        resources = {
+          label = "server"; # Insert hostname here
+          url = "http://192.168.1.111:61208"; # Insert URL:PORT here
+          cpu = true;
+          disk = "/nix";
+          expanded = true;
+        };
+      }
+      {
+        search = {
+          provider = "duckduckgo";
+          focus = true;
+          target = "_blank";
+        };
+      }
+      {
+        datetime = {
+          format = {
+            dateStyle = "short";
+            timeStyle = "short";
+            hour12 = true;
+          };
+        };
+      }
+      {
+        openmeteo = {
+          label = ""; # Insert city name here
+          latitude = ""; # Insert latitude here
+          longitude = ""; # Insert longitude here
+          units = "imperial";
+          cache = 30; # Time in minutes to cache API responses, to stay within limits
+        };
+      }
+    ];
 
     # https://gethomepage.dev/latest/configs/kubernetes/
     kubernetes = { };
