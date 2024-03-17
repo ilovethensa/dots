@@ -57,7 +57,7 @@
       # This is a function that generates an attribute by calling a function you
       # pass to it, with each system as an argument
       forAllSystems = nixpkgs.lib.genAttrs systems;
-      secrets = builtins.fromJSON (builtins.readFile "${self}/secrets/secrets.json");
+      secrets = builtins.fromJSON (builtins.readFile "${self}/secrets.json");
     in
     {
       # Your custom packages
