@@ -27,73 +27,21 @@
           columns = 4;
           header = false;
         };
-        "Media" = {
-          style = "row";
-          columns = 2;
+        /*         "Media" = {
           header = false;
         };
+        "Downloaders" = {
+          header = false;
+        }; */
       };
     };
 
     # https://gethomepage.dev/latest/configs/bookmarks/
-    bookmarks = [
-      {
-        Developer = [
-          { Github = [{ abbr = "GH"; href = "https://github.com/"; }]; }
-        ];
-      }
-      {
-        Entertainment = [
-          { YouTube = [{ abbr = "YT"; href = "https://youtube.com/"; }]; }
-        ];
-      }
-    ];
+    bookmarks = [ ];
 
 
     # https://gethomepage.dev/latest/configs/services/
     services = [
-      {
-        "Metrics" = [
-          {
-            "Network" = {
-              widget = {
-                type = "glances";
-                url = "http://192.168.1.111:61208";
-                metric = "network:eth0";
-              };
-            };
-
-          }
-          {
-            "CPU" = {
-              widget = {
-                type = "glances";
-                url = "http://192.168.1.111:61208";
-                metric = "cpu";
-              };
-            };
-          }
-          {
-            "Disk" = {
-              widget = {
-                type = "glances";
-                url = "http://192.168.1.111:61208";
-                metric = "disk:sda";
-              };
-            };
-          }
-          {
-            "Memory" = {
-              widget = {
-                type = "glances";
-                url = "http://192.168.1.111:61208";
-                metric = "memory";
-              };
-            };
-          }
-
-        ];
-      }
       {
         "Media" = [
           {
@@ -142,7 +90,47 @@
           }
         ];
       }
+      {
+        "Metrics" = [
+          {
+            "Network" = {
+              widget = {
+                type = "glances";
+                url = "http://192.168.1.111:61208";
+                metric = "network:eth0";
+              };
+            };
 
+          }
+          {
+            "CPU" = {
+              widget = {
+                type = "glances";
+                url = "http://192.168.1.111:61208";
+                metric = "cpu";
+              };
+            };
+          }
+          {
+            "Disk" = {
+              widget = {
+                type = "glances";
+                url = "http://192.168.1.111:61208";
+                metric = "disk:sda";
+              };
+            };
+          }
+          {
+            "Memory" = {
+              widget = {
+                type = "glances";
+                url = "http://192.168.1.111:61208";
+                metric = "memory";
+              };
+            };
+          }
+        ];
+      }
     ];
 
 
@@ -150,9 +138,8 @@
     widgets = [
       {
         resources = {
-          label = "server"; # Insert hostname here
           url = "http://192.168.1.111:61208"; # Insert URL:PORT here
-          cpu = true;
+          uptime = true;
           disk = "/nix";
           expanded = true;
         };
@@ -175,9 +162,9 @@
       }
       {
         openmeteo = {
-          label = ""; # Insert city name here
-          latitude = ""; # Insert latitude here
-          longitude = ""; # Insert longitude here
+          label = "Plovdiv"; # Insert city name here
+          latitude = "42.1319"; # Insert latitude here
+          longitude = "24.76058"; # Insert longitude here
           units = "imperial";
           cache = 30; # Time in minutes to cache API responses, to stay within limits
         };
