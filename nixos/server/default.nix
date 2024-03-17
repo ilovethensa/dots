@@ -14,6 +14,7 @@
     ./services/unmanic.nix
     ./services/homepage.nix
     inputs.home-manager.nixosModules.home-manager
+    inputs.sops-nix.nixosModules.sops
   ];
 
   # Nixpkgs configuration
@@ -88,6 +89,9 @@
       "/etc/ssh/ssh_host_ed25519_key.pub"
     ];
   };
+  sops.defaultSopsFile = ./../../secrets/secrets.yaml;
+  sops.defaultSopsFormat = "yaml";
+  sops.age.keyFile = "/home/tht/.config/sops/age/keys.txt";
 
   # System state version
   system.stateVersion = "23.05";
