@@ -12,6 +12,7 @@
     ./services/qbittorrent.nix
     ./services/n8n.nix
     ./services/unmanic.nix
+    ./services/homepage.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
