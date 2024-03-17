@@ -1,7 +1,5 @@
 { pkgs, lib, config, ... }:
 {
-  {
-
   services.homepage-dashboard = {
 
     # These options were already present in my configuration.
@@ -35,9 +33,5 @@
     # https://gethomepage.dev/latest/configs/custom-css-js/
     customJS = "";
     customCSS = "";
-
   };
-
-}
-
 }
