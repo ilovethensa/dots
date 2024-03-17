@@ -14,6 +14,7 @@
     ./services/unmanic.nix
     ./services/homepage.nix
     ./services/glances.nix
+    ./services/scrutiny.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 

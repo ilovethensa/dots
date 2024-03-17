@@ -74,7 +74,7 @@
         ];
       }
       {
-        "Downloaders" = [
+        "Automation" = [
           {
             "Qbittorrent" = {
               href = "http://192.168.1.111:8080";
@@ -88,6 +88,18 @@
               };
             };
           }
+          {
+            "Unmanic" = {
+              href = "http://192.168.1.111:8888";
+              icon = "unmanic.png";
+              description = "Homepage is awesome";
+              widget = {
+                type = "unmanic";
+                url = "http://192.168.1.111:8888";
+              };
+            };
+          }
+
         ];
       }
       {
