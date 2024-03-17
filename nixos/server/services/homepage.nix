@@ -139,7 +139,6 @@
       {
         resources = {
           url = "http://192.168.1.111:61208"; # Insert URL:PORT here
-          uptime = true;
           disk = "/nix";
           expanded = true;
         };
