@@ -22,16 +22,17 @@
         opacity = "60";
       };
       layout = {
-        Section_A = {
-          header = false;
-        };
         "Metrics" = {
           style = "row";
           columns = 4;
           header = false;
         };
+        "Media" = {
+          style = "row";
+          columns = 2;
+          header = false;
+        };
       };
-
     };
 
     # https://gethomepage.dev/latest/configs/bookmarks/
@@ -98,6 +99,7 @@
           {
             "Jellyfin" = {
               href = "http://192.168.1.111:8096";
+              icon = "jellyfin.png";
               description = "Homepage is awesome";
               widget = {
                 type = "jellyfin";
@@ -108,6 +110,21 @@
               };
             };
           }
+          {
+            "Jellyseerr" = {
+              href = "http://192.168.1.111:5055";
+              icon = "jellyseerr.png";
+              description = "Homepage is awesome";
+              widget = {
+                type = "jellyseerr";
+                url = "http://192.168.1.111:5055";
+                key = secrets.homepage.jellyseerr_api_key;
+                enableBlocks = true; # optional, defaults to false
+                enableNowPlaying = true; # optional, defaults to true
+              };
+            };
+          }
+
         ];
       }
       {
