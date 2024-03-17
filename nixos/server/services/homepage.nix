@@ -6,7 +6,7 @@
 
     enable = true;
 
-    package = unstable.homepage-dashboard;
+    package = pkgs.homepage-dashboard;
 
     # The following options were what I planned to add.
 
