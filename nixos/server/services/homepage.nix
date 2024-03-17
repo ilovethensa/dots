@@ -105,8 +105,7 @@
                 type = "jellyfin";
                 url = "http://192.168.1.111:8096";
                 key = secrets.homepage.jellyfin_api_key;
-                enableBlocks = true; # optional, defaults to false
-                enableNowPlaying = true; # optional, defaults to true
+                enableNowPlaying = false;
               };
             };
           }
@@ -119,8 +118,6 @@
                 type = "jellyseerr";
                 url = "http://192.168.1.111:5055";
                 key = secrets.homepage.jellyseerr_api_key;
-                enableBlocks = true; # optional, defaults to false
-                enableNowPlaying = true; # optional, defaults to true
               };
             };
           }
