@@ -50,7 +50,7 @@
               widget = {
                 type = "jellyfin";
                 url = "http://192.168.1.111:8096";
-                key = (builtins.readFile /run/secrets/homepage/jellyfin_api_key);
+                key = (builtins.readFile config.sops.secrets."homepage/jellyfin_api_key".path);
                 enableBlocks = true; # optional, defaults to false
                 enableNowPlaying = true; # optional, defaults to true
               };
