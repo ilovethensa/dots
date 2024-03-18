@@ -28,16 +28,6 @@
     };
   };
 
-  # Nix settings
-  nix = {
-    settings = {
-      experimental-features = "nix-command flakes"; # Enable flakes and 'nix' command
-      auto-optimise-store = true; # Deduplicate and optimize nix store
-    };
-    nixPath = [ "/etc/nix/path" ]; # Define nix path
-    registry = (lib.mapAttrs (_: flake: { inherit flake; })) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
-  };
-
   # Networking and system configurations
   networking.hostName = "thinkpad"; # Define hostname
   boot.kernelParams = [ "mitigations=off" ]; # Set kernel parameters

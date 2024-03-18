@@ -16,31 +16,6 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  # Nixpkgs configuration
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
-    ];
-    config = {
-      allowUnfree = true; # Enable unfree packages
-    };
-
-  };
-
-  # Nix settings
-  nix = {
-    settings = {
-      experimental-features = "nix-command flakes"; # Enable flakes and 'nix' command
-      auto-optimise-store = true; # Deduplicate and optimize nix store
-    };
-    nixPath = [ "/etc/nix/path" ];
-    registry = (lib.mapAttrs (_: flake: { inherit flake; }))
-      ((lib.filterAttrs (_: lib.isType "flake")) inputs);
-
-  };
-
   # Networking and system configurations
   networking.hostName = "desktop"; # Set hostname
   boot.kernelParams = [ "mitigations=off" ]; # Kernel parameters

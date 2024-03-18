@@ -28,8 +28,8 @@
 
     };
   };
-  /*   environment.variables = {
-    NIX_PATH = lib.mkForce "nixpkgs=https://github.com/NixOS/nixpkgs/archive/master.tar.gz"; # Until i can figure out how to fix it
-  }; */
+  environment.variables = {
+    NIX_PATH = lib.mkForce "nixpkgs=/nix/var/nix/profiles/per-user/root/channels"; # Until i can figure out how to fix it
+  };
 
 }
