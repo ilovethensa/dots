@@ -4,6 +4,8 @@ Welcome to my NixOS dotfiles repository, where I meticulously manage configurati
 
 This is my personal opinion on what the ultimate distro looks like, or atleast as close as i could get it
 
+![lol](assets/screenshot.png)
+
 ## Features
 
 - **Catppuccino-Themed:**
