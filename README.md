@@ -8,8 +8,12 @@ This is my personal opinion on what the ultimate distro looks like, or atleast a
 
 ## Features
 
-- **Catppuccino-Themed:**
-  Infused with the soothing aesthetics of the Catppuccino theme, my configurations offer a visually unified experience across all systems.
+### Rust
 
-- **Embracing Rust:**
-  I prioritize Rust-based alternatives wherever possible(uutils, ripgrep, bat all used by default)
+I try to use Rust-based alternatives whenever possible. This flake utilizes the following replacements:
+
+- `ls` ➔ `eza`
+- `cat` ➔ `bat`
+- `cp` ➔ `xcp`
+- `rm` ➔ `rmz`
+- `coreutils` ➔ `uutils`
