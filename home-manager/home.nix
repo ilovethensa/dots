@@ -11,12 +11,14 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
+    inputs.nix-colors.homeManagerModules.default
     ./apps/vscode
     ./apps/firefox
     ./apps/hyprland
     ./apps/foot
     ./apps/waybar
     ./apps/rofi
+    ./apps/fish
     ./themes.nix
   ];
 
@@ -71,6 +73,8 @@
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
+
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";
