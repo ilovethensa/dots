@@ -74,7 +74,7 @@
         ];
       }
       {
-        "Automation" = [
+        "Tools" = [
           {
             "Qbittorrent" = {
               href = "http://192.168.1.111:8080";
@@ -96,6 +96,17 @@
               widget = {
                 type = "unmanic";
                 url = "http://192.168.1.111:8888";
+              };
+            };
+          }
+          {
+            "Scrutiny" = {
+              href = "http://192.168.1.111:8090";
+              icon = "scrutiny.png";
+              description = "Homepage is awesome";
+              widget = {
+                type = "scrutiny";
+                url = "http://192.168.1.111:8090";
               };
             };
           }
