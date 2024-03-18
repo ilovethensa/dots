@@ -5,6 +5,8 @@
 
     # Define extensions to be installed
     extensions = with pkgs.vscode-extensions; [
+      catppuccin.catppuccin-vsc
+      catppuccin.catppuccin-vsc-icons
       jnoortheen.nix-ide
       usernamehw.errorlens
       eamodio.gitlens
@@ -13,13 +15,12 @@
       jdinhlife.gruvbox
       continue.continue
       christian-kohler.path-intellisense
-      catppuccin.catppuccin-vsc
-      catppuccin.catppuccin-vsc-icons
     ];
 
     # Define user settings for Visual Studio Code
     userSettings = {
       "workbench.colorTheme" = "Catppuccin Mocha";
+      "workbench.iconTheme" = "catppuccin-mocha";
       "files.autoSave" = "afterDelay";
       "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
       "editor.formatOnPaste" = true;

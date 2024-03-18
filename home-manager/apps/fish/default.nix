@@ -2,7 +2,11 @@
   home.packages = with pkgs;[
     grc
     (uutils-coreutils.override { prefix = ""; })
-
+    ripgrep
+    gitoxide
+    fd
+    tealdeer
+    ouch
   ];
   programs.fish = {
     enable = true;
@@ -11,6 +15,13 @@
       ${pkgs.starship}/bin/starship init fish | source
       ${pkgs.nitch}/bin/nitch
     '';
+    shellAliases = {
+      ls = "${pkgs.eza}/bin/eza -la";
+      cat = "${pkgs.bat}/bin/bat";
+      cp = "${pkgs.xcp}/bin/xcp";
+      rm = "${pkgs.fuc}/bin/rmz";
+
+    };
     plugins = [
       # Enable a plugin (here grc for colorized command output) from nixpkgs
       { name = "grc"; src = pkgs.fishPlugins.grc.src; }
