@@ -1,9 +1,13 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
+  home.packages = with pkgs;[
+    grc
+  ];
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
       ${pkgs.starship}/bin/starship init fish | source
+      ${pkgs.nitch}/bin/nitch
     '';
     plugins = [
       # Enable a plugin (here grc for colorized command output) from nixpkgs
