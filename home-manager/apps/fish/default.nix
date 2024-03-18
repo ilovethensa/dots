@@ -1,6 +1,8 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
   home.packages = with pkgs;[
     grc
+    (uutils-coreutils.override { prefix = ""; })
+
   ];
   programs.fish = {
     enable = true;

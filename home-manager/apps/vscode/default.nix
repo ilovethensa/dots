@@ -13,12 +13,13 @@
       jdinhlife.gruvbox
       continue.continue
       christian-kohler.path-intellisense
+      catppuccin.catppuccin-vsc
+      catppuccin.catppuccin-vsc-icons
     ];
 
     # Define user settings for Visual Studio Code
     userSettings = {
-      "workbench.preferredDarkColorTheme" = "Gruvbox Dark Medium";
-      "workbench.colorTheme" = "Gruvbox Dark Hard";
+      "workbench.colorTheme" = "Catppuccin Mocha";
       "files.autoSave" = "afterDelay";
       "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
       "editor.formatOnPaste" = true;
