@@ -42,9 +42,7 @@
       auto-optimise-store = true; # Deduplicate and optimize nix store
     };
     nixPath = [ "/etc/nix/path" ];
-    registry = (lib.mapAttrs (_: flake: { inherit flake; }))
-      ((lib.filterAttrs (_: lib.isType "flake")) inputs);
-
+    registry = (lib.mapAttrs (_: flake: { inherit flake; })) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
   };
   environment.etc =
     lib.mapAttrs'
