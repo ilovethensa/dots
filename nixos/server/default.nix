@@ -16,6 +16,7 @@
     ./services/glances.nix
     ./services/scrutiny.nix
     ./services/invidious.nix
+    ./services/libreddit.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
