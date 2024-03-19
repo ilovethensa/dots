@@ -15,7 +15,7 @@
       ${pkgs.starship}/bin/starship init fish | source
       ${pkgs.nitch}/bin/nitch
       function help
-        curl cheat.sh/$argv
+        curl cheat.sh/$argv | ${pkgs.less}/bin/less
       end
     '';
     shellAliases = {
