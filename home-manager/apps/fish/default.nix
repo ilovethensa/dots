@@ -14,6 +14,9 @@
       set fish_greeting # Disable greeting
       ${pkgs.starship}/bin/starship init fish | source
       ${pkgs.nitch}/bin/nitch
+      function help
+        curl cheat.sh/$argv
+      end
     '';
     shellAliases = {
       ls = "${pkgs.eza}/bin/eza -la";
