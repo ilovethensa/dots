@@ -48,7 +48,7 @@
             "Jellyfin" = {
               href = "http://192.168.1.111:8096";
               icon = "jellyfin.png";
-              description = "Homepage is awesome";
+              description = "Watch Movies/Tv";
               widget = {
                 type = "jellyfin";
                 url = "http://192.168.1.111:8096";
