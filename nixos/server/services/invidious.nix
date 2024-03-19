@@ -9,6 +9,8 @@
       registration_enabled = false;
       login_enabled = false;
       banner = "If you like what i do consider donating:";
+      db.user = "invidious";
+      db.dbname = "invidious";
     };
   };
 
