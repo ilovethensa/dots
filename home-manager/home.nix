@@ -19,6 +19,7 @@
     ./apps/waybar
     ./apps/rofi
     ./apps/fish
+    ./apps/btop
     ./themes.nix
   ];
 
