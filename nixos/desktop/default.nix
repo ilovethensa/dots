@@ -13,8 +13,6 @@
     ./../common/optimizations.nix
     ./../common/nix-ld.nix
     ./../common/hyprland.nix
-    inputs.home-manager.nixosModules.home-manager
-    spicetify-nix.nixosModule
   ];
 
   # Networking and system configurations
