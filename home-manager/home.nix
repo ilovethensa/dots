@@ -19,7 +19,7 @@
     ./apps/waybar
     ./apps/rofi
     ./apps/fish
-    ./apps/btop
+    ./apps/cava
     ./themes.nix
   ];
 
