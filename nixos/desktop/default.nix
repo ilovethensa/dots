@@ -1,4 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{ inputs, outputs, lib, config, pkgs, spicetify-nix, ... }: {
   # Import modules and configuration pieces
   imports = [
     ./hardware-configuration.nix
@@ -14,6 +14,7 @@
     ./../common/nix-ld.nix
     ./../common/hyprland.nix
     inputs.home-manager.nixosModules.home-manager
+    spicetify-nix.nixosModule
   ];
 
   # Networking and system configurations

@@ -21,6 +21,8 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
+
     #nix-on-droid = {
     #  url = "github:nix-community/nix-on-droid/release-23.11";
     #  inputs.nixpkgs.follows = "nixpkgs";
@@ -41,6 +43,7 @@
     , chaotic
     , firefox-addons
     , impermanence
+    , spicetify-nix
     , ...
     }@inputs:
     let
@@ -80,7 +83,7 @@
       nixosConfigurations = {
         # FIXME replace with your hostname
         desktop = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs secrets; };
+          specialArgs = { inherit inputs outputs secrets spicetify-nix; };
           modules = [
             # > Our main nixos configuration file <
             chaotic.nixosModules.default
@@ -88,7 +91,7 @@
           ];
         };
         thinkpad = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs secrets; };
+          specialArgs = { inherit inputs outputs secrets spicetify-nix; };
           modules = [
             # > Our main nixos configuration file <
             chaotic.nixosModules.default
@@ -96,7 +99,7 @@
           ];
         };
         server = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs secrets; };
+          specialArgs = { inherit inputs outputs secrets spicetify-nix; };
           modules = [
             # > Our main nixos configuration file <
             chaotic.nixosModules.default
