@@ -17,6 +17,7 @@
     ./services/scrutiny.nix
     ./services/invidious.nix
     ./services/libreddit.nix
+    ./services/cron.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
