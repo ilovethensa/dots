@@ -3,4 +3,6 @@
 pkgs:
 {
   # example = pkgs.callPackage ./example { };
+  waybar = pkgs.callPackage ./waybar { };
+
 }
