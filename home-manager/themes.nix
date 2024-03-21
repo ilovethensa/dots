@@ -17,8 +17,8 @@
   gtk = {
     enable = true;
     cursorTheme = {
-      package = pkgs.catppuccin-cursors;
-      name = "mochaSapphire";
+      package = pkgs.catppuccin-cursors.mochaDark;
+      name = "mochaDark";
     };
     theme = {
       name = "Catppuccin-Mocha-Compact-Sapphire-Dark";
