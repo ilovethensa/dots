@@ -18,6 +18,7 @@
     ./services/invidious.nix
     ./services/libreddit.nix
     ./services/cron.nix
+    ./services/mindustry.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
