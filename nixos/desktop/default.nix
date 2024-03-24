@@ -23,6 +23,7 @@
   environment.systemPackages = with pkgs; [
     krita
   ];
+  services.flatpak.enable = true;
 
   # System state version
   system.stateVersion = "23.05";

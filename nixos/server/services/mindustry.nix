@@ -1,14 +1,14 @@
 { pkgs, lib, config, ... }:
 {
-  virtualisation.oci-containers.containers."mindustry" = {
-    image = "anderpuqing/mindustry:latest";
-    autoStart = true;
-    volumes = [
-      "/srv/AppData/mindustry:/mindustry/config"
-    ];
-    ports = [
-      "6567:6567/tcp"
-      "6567:6567/udp"
-    ];
+  systemd.services.mindustry = {
+    enable = true;
+    description = "Mindustry server";
+    serviceConfig = {
+      Type = "forking";
+      ExecStart = "${pkgs.jdk21}/bin/java -jar /home/tht/Mindustry/server-release.jar host";
+      ExecStop = "pkill server-release.jar";
+      Restart = "on-failure";
+    };
+    wantedBy = [ "default.target" ];
   };
 }

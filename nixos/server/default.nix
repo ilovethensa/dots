@@ -6,6 +6,7 @@
     ./../common/users.nix
     ./../common/openssh.nix
     ./../common/optimizations.nix
+    ./../common/nix-ld.nix
     ./services/jellyfin.nix
     ./services/jellyseerr.nix
     ./services/cloudflared-web.nix
@@ -19,6 +20,7 @@
     ./services/libreddit.nix
     ./services/cron.nix
     ./services/mindustry.nix
+    ./services/playit.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -54,7 +56,9 @@
   networking.firewall.enable = false;
 
   virtualisation.oci-containers.backend = "podman";
-
+  environment.systemPackages = with pkgs; [
+    jdk17
+  ];
   # Persistence configuration
   environment.persistence."/nix/persist" = {
     hideMounts = true;
