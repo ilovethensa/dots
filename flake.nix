@@ -111,6 +111,7 @@
             chaotic.nixosModules.default
             impermanence.nixosModules.impermanence
             playit-nixos-module.nixosModules.default
+
             ./nixos/server
           ];
         };
