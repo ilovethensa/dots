@@ -4,7 +4,7 @@
     enable = true;
     description = "Mindustry server";
     serviceConfig = {
-      Type = "forking";
+      Type = "simple";
       ExecStart = "${pkgs.mindustry-server}/bin/mindustry-server host";
       ExecStop = "pkill server-release.jar";
       #Restart = "on-failure";
