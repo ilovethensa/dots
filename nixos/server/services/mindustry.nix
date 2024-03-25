@@ -5,9 +5,11 @@
     description = "Mindustry server";
     serviceConfig = {
       Type = "forking";
-      ExecStart = "${pkgs.jdk21}/bin/java -jar /home/tht/Mindustry/server-release.jar host";
+      ExecStart = "${pkgs.mindustry-server}/bin/mindustry-server host";
       ExecStop = "pkill server-release.jar";
-      Restart = "on-failure";
+      #Restart = "on-failure";
+      #User = "tht";
+      #WorkingDirectory = "/home/tht/Mindustry";
     };
     wantedBy = [ "default.target" ];
   };

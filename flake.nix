@@ -1,9 +1,5 @@
 {
   description = "Your new nix config";
-  nixConfig = {
-    extra-substituters = [ "https://playit-nixos-module.cachix.org" ];
-    extra-trusted-public-keys = [ "playit-nixos-module.cachix.org-1:22hBXWXBbd/7o1cOnh+p0hpFUVk9lPdRLX3p5YSfRz4=" ];
-  };
 
   inputs = {
     # Nixpkgs
@@ -26,7 +22,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix.url = "github:the-argus/spicetify-nix";
-    playit-nixos-module.url = "github:pedorich-n/playit-nixos-module";
 
     #nix-on-droid = {
     #  url = "github:nix-community/nix-on-droid/release-23.11";
@@ -49,7 +44,6 @@
     , firefox-addons
     , impermanence
     , spicetify-nix
-    , playit-nixos-module
     , ...
     }@inputs:
     let
@@ -110,8 +104,6 @@
             # > Our main nixos configuration file <
             chaotic.nixosModules.default
             impermanence.nixosModules.impermanence
-            playit-nixos-module.nixosModules.default
-
             ./nixos/server
           ];
         };
