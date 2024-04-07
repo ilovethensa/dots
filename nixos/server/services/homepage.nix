@@ -192,6 +192,16 @@
             };
           }
           {
+            "Disk" = {
+              widget = {
+                type = "glances";
+                url = "http://192.168.1.111:61208";
+                metric = "disk:sdb";
+              };
+            };
+          }
+
+          {
             "Memory" = {
               widget = {
                 type = "glances";
