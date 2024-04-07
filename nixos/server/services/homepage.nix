@@ -57,7 +57,7 @@
               widget = {
                 type = "jellyfin";
                 url = "http://192.168.1.111:8096";
-                key = ${secrets.jellyfin.apikey};
+                key = secrets.jellyfin.apikey;
                 enableBlocks = true; # optional, defaults to false
                 enableNowPlaying = false; # optional, defaults to true
               };
@@ -71,7 +71,7 @@
               widget = {
                 type = "jellyseerr";
                 url = "http://192.168.1.111:5055";
-                key = ${secrets.jellyseerr.apikey};
+                key = secrets.jellyseerr.apikey;
               };
             };
           }
@@ -88,8 +88,8 @@
               widget = {
                 type = "qbittorrent";
                 url = "http://192.168.1.111:8080";
-                username = ${secrets.common.username};
-                password = ${secrets.common.password};
+                username = secrets.common.username;
+                password = secrets.common.password;
               };
             };
           }
@@ -101,7 +101,7 @@
               widget = {
                 type = "prowlarr";
                 url = "http://192.168.1.111:9696";
-                key = ${secrets.prowlarr.apikey};
+                key = secrets.prowlarr.apikey;
               };
             };
           }
@@ -129,7 +129,7 @@
               widget = {
                 type = "sonarr";
                 url = "http://192.168.1.111:8989";
-                key = ${secrets.sonarr.apikey};
+                key = secrets.sonarr.apikey;
               };
             };
           }
@@ -141,7 +141,7 @@
               widget = {
                 type = "radarr";
                 url = "http://192.168.1.111:7878";
-                key = ${secrets.radarr.apikey};
+                key = secrets.radarr.apikey;
               };
             };
           }
@@ -153,7 +153,7 @@
               widget = {
                 type = "bazarr";
                 url = "http://192.168.1.111:6767";
-                key = ${secrets.bazarr.apikey};
+                key = secrets.bazarr.apikey;
               };
             };
           }
