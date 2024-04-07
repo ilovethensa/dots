@@ -23,7 +23,7 @@
 
         mkdir $project_name
         cd $project_name
-        nix flake init - t ~/Projects/lol/dots/#$lang
+        nix flake init -t ~/Projects/lol/dots/#$lang
       end
     '';
     shellAliases = {
