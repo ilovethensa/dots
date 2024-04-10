@@ -12,6 +12,7 @@
     ./../common/optimizations.nix
     ./../common/nix-ld.nix
     ./../common/desktops/gnome.nix
+    ./../common/avahi.nix
   ];
 
   # Networking and system configurations
