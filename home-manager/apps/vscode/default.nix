@@ -15,6 +15,7 @@
       continue.continue
       christian-kohler.path-intellisense
       rust-lang.rust-analyzer
+      github.vscode-pull-request-github
     ];
 
     # Define user settings for Visual Studio Code
