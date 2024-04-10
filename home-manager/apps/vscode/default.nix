@@ -16,12 +16,14 @@
       christian-kohler.path-intellisense
       rust-lang.rust-analyzer
       github.vscode-pull-request-github
+      vscode-icons-team.vscode-icons
     ];
 
     # Define user settings for Visual Studio Code
     userSettings = {
       #"workbench.colorTheme" = "Catppuccin Mocha";
       #"workbench.iconTheme" = "catppuccin-mocha";
+      "workbench.colorTheme" = "Gruvbox Dark Hard";
       "files.autoSave" = "afterDelay";
       "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
       "editor.formatOnPaste" = true;
