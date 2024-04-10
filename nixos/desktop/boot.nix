@@ -1,6 +1,6 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
   boot = {
-    #kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.linuxPackages_cachyos;
     loader = {
       systemd-boot = {
         enable = true;

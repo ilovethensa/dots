@@ -22,6 +22,7 @@
     ./services/playit.nix
     ./services/glances.nix
     ./services/nextcloud.nix
+    ./avahi.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 

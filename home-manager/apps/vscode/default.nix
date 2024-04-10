@@ -10,13 +10,13 @@
       usernamehw.errorlens
       eamodio.gitlens
       esbenp.prettier-vscode
-      kamikillerto.vscode-colorize
       jdinhlife.gruvbox
       continue.continue
       christian-kohler.path-intellisense
       rust-lang.rust-analyzer
       github.vscode-pull-request-github
       vscode-icons-team.vscode-icons
+      aaron-bond.better-comments
     ];
 
     # Define user settings for Visual Studio Code
@@ -24,6 +24,7 @@
       #"workbench.colorTheme" = "Catppuccin Mocha";
       #"workbench.iconTheme" = "catppuccin-mocha";
       "workbench.colorTheme" = "Gruvbox Dark Hard";
+      "workbench.iconTheme" = "vscode-icons";
       "files.autoSave" = "afterDelay";
       "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
       "editor.formatOnPaste" = true;

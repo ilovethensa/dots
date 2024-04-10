@@ -25,7 +25,6 @@
         cd $project_name
         nix flake init -t ~/Projects/lol/dots/#$lang
       end
-      direnv hook fish | source
     '';
     shellAliases = {
       ls = "${pkgs.eza}/bin/eza -la";
@@ -48,11 +47,11 @@
         };
       }
     ];
-    direnv = {
+    /*     direnv = {
       enable = true;
       enableFishIntegration = true; # see note on other shells below
       nix-direnv.enable = true;
-    };
+    }; */
 
   };
 
