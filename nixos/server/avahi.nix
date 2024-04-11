@@ -2,11 +2,14 @@
   services.avahi = {
     enable = true;
     nssmdns4 = true;
+    hostName = "server";
     publish = {
       enable = true;
-      userServices = true;
-      domain = true;
       addresses = true;
+      domain = true;
+      hinfo = true;
+      userServices = true;
+      workstation = true;
     };
     extraServiceFiles = {
       dash = ''
