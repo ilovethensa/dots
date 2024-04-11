@@ -15,7 +15,7 @@
   };
   services.nginx.virtualHosts = {
     "mindustry.local" = {
-      default = true;
+
       locations."/".proxyPass = "http://127.0.0.1:14333";
     };
   };

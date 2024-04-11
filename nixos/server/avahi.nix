@@ -25,4 +25,24 @@
       '';
     };
   };
+
+/*   systemd.services.avahi-mdns = {
+    enable = true;
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = ''
+        ${pkgs.avahi}/bin/avahi-publish -a jellyfin.local -R 192.168.1.111 &
+        ${pkgs.avahi}/bin/avahi-publish -a sonarr.local -R 192.168.1.111 &
+      '';
+      # ...
+    };
+    After = [ "network.target" "avahi-daemon.service" ];
+    PartOf = [ "avahi-daemon.service" ];
+    wantedBy = [ "multi-user.target" ];
+    # ...
+  }; */
+
 }
+# #!/bin/bash
+
+# for DOMAIN in jellyfin.local sonarr.local; do avahi-publish -a $DOMAIN -R 192.168.1.111; done

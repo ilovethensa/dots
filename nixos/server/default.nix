@@ -62,6 +62,7 @@
   environment.systemPackages = with pkgs; [
     jdk17
     playit
+    mdns-publisher
   ];
   # Persistence configuration
   environment.persistence."/nix/persist" = {
