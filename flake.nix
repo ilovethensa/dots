@@ -7,6 +7,7 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     impermanence.url = "github:nix-community/impermanence";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
+    nixarr.url = "github:rasmus-kirk/nixarr";
 
     firefox-gnome-theme = {
       url = "github:rafaelmardojai/firefox-gnome-theme";
@@ -49,6 +50,7 @@
     , spicetify-nix
     , firefox-gnome-theme
     , morewaita
+    , nixarr
     , ...
     }@inputs:
     let
@@ -113,6 +115,7 @@
             # > Our main nixos configuration file <
             chaotic.nixosModules.default
             impermanence.nixosModules.impermanence
+            nixarr.nixosModules.default
             ./nixos/server
           ];
         };

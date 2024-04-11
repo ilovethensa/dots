@@ -20,4 +20,10 @@
     enable = true;
     openFirewall = true;
   };
+  # For jellyfin.local to work
+  services.nginx.virtualHosts."jellyfin.local" = {
+    locations."/" = {
+      proxyPass = "http://localhost:8096";
+    };
+  };
 }

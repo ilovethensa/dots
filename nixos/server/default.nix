@@ -7,7 +7,7 @@
     ./../common/openssh.nix
     ./../common/optimizations.nix
     ./../common/nix-ld.nix
-    ./services/media-server
+    ./services/arr.nix
     ./services/cloudflared-web.nix
     #./services/qbittorrent.nix
     #./services/n8n.nix
