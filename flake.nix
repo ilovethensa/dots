@@ -25,11 +25,6 @@
       url = "github:somepaulo/MoreWaita";
       flake = false;
     };
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
 
     #nix-on-droid = {
     #  url = "github:nix-community/nix-on-droid/release-23.11";
@@ -54,7 +49,6 @@
     , spicetify-nix
     , firefox-gnome-theme
     , morewaita
-    , disko
     , ...
     }@inputs:
     let
@@ -111,7 +105,6 @@
             # > Our main nixos configuration file <
             chaotic.nixosModules.default
             ./nixos/thinkpad
-            disko.nixosModules.disko
           ];
         };
         server = nixpkgs.lib.nixosSystem {

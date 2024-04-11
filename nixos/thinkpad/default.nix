@@ -11,6 +11,7 @@
     ./../common/optimizations.nix
     ./../common/nix-ld.nix
     ./../common/desktops/gnome.nix
+    ./../common/boot.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -31,9 +32,6 @@
   boot.kernelParams = [ "mitigations=off" ]; # Set kernel parameters
   networking.networkmanager.enable = true; # Enable NetworkManager
 
-  # Bootloader configuration
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
   # System state version
   system.stateVersion = "23.05";
 }

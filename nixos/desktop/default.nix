@@ -2,7 +2,7 @@
   # Import modules and configuration pieces
   imports = [
     ./hardware-configuration.nix
-    ./boot.nix
+    ./../common/boot.nix
     ./../common/sound.nix
     ./../common/users.nix
     ./../common/amd.nix
