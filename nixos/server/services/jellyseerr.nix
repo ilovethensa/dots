@@ -9,6 +9,12 @@
     ports = [
       "5055:5055"
     ];
+    services.nginx.virtualHosts = {
+      "jellyseerr.local" = {
+        default = true;
+        locations."/".proxyPass = "http://127.0.0.1:5055";
+      };
+    };
 
   };
 }

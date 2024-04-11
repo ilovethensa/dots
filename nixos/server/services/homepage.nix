@@ -81,13 +81,13 @@
       {
         "Tools" = [
           {
-            "Qbittorrent" = {
-              href = "http://192.168.1.111:8080";
-              icon = "qbittorrent.png";
+            "Transmission" = {
+              href = "http://192.168.1.111:9091";
+              icon = "transmission.png";
               description = "Download linux isos";
               widget = {
-                type = "qbittorrent";
-                url = "http://192.168.1.111:8080";
+                type = "transmission";
+                url = "http://192.168.1.111:9091";
                 username = secrets.common.username;
                 password = secrets.common.password;
               };
@@ -192,16 +192,6 @@
             };
           }
           {
-            "Disk" = {
-              widget = {
-                type = "glances";
-                url = "http://192.168.1.111:61208";
-                metric = "disk:sdb";
-              };
-            };
-          }
-
-          {
             "Memory" = {
               widget = {
                 type = "glances";
@@ -220,7 +210,7 @@
       {
         resources = {
           url = "http://192.168.1.111:61208"; # Insert URL:PORT here
-          disk = "/nix";
+          disk = "/srv/Media";
           expanded = true;
         };
       }
@@ -266,6 +256,12 @@
     directories = [
       #"/etc/homepage-dashboard"
     ];
+  };
+  services.nginx.virtualHosts = {
+    "dash.local" = {
+      default = true;
+      locations."/".proxyPass = "http://127.0.0.1:8082";
+    };
   };
 
 }

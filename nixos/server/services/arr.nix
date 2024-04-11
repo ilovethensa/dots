@@ -21,4 +21,34 @@
     radarr.enable = true;
     sonarr.enable = true;
   };
+  services.nginx.virtualHosts = {
+    "jellyfin.local" = {
+      default = true;
+      locations."/".proxyPass = "http://127.0.0.1:8096";
+    };
+    "transmission.local" = {
+      default = true;
+      locations."/".proxyPass = "http://127.0.0.1:9091";
+    };
+    "radarr.local" = {
+      default = true;
+      locations."/".proxyPass = "http://127.0.0.1:7878";
+    };
+    "sonarr.local" = {
+      default = true;
+      locations."/".proxyPass = "http://127.0.0.1:8989";
+    };
+    "bazarr.local" = {
+      default = true;
+      locations."/".proxyPass = "http://127.0.0.1:6767";
+    };
+    "prowlarr.local" = {
+      default = true;
+      locations."/".proxyPass = "http://127.0.0.1:9696";
+    };
+    "jellyseerr.local" = {
+      default = true;
+      locations."/".proxyPass = "http://127.0.0.1:5055";
+    };
+  };
 }
