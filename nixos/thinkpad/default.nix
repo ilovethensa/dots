@@ -11,7 +11,6 @@
     ./../common/optimizations.nix
     ./../common/nix-ld.nix
     ./../common/desktops/gnome.nix
-    ./disko.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
