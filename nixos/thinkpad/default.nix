@@ -11,6 +11,7 @@
     ./../common/optimizations.nix
     ./../common/nix-ld.nix
     ./../common/desktops/gnome.nix
+    ./disko.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -34,7 +35,6 @@
   # Bootloader configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  programs.hyprland.enable = true;
   # System state version
   system.stateVersion = "23.05";
 }
