@@ -49,7 +49,7 @@
   fileSystems."/srv/Media" = {
     device = "/dev/disk/by-uuid/23fc1491-b1f6-4e69-82e7-6135e4c0a3f1";
     fsType = "btrfs";
-    options = [ "compress-force=zstd:13" "defaults" "noatime" "autodefrag" ];
+    options = [ "compress-force=zstd:13" "defaults" "noatime" "autodefrag" "nofail" ];
   };
 
   swapDevices = [ ];

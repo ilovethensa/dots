@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
@@ -14,26 +15,31 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "none";
+    {
+      device = "none";
       fsType = "tmpfs";
+      options = [ "defaults" "size=2G" "mode=755" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/1b31ae92-d46e-4efc-853f-488629064453";
+    {
+      device = "/dev/disk/by-uuid/1b31ae92-d46e-4efc-853f-488629064453";
       fsType = "btrfs";
-      options = [ "subvol=@nix" ];
+      options = [ "subvol=@nix" "noatime" "compress=zstd" "ssd" ];
     };
 
   boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/8d4c6e8c-6469-4d14-bd0e-abce3076d7b0";
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/1b31ae92-d46e-4efc-853f-488629064453";
+    {
+      device = "/dev/disk/by-uuid/1b31ae92-d46e-4efc-853f-488629064453";
       fsType = "btrfs";
       options = [ "subvol=@home" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/A07B-CB36";
+    {
+      device = "/dev/disk/by-uuid/A07B-CB36";
       fsType = "vfat";
     };
 
