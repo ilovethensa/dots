@@ -11,38 +11,30 @@
       userServices = true;
       workstation = true;
     };
-    extraServiceFiles = {
-      dash = ''
-        <?xml version="1.0" standalone='no'?>
-        <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
-        <service-group>
-        <name replace-wildcards="yes">dash</name>
-        <service>
-        <type>_http._tcp</type>
-        <port>8082</port>
-        </service>
-        </service-group>
-      '';
-    };
   };
 
-/*   systemd.services.avahi-mdns = {
+  /*   systemd.services.avahi-jellyfin = {
     enable = true;
     serviceConfig = {
       Type = "simple";
-      ExecStart = ''
-        ${pkgs.avahi}/bin/avahi-publish -a jellyfin.local -R 192.168.1.111 &
-        ${pkgs.avahi}/bin/avahi-publish -a sonarr.local -R 192.168.1.111 &
-      '';
+      ExecStart = "${pkgs.avahi}/bin/avahi-publish -a jellyfin.local -R 192.168.1.111";
       # ...
     };
-    After = [ "network.target" "avahi-daemon.service" ];
-    PartOf = [ "avahi-daemon.service" ];
-    wantedBy = [ "multi-user.target" ];
     # ...
-  }; */
+    };
+   */
+  services.mdns = {
+    "jellyfin.local" = {
+      port = "8096";
+      ip = "192.168.1.111";
+    };
+  };
+  # &
+  #${pkgs.avahi}/bin/avahi-publish -a dash.local -R 192.168.1.111 &
+  #${pkgs.avahi}/bin/avahi-publish -a transmission.local -R 192.168.1.111 &
+  #${pkgs.avahi}/bin/avahi-publish -a sonarr.local -R 192.168.1.111 &
+  #${pkgs.avahi}/bin/avahi-publish -a radarr.local -R 192.168.1.111 &
+  #${pkgs.avahi}/bin/avahi-publish -a bazarr.local -R 192.168.1.111 &
+  #${pkgs.avahi}/bin/avahi-publish -a prowlarr.local -R 192.168.1.111 
 
 }
-# #!/bin/bash
-
-# for DOMAIN in jellyfin.local sonarr.local; do avahi-publish -a $DOMAIN -R 192.168.1.111; done

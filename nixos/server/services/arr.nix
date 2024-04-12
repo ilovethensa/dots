@@ -21,34 +21,30 @@
     radarr.enable = true;
     sonarr.enable = true;
   };
-  services.nginx.virtualHosts = {
-    "jellyfin.local" = {
+  /*   services.caddy.virtualHosts = {
+    "jellyfin.local".extraConfig = ''
+      reverse_proxy :8096
+    '';
+    "transmission.local".extraConfig = ''
+      reverse_proxy :9091
+    '';
+    "radarr.local".extraConfig = ''
+      reverse_proxy :7878
+    '';
+    "sonarr.local".extraConfig = ''
+      reverse_proxy :8989
+    '';
 
-      locations."/".proxyPass = "http://127.0.0.1:8096";
-    };
-    "transmission.local" = {
+    "bazarr.local".extraConfig = ''
+      reverse_proxy :6767
+    '';
 
-      locations."/".proxyPass = "http://127.0.0.1:9091";
-    };
-    "radarr.local" = {
+    "prowlarr.local".extraConfig = ''
+      reverse_proxy :9696
+    '';
 
-      locations."/".proxyPass = "http://127.0.0.1:7878";
-    };
-    "sonarr.local" = {
-
-      locations."/".proxyPass = "http://127.0.0.1:8989";
-    };
-    "bazarr.local" = {
-
-      locations."/".proxyPass = "http://127.0.0.1:6767";
-    };
-    "prowlarr.local" = {
-
-      locations."/".proxyPass = "http://127.0.0.1:9696";
-    };
-    "jellyseerr.local" = {
-
-      locations."/".proxyPass = "http://127.0.0.1:5055";
-    };
-  };
+    "jellyseerr.local".extraConfig = ''
+      reverse_proxy :5055
+    '';
+  }; */
 }
