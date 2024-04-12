@@ -21,7 +21,7 @@
     radarr.enable = true;
     sonarr.enable = true;
   };
-  /*   services.caddy.virtualHosts = {
+  services.caddy.virtualHosts = {
     "jellyfin.local".extraConfig = ''
       reverse_proxy :8096
     '';
@@ -46,5 +46,32 @@
     "jellyseerr.local".extraConfig = ''
       reverse_proxy :5055
     '';
+  };
+  /*   systemd.services.avahi-jellyfin = {
+    enable = true;
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.avahi}/bin/avahi-publish -a jellyfin.local -R 192.168.1.111";
+    };
+    };
+    systemd.services.avahi-transmission = {
+    enable = true;
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.avahi}/bin/avahi-publish -a transmission.local -R 192.168.1.111";
+    };
   }; */
+  networking.avahi.services = {
+    jellyfin = {
+      enable = true;
+      ipAddress = "192.168.1.111";
+      serviceName = "jellyfin";
+    };
+    transmission = {
+      enable = true;
+      ipAddress = "192.168.1.111";
+      serviceName = "transmission";
+    };
+  };
+
 }
