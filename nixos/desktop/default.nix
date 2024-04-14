@@ -23,6 +23,7 @@
 
   environment.systemPackages = with pkgs; [
     krita
+    pywhat
   ];
   services.flatpak.enable = true;
 
