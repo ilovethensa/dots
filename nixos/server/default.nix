@@ -1,4 +1,17 @@
-{ inputs, outputs, lib, config, pkgs, secrets, ... }: {
+{ inputs, outputs, lib, config, pkgs, secrets, ... }:
+let
+  servicesConfig = {
+    jellyfin = { port = 8096; };
+    transmission = { port = 9091; };
+    radarr = { port = 7878; };
+    sonarr = { port = 8989; };
+    bazarr = { port = 6767; };
+    prowlarr = { port = 9696; };
+    jellyseerr = { port = 5055; };
+  };
+
+in
+{
 
   # Import modules and configuration pieces
   imports = [
@@ -7,7 +20,7 @@
     ./../common/openssh.nix
     ./../common/optimizations.nix
     ./../common/nix-ld.nix
-    ./services/arr.nix
+    (import ./services/arr.nix { inherit config lib pkgs servicesConfig secrets; })
     ./services/cloudflared-web.nix
     #./services/qbittorrent.nix
     #./services/n8n.nix
@@ -24,6 +37,7 @@
     #./services/nextcloud.nix
     ./services/nginx.nix
     ./avahi.nix
+    ./services/jellyseerr.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 

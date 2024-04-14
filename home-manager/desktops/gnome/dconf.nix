@@ -81,7 +81,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell" = {
-      enabled-extensions = [ "appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "app-hider@lynith.dev" ];
+      enabled-extensions = [ "appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "app-hider@lynith.dev" "gsconnect@andyholmes.github.io" ];
       favorite-apps = [ "org.gnome.Nautilus.desktop" "org.gnome.Console.desktop" "firefox.desktop" "vscode.desktop" ];
       remember-mount-password = false;
     };

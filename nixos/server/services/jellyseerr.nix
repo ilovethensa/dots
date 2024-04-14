@@ -4,17 +4,25 @@
     image = "fallenbagel/jellyseerr:latest";
     autoStart = true;
     volumes = [
-      "/srv/AppData/jellyseerr:/app/config"
+      "/srv/data/jellyseerr:/app/config"
     ];
     ports = [
       "5055:5055"
     ];
-    services.nginx.virtualHosts = {
-      "jellyseerr.local" = {
-
-        locations."/".proxyPass = "http://127.0.0.1:5055";
-      };
-    };
-
   };
+  systemd.services = {
+    "avahi-jellyseerr" = {
+      enable = true;
+      script = "${pkgs.avahi}/bin/avahi-publish -a request.local -R 192.168.1.111";
+      serviceConfig.Type = "simple";
+      wantedBy = [ "default.target" ];
+    };
+  };
+  services.caddy.virtualHosts = {
+    "request.local".extraConfig = ''
+      reverse_proxy :5055
+      tls internal
+    '';
+  };
+
 }

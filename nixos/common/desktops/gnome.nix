@@ -9,6 +9,7 @@
     gnomeExtensions.blur-my-shell
     gnomeExtensions.appindicator
     gnomeExtensions.app-hider
+    gnomeExtensions.gsconnect
   ];
 
   services.xserver.enable = true;

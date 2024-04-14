@@ -1,76 +1,110 @@
-{ pkgs, lib, config, ... }:
-{
+{ pkgs
+, lib
+, config
+, secrets
+, ...
+}: {
   nixarr = {
     enable = true;
-    # These two values are also the default, but you can set them to whatever
-    # else you want
-    # WARNING: Do _not_ set them to `/home/user/whatever`, it will not work!
     mediaDir = "/srv/Media";
     stateDir = "/srv/data";
 
     jellyfin.enable = true;
-
     transmission = {
       enable = true;
-      peerPort = 50000; # Set this to the port forwarded by your VPN
+      peerPort = 50000;
     };
-    # It is possible for this module to run the *Arrs through a VPN, but it
-    # is generally not recommended, as it can cause rate-limiting issues.
     bazarr.enable = true;
     prowlarr.enable = true;
     radarr.enable = true;
     sonarr.enable = true;
   };
+
   services.caddy.virtualHosts = {
-    "jellyfin.local".extraConfig = ''
+    "flixnet.local".extraConfig = ''
       reverse_proxy :8096
+      tls internal
     '';
     "transmission.local".extraConfig = ''
       reverse_proxy :9091
+      tls internal
     '';
     "radarr.local".extraConfig = ''
       reverse_proxy :7878
+      tls internal
     '';
     "sonarr.local".extraConfig = ''
       reverse_proxy :8989
+      tls internal
     '';
-
     "bazarr.local".extraConfig = ''
       reverse_proxy :6767
+      tls internal
     '';
-
     "prowlarr.local".extraConfig = ''
       reverse_proxy :9696
+      tls internal
     '';
-
-    "jellyseerr.local".extraConfig = ''
-      reverse_proxy :5055
+    "dash.local".extraConfig = ''
+      reverse_proxy :8092
+      tls internal
     '';
   };
-  /*   systemd.services.avahi-jellyfin = {
-    enable = true;
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${pkgs.avahi}/bin/avahi-publish -a jellyfin.local -R 192.168.1.111";
-    };
-    };
-    systemd.services.avahi-transmission = {
-    enable = true;
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${pkgs.avahi}/bin/avahi-publish -a transmission.local -R 192.168.1.111";
-    };
-  }; */
-  networking.avahi.services = {
-    jellyfin = {
+
+  systemd.services = {
+    "avahi-jellyfin" = {
       enable = true;
-      ipAddress = "192.168.1.111";
-      serviceName = "jellyfin";
+      script = "${pkgs.avahi}/bin/avahi-publish -a flixnet.local -R 192.168.1.111";
+      serviceConfig.Type = "simple";
+      wantedBy = [ "default.target" ];
     };
-    transmission = {
+    "avahi-transmission" = {
       enable = true;
-      ipAddress = "192.168.1.111";
-      serviceName = "transmission";
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.avahi}/bin/avahi-publish -a transmission.local -R 192.168.1.111";
+      };
+      wantedBy = [ "default.target" ];
+    };
+    "avahi-radarr" = {
+      enable = true;
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.avahi}/bin/avahi-publish -a radarr.local -R 192.168.1.111";
+      };
+      wantedBy = [ "default.target" ];
+    };
+    "avahi-sonarr" = {
+      enable = true;
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.avahi}/bin/avahi-publish -a sonarr.local -R 192.168.1.111";
+      };
+      wantedBy = [ "default.target" ];
+    };
+    "avahi-bazarr" = {
+      enable = true;
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.avahi}/bin/avahi-publish -a bazarr.local -R 192.168.1.111";
+      };
+      wantedBy = [ "default.target" ];
+    };
+    "avahi-prowlarr" = {
+      enable = true;
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.avahi}/bin/avahi-publish -a prowlarr.local -R 192.168.1.111";
+      };
+      wantedBy = [ "default.target" ];
+    };
+    "avahi-dash" = {
+      enable = true;
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.avahi}/bin/avahi-publish -a dash.local -R 192.168.1.111";
+      };
+      wantedBy = [ "default.target" ];
     };
   };
 
