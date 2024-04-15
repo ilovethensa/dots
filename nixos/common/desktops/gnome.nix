@@ -17,10 +17,14 @@
     gnomeExtensions.app-hider
     gnomeExtensions.gsconnect
   ];
-
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services = {
+    xserver = {
+      enable = true;
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
+      excludePackages = [pkgs.xterm];
+    };
+  };
   environment.gnome.excludePackages =
     (with pkgs; [
       ])
@@ -37,5 +41,4 @@
       hitori # sudoku game
       atomix # puzzle game
     ]);
-  services.xserver.excludePackages = [pkgs.xterm];
 }
