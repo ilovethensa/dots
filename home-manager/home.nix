@@ -66,36 +66,35 @@ in {
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
   home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt git-crypt];
+  programs = {
+    home-manager.enable = true;
+    git = {
+      enable = true;
+      userName = "Bill Gates";
+      userEmail = "me@theholytachanka.com";
+      extraConfig = {
+        core.pager = "bat";
+        init.defaultBranch = "main";
+      };
+    };
+    spicetify = {
+      enable = true;
+      theme = spicePkgs.themes.catppuccin;
+      colorScheme = "mocha";
 
-  programs.git = {
-    enable = true;
-    userName = "Bill Gates";
-    userEmail = "me@theholytachanka.com";
-    extraConfig = {
-      core.pager = "bat";
-      init.defaultBranch = "main";
+      enabledExtensions = with spicePkgs.extensions; [
+        brokenAdblock
+      ];
+      enabledCustomApps = with spicePkgs.apps; [
+        lyrics-plus
+      ];
     };
   };
-
-  # Enable home-manager and git
-  programs.home-manager.enable = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
-  programs.spicetify = {
-    enable = true;
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = "mocha";
-
-    enabledExtensions = with spicePkgs.extensions; [
-      brokenAdblock
-    ];
-    enabledCustomApps = with spicePkgs.apps; [
-      lyrics-plus
-    ];
-  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";
