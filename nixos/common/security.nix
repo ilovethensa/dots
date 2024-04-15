@@ -1,4 +1,11 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   ## System security tweaks
 
   # Prevent replacing the running kernel w/o reboot
@@ -93,6 +100,5 @@
       "udf"
       "vivid"
     ];
-
   };
 }

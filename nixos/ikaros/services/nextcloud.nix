@@ -1,5 +1,9 @@
-{ pkgs, lib, config, ... }:
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   environment.etc."nextcloud-admin-pass".text = "RatioPrudnq123";
   services = {
     nextcloud = {
@@ -28,7 +32,6 @@
       };
 
       config = {
-
         dbtype = "pgsql";
         adminuser = "admin";
         adminpassFile = "/etc/nextcloud-admin-pass";
@@ -45,10 +48,7 @@
   ];
   services.nginx.virtualHosts = {
     "cloud.local" = {
-
       locations."/".proxyPass = "http://127.0.0.1:14333";
     };
   };
-
-
 }

@@ -1,4 +1,9 @@
-{ pkgs, lib, inputs, ... }: {
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
   home.file.".mozilla/firefox/default/chrome/firefox-gnome-theme".source =
     inputs.firefox-gnome-theme;
   programs.firefox = {
@@ -53,10 +58,8 @@
         "layout.css.has-selector.enabled" = true;
         "dom.security.sanitizer.enabled" = true;
         "browser.contentblocking.category" = "strict";
-        "urlclassifier.trackingSkipURLs" =
-          "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com";
-        "urlclassifier.features.socialtracking.skipURLs" =
-          "*.instagram.com, *.twitter.com, *.twimg.com";
+        "urlclassifier.trackingSkipURLs" = "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com";
+        "urlclassifier.features.socialtracking.skipURLs" = "*.instagram.com, *.twitter.com, *.twimg.com";
         "network.cookie.sameSite.noneRequiresSecure" = true;
         "browser.download.start_downloads_in_tmp_dir" = true;
         "browser.helperApps.deleteTempFileOnExit" = true;
@@ -101,8 +104,7 @@
         "browser.safebrowsing.downloads.remote.enabled" = false;
         "permissions.default.desktop-notification" = 2;
         "permissions.default.geo" = 2;
-        "geo.provider.network.url" =
-          "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%";
+        "geo.provider.network.url" = "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%";
         "permissions.manager.defaultsUrl" = "";
         "webchannel.allowObject.urlWhitelist" = "";
         "datareporting.policy.dataSubmissionEnabled" = false;
@@ -183,51 +185,54 @@
         default = "Brave";
         privateDefault = "Brave";
         force = true;
-        order = [ "Brave" "NixOS Wiki" "Nix Packages" ];
+        order = ["Brave" "NixOS Wiki" "Nix Packages"];
         engines = {
           "Nix Packages" = {
-            urls = [{
-              template = "https://search.nixos.org/packages";
-              params = [
-                {
-                  name = "type";
-                  value = "packages";
-                }
-                {
-                  name = "query";
-                  value = "{searchTerms}";
-                }
-              ];
-            }];
+            urls = [
+              {
+                template = "https://search.nixos.org/packages";
+                params = [
+                  {
+                    name = "type";
+                    value = "packages";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
 
-            icon =
-              "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = [ "np" ];
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            definedAliases = ["np"];
           };
 
           "NixOS Wiki" = {
-            urls = [{
-              template = "https://nixos.wiki/index.php?search={searchTerms}";
-            }];
+            urls = [
+              {
+                template = "https://nixos.wiki/index.php?search={searchTerms}";
+              }
+            ];
             iconUpdateURL = "https://nixos.wiki/favicon.png";
             updateInterval = 24 * 60 * 60 * 1000; # every day
-            definedAliases = [ "nw" ];
+            definedAliases = ["nw"];
           };
           "Brave" = {
-            urls = [{
-              template = "https://search.brave.com/search?q={searchTerms}";
-            }];
-            iconUpdateURL =
-              "https://brave.com/static-assets/images/brave-logo-sans-text.svg";
+            urls = [
+              {
+                template = "https://search.brave.com/search?q={searchTerms}";
+              }
+            ];
+            iconUpdateURL = "https://brave.com/static-assets/images/brave-logo-sans-text.svg";
             updateInterval = 24 * 60 * 60 * 1000; # every day
-            definedAliases = [ "br" ];
+            definedAliases = ["br"];
           };
           "Bing".metaData.hidden = true;
           "Google".metaData.hidden = true;
           "Amazon".metaData.hidden = true;
         };
       };
-
     };
   };
 }

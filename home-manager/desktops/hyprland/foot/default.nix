@@ -1,4 +1,11 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   # Configure the foot terminal program
   programs.foot = {
     enable = true;
@@ -28,7 +35,6 @@
         bright5 = "${config.colorScheme.palette.base0F}"; # pink
         bright6 = "${config.colorScheme.palette.base0C}"; # teal
         bright7 = "${config.colorScheme.palette.base02}"; # Subtext 0
-
       };
     };
   };

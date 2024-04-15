@@ -1,9 +1,6 @@
 # Generated via dconf2nix: https://github.com/gvolpe/dconf2nix
-{ lib, ... }:
-
-with lib.hm.gvariant;
-
-{
+{lib, ...}:
+with lib.hm.gvariant; {
   dconf.settings = {
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
@@ -15,8 +12,8 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/input-sources" = {
-      sources = [ (mkTuple [ "xkb" "us" ]) (mkTuple [ "xkb" "bg+phonetic" ]) ];
-      xkb-options = [ "terminate:ctrl_alt_bksp" ];
+      sources = [(mkTuple ["xkb" "us"]) (mkTuple ["xkb" "bg+phonetic"])];
+      xkb-options = ["terminate:ctrl_alt_bksp"];
     };
 
     "org/gnome/desktop/interface" = {
@@ -81,14 +78,13 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell" = {
-      enabled-extensions = [ "appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "app-hider@lynith.dev" "gsconnect@andyholmes.github.io" ];
-      favorite-apps = [ "org.gnome.Nautilus.desktop" "org.gnome.Console.desktop" "firefox.desktop" "vscode.desktop" ];
+      enabled-extensions = ["appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "app-hider@lynith.dev" "gsconnect@andyholmes.github.io"];
+      favorite-apps = ["org.gnome.Nautilus.desktop" "org.gnome.Console.desktop" "firefox.desktop" "vscode.desktop"];
       remember-mount-password = false;
     };
 
     "org/gnome/shell/extensions/app-hider" = {
-      hidden-apps = [ "nixos-manual.desktop" "yelp.desktop" "org.gnome.Tour.desktop" "fish.desktop" "Proton Experimental.desktop" "Steam Linux Runtime 3.0 (sniper).desktop" ];
+      hidden-apps = ["nixos-manual.desktop" "yelp.desktop" "org.gnome.Tour.desktop" "fish.desktop" "Proton Experimental.desktop" "Steam Linux Runtime 3.0 (sniper).desktop"];
     };
-
   };
 }

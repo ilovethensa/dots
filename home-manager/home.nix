@@ -1,10 +1,16 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ inputs, outputs, lib, config, pkgs, spicetify-nix, ... }:
-let
-  spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
-in
 {
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  spicetify-nix,
+  ...
+}: let
+  spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
+in {
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -30,7 +36,6 @@ in
       # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.additions
       outputs.overlays.modifications
-      outputs.overlays.unstable-packages
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -60,7 +65,7 @@ in
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
-  home.packages = with pkgs; [ hashcat vesktop nixpkgs-fmt git-crypt ];
+  home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt git-crypt];
 
   programs.git = {
     enable = true;
@@ -90,10 +95,7 @@ in
     enabledCustomApps = with spicePkgs.apps; [
       lyrics-plus
     ];
-
   };
-
-
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";

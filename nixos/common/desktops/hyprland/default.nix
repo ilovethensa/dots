@@ -1,5 +1,11 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
-
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./greetd.nix
   ];
@@ -11,7 +17,7 @@
     enable = true;
     wlr.enable = true;
     # Additional portals
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
   programs.hyprland.enable = true; # Enable Hyprland program
   environment.variables = {
@@ -26,8 +32,7 @@
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     NIXOS_OZONE_WL = "1";
   };
-  fonts.packages = with pkgs;[
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+  fonts.packages = with pkgs; [
+    (nerdfonts.override {fonts = ["FiraCode"];})
   ];
-
 }

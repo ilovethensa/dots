@@ -1,4 +1,12 @@
-{ inputs, outputs, lib, config, pkgs, spicetify-nix, ... }: {
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  spicetify-nix,
+  ...
+}: {
   # Import modules and configuration pieces
   imports = [
     ./hardware-configuration.nix
@@ -17,7 +25,7 @@
 
   # Networking and system configurations
   networking.hostName = "viper"; # Set hostname
-  boot.kernelParams = [ "mitigations=off" ]; # Kernel parameters
+  boot.kernelParams = ["mitigations=off"]; # Kernel parameters
   hardware.bluetooth.enable = false; # Disable Bluetooth
 
   environment.systemPackages = with pkgs; [

@@ -1,5 +1,12 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
-  home.packages = with pkgs;[
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
+  home.packages = with pkgs; [
     grc
     #(uutils-coreutils.override { prefix = ""; })
     ripgrep
@@ -38,11 +45,13 @@
       dmesg = "${pkgs.util-linux}/bin/dmesg --human --color=always";
       tree = "${pkgs.eza}/bin/eza --tree";
       ping = "${pkgs.gping}/bin/gping";
-
     };
     plugins = [
       # Enable a plugin (here grc for colorized command output) from nixpkgs
-      { name = "grc"; src = pkgs.fishPlugins.grc.src; }
+      {
+        name = "grc";
+        src = pkgs.fishPlugins.grc.src;
+      }
       # Manually packaging and enable a plugin
       {
         name = "z";
@@ -54,12 +63,12 @@
         };
       }
     ];
-    /*     direnv = {
+    /*
+           direnv = {
       enable = true;
       enableFishIntegration = true; # see note on other shells below
       nix-direnv.enable = true;
-    }; */
-
+    };
+    */
   };
-
 }

@@ -1,5 +1,11 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
-
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   # Import modules and configuration pieces
   imports = [
     ./hardware-configuration.nix
@@ -20,7 +26,6 @@
     overlays = [
       outputs.overlays.additions
       outputs.overlays.modifications
-      outputs.overlays.unstable-packages
     ];
     config = {
       allowUnfree = true; # Enable unfree packages

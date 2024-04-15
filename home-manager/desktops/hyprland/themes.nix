@@ -1,4 +1,11 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   qt = {
     enable = true;
     platformTheme = "gtk";
@@ -23,16 +30,17 @@
     theme = {
       name = "Catppuccin-Mocha-Compact-Sapphire-Dark";
       package = pkgs.catppuccin-gtk.override {
-        accents = [ "sapphire" ];
+        accents = ["sapphire"];
         size = "compact";
-        tweaks = [ "rimless" ];
+        tweaks = ["rimless"];
         variant = "mocha";
       };
     };
-    /*     iconTheme = {
+    /*
+           iconTheme = {
       package = pkgs.gruvboxPlus;
       name = "GruvboxPlus";
-    }; */
+    };
+    */
   };
-
 }

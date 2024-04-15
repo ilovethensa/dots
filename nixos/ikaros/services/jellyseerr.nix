@@ -1,5 +1,9 @@
-{ pkgs, lib, config, ... }:
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   virtualisation.oci-containers.containers."jellyseerr" = {
     image = "fallenbagel/jellyseerr:latest";
     autoStart = true;
@@ -15,7 +19,7 @@
       enable = true;
       script = "${pkgs.avahi}/bin/avahi-publish -a request.local -R 192.168.1.111";
       serviceConfig.Type = "simple";
-      wantedBy = [ "default.target" ];
+      wantedBy = ["default.target"];
     };
   };
   services.caddy.virtualHosts = {
@@ -24,5 +28,4 @@
       tls internal
     '';
   };
-
 }

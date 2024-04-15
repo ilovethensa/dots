@@ -1,5 +1,9 @@
-{ pkgs, lib, config, ... }:
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   systemd.user.services.playit = {
     enable = true;
     description = "Playit.gg daemon";
@@ -11,6 +15,6 @@
       #User = "tht";
       #WorkingDir = "/home/tht/Mindustry";
     };
-    wantedBy = [ "default.target" ];
+    wantedBy = ["default.target"];
   };
 }

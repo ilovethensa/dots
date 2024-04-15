@@ -1,4 +1,11 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   programs.waybar = {
     enable = true;
     package = pkgs.waybar-new;
@@ -536,11 +543,13 @@
           critical-threshold = 40;
           format-critical = "{icon} {temperatureC}°C";
           format = "{icon} {temperatureC}°C";
-          /*           format-icons = [
+          /*
+                       format-icons = [
             "";
             "";
             "";
-          ]; */
+          ];
+          */
           tooltip = true;
           on-click = "foot nix-shell -p btop --command btop";
           interval = 2;
@@ -596,10 +605,12 @@
           format-icons = {
             ethernet = "";
             disconnected = "⚠";
-            /*             wifi = [
+            /*
+                           wifi = [
               "睊";
               "直";
-            ]; */
+            ];
+            */
           };
           interval = 2;
         };
@@ -617,18 +628,21 @@
             phone = "";
             portable = "";
             car = " ";
-            /*             default = [
+            /*
+                           default = [
               "";
               "";
               "";
-            ]; */
+            ];
+            */
           };
           on-click = "pavucontrol";
         };
         "backlight" = {
           # device = "acpi_video1";
           format = "{icon} {percent}%";
-          /*           format-icons = [
+          /*
+                       format-icons = [
             "";
             "";
             "";
@@ -638,7 +652,8 @@
             "";
             "";
             "";
-          ]; */
+          ];
+          */
           on-scroll-up = "light -A 1";
           on-scroll-down = "light -U 1";
           interval = 2;
@@ -655,7 +670,8 @@
           format-alt = "{icon} {time}";
           # format-good = ""; # An empty format will hide the module
           format-full = "🔋 {capacity}%";
-          /*           format-icons = [
+          /*
+                       format-icons = [
             "";
             "";
             "";
@@ -666,7 +682,8 @@
             "";
             "";
             "";
-          ]; */
+          ];
+          */
           interval = 2;
         };
         "custom/notifications" = {
@@ -757,8 +774,6 @@
           return-type = "json";
         };
       };
-
-
     };
   };
 }

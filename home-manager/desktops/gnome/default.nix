@@ -1,9 +1,15 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
-
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./dconf.nix
   ];
-  home.packages = with pkgs;[
+  home.packages = with pkgs; [
     toilet
   ];
   home.file.".local/share/icons/MoreWaita/".source = inputs.morewaita;
@@ -33,5 +39,4 @@
       package = pkgs.adwaita-qt6;
     };
   };
-
 }

@@ -1,4 +1,11 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   boot = {
     # Use a more optimized kernel
     kernelPackages = pkgs.linuxPackages_cachyos;
@@ -10,7 +17,6 @@
         configurationLimit = 5;
       };
       efi.canTouchEfiVariables = true;
-
     };
   };
   security.polkit.enable = true;

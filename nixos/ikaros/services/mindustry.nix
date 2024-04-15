@@ -1,5 +1,9 @@
-{ pkgs, lib, config, ... }:
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   systemd.services.mindustry = {
     enable = true;
     description = "Mindustry server";
@@ -11,13 +15,11 @@
       #User = "tht";
       #WorkingDirectory = "/home/tht/Mindustry";
     };
-    wantedBy = [ "default.target" ];
+    wantedBy = ["default.target"];
   };
   services.nginx.virtualHosts = {
     "mindustry.local" = {
-
       locations."/".proxyPass = "http://127.0.0.1:14333";
     };
   };
-
 }

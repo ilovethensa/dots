@@ -1,4 +1,11 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   services.openssh = {
     enable = true;
     # require public key authentication for better security
@@ -27,7 +34,6 @@
       ];
       X11Forwarding = false;
     };
-
   };
   # Client side SSH configuration
   programs.ssh = {
@@ -63,5 +69,4 @@
   };
   # Timeout TTY after 1 hour
   programs.bash.interactiveShellInit = "if [[ $(tty) =~ /dev\\/tty[1-6] ]]; then TMOUT=3600; fi";
-
 }

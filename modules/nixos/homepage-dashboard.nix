@@ -1,20 +1,18 @@
-{ config
-, pkgs
-, lib
-, ...
-}:
-
-let
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
   cfg = config.services.homepage-dashboard;
   # Define the settings format used for this program
-  settingsFormat = pkgs.formats.yaml { };
-in
-{
+  settingsFormat = pkgs.formats.yaml {};
+in {
   options = {
     services.homepage-dashboard = {
       enable = lib.mkEnableOption (lib.mdDoc "Homepage Dashboard");
 
-      package = lib.mkPackageOption pkgs "homepage-dashboard" { };
+      package = lib.mkPackageOption pkgs "homepage-dashboard" {};
 
       openFirewall = lib.mkOption {
         type = lib.types.bool;
@@ -73,16 +71,30 @@ in
         example = [
           {
             Developer = [
-              { Github = [{ abbr = "GH"; href = "https://github.com/"; }]; }
+              {
+                Github = [
+                  {
+                    abbr = "GH";
+                    href = "https://github.com/";
+                  }
+                ];
+              }
             ];
           }
           {
             Entertainment = [
-              { YouTube = [{ abbr = "YT"; href = "https://youtube.com/"; }]; }
+              {
+                YouTube = [
+                  {
+                    abbr = "YT";
+                    href = "https://youtube.com/";
+                  }
+                ];
+              }
             ];
           }
         ];
-        default = [ ];
+        default = [];
       };
 
       services = lib.mkOption {
@@ -115,7 +127,7 @@ in
             ];
           }
         ];
-        default = [ ];
+        default = [];
       };
 
       widgets = lib.mkOption {
@@ -141,7 +153,7 @@ in
             };
           }
         ];
-        default = [ ];
+        default = [];
       };
 
       kubernetes = lib.mkOption {
@@ -151,7 +163,7 @@ in
 
           See https://gethomepage.dev/latest/configs/kubernetes/.
         '';
-        default = { };
+        default = {};
       };
 
       docker = lib.mkOption {
@@ -161,7 +173,7 @@ in
 
           See https://gethomepage.dev/latest/configs/docker/.
         '';
-        default = { };
+        default = {};
       };
 
       settings = lib.mkOption {
@@ -172,34 +184,39 @@ in
           See https://gethomepage.dev/latest/configs/settings/.
         '';
         # Defaults: https://github.com/gethomepage/homepage/blob/main/src/skeleton/settings.yaml
-        default = { };
+        default = {};
       };
     };
   };
 
-  config =
-    let
-      # If homepage-dashboard is enabled, but none of the configuration values have been updated,
-      # then default to "unmanaged" configuration which is manually updated in
-      # var/lib/homepage-dashboard. This is to maintain backwards compatibility, and should be
-      # deprecated in a future release.
-      managedConfig = !(
-        cfg.bookmarks == [ ] &&
-        cfg.customCSS == "" &&
-        cfg.customJS == "" &&
-        cfg.docker == { } &&
-        cfg.kubernetes == { } &&
-        cfg.services == [ ] &&
-        cfg.settings == { } &&
-        cfg.widgets == [ ]
+  config = let
+    # If homepage-dashboard is enabled, but none of the configuration values have been updated,
+    # then default to "unmanaged" configuration which is manually updated in
+    # var/lib/homepage-dashboard. This is to maintain backwards compatibility, and should be
+    # deprecated in a future release.
+    managedConfig =
+      !(
+        cfg.bookmarks
+        == []
+        && cfg.customCSS == ""
+        && cfg.customJS == ""
+        && cfg.docker == {}
+        && cfg.kubernetes == {}
+        && cfg.services == []
+        && cfg.settings == {}
+        && cfg.widgets == []
       );
 
-      configDir = if managedConfig then "/etc/homepage-dashboard" else "/var/lib/homepage-dashboard";
+    configDir =
+      if managedConfig
+      then "/etc/homepage-dashboard"
+      else "/var/lib/homepage-dashboard";
 
-      msg = "using unmanaged configuration for homepage-dashboard is deprecated and will be removed"
-        + " in 24.05. please see the NixOS documentation for `services.homepage-dashboard' and add"
-        + " your bookmarks, services, widgets, and other configuration using the options provided.";
-    in
+    msg =
+      "using unmanaged configuration for homepage-dashboard is deprecated and will be removed"
+      + " in 24.05. please see the NixOS documentation for `services.homepage-dashboard' and add"
+      + " your bookmarks, services, widgets, and other configuration using the options provided.";
+  in
     lib.mkIf cfg.enable {
       warnings = lib.optional (!managedConfig) msg;
 
@@ -217,8 +234,8 @@ in
 
       systemd.services.homepage-dashboard = {
         description = "Homepage Dashboard";
-        after = [ "network.target" ];
-        wantedBy = [ "multi-user.target" ];
+        after = ["network.target"];
+        wantedBy = ["multi-user.target"];
 
         environment = {
           HOMEPAGE_CONFIG_DIR = configDir;
@@ -237,7 +254,7 @@ in
       };
 
       networking.firewall = lib.mkIf cfg.openFirewall {
-        allowedTCPPorts = [ cfg.listenPort ];
+        allowedTCPPorts = [cfg.listenPort];
       };
     };
 }

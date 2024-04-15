@@ -1,4 +1,11 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   home.file.".config/cava/config".text = ''
     [ color ]
 
@@ -15,7 +22,8 @@
   '';
   programs.cava = {
     enable = true;
-    /*     settings = {
+    /*
+           settings = {
       color = {
         gradient = "1";
         gradient_color_1 = "#${config.colorScheme.palette.base0C}";
@@ -28,6 +36,7 @@
         gradient_color_8 = "#${config.colorScheme.palette.base08}";
 
       };
-    }; */
+    };
+    */
   };
 }

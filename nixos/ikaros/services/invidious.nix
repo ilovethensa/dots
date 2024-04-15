@@ -1,5 +1,9 @@
-{ pkgs, lib, config, ... }:
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   services.invidious = {
     enable = true;
     domain = "yt.theholytachanka.com";
@@ -15,9 +19,7 @@
   };
   services.nginx.virtualHosts = {
     "invidious.local" = {
-
       locations."/".proxyPass = "http://127.0.0.1:14333";
     };
   };
-
 }

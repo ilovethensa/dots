@@ -1,12 +1,11 @@
-{ pkgs
-, lib
-, config
-, secrets
-, ...
-}:
 {
+  pkgs,
+  lib,
+  config,
+  secrets,
+  ...
+}: {
   services.homepage-dashboard = {
-
     # These options were already present in my configuration.
 
     enable = true;
@@ -32,18 +31,19 @@
           columns = 4;
           header = false;
         };
-        /*         "Media" = {
+        /*
+                   "Media" = {
           header = false;
         };
         "Downloaders" = {
           header = false;
-        }; */
+        };
+        */
       };
     };
 
     # https://gethomepage.dev/latest/configs/bookmarks/
-    bookmarks = [ ];
-
+    bookmarks = [];
 
     # https://gethomepage.dev/latest/configs/services/
     services = [
@@ -75,7 +75,6 @@
               };
             };
           }
-
         ];
       }
       {
@@ -116,7 +115,6 @@
               };
             };
           }
-
         ];
       }
       {
@@ -157,7 +155,6 @@
               };
             };
           }
-
         ];
       }
 
@@ -171,7 +168,6 @@
                 metric = "network:eth0";
               };
             };
-
           }
           {
             "CPU" = {
@@ -203,7 +199,6 @@
         ];
       }
     ];
-
 
     # https://gethomepage.dev/latest/configs/service-widgets/
     widgets = [
@@ -242,10 +237,10 @@
     ];
 
     # https://gethomepage.dev/latest/configs/kubernetes/
-    kubernetes = { };
+    kubernetes = {};
 
     # https://gethomepage.dev/latest/configs/docker/
-    docker = { };
+    docker = {};
 
     # https://gethomepage.dev/latest/configs/custom-css-js/
     customJS = "";
@@ -259,9 +254,7 @@
   };
   services.nginx.virtualHosts = {
     "dash.local" = {
-
       locations."/".proxyPass = "http://127.0.0.1:8082";
     };
   };
-
 }

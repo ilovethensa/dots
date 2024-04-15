@@ -1,8 +1,9 @@
-{ pkgs
-, lib
-, config
-, secrets
-, ...
+{
+  pkgs,
+  lib,
+  config,
+  secrets,
+  ...
 }: {
   nixarr = {
     enable = true;
@@ -56,7 +57,7 @@
       enable = true;
       script = "${pkgs.avahi}/bin/avahi-publish -a flixnet.local -R 192.168.1.111";
       serviceConfig.Type = "simple";
-      wantedBy = [ "default.target" ];
+      wantedBy = ["default.target"];
     };
     "avahi-transmission" = {
       enable = true;
@@ -64,7 +65,7 @@
         Type = "simple";
         ExecStart = "${pkgs.avahi}/bin/avahi-publish -a transmission.local -R 192.168.1.111";
       };
-      wantedBy = [ "default.target" ];
+      wantedBy = ["default.target"];
     };
     "avahi-radarr" = {
       enable = true;
@@ -72,7 +73,7 @@
         Type = "simple";
         ExecStart = "${pkgs.avahi}/bin/avahi-publish -a radarr.local -R 192.168.1.111";
       };
-      wantedBy = [ "default.target" ];
+      wantedBy = ["default.target"];
     };
     "avahi-sonarr" = {
       enable = true;
@@ -80,7 +81,7 @@
         Type = "simple";
         ExecStart = "${pkgs.avahi}/bin/avahi-publish -a sonarr.local -R 192.168.1.111";
       };
-      wantedBy = [ "default.target" ];
+      wantedBy = ["default.target"];
     };
     "avahi-bazarr" = {
       enable = true;
@@ -88,7 +89,7 @@
         Type = "simple";
         ExecStart = "${pkgs.avahi}/bin/avahi-publish -a bazarr.local -R 192.168.1.111";
       };
-      wantedBy = [ "default.target" ];
+      wantedBy = ["default.target"];
     };
     "avahi-prowlarr" = {
       enable = true;
@@ -96,7 +97,7 @@
         Type = "simple";
         ExecStart = "${pkgs.avahi}/bin/avahi-publish -a prowlarr.local -R 192.168.1.111";
       };
-      wantedBy = [ "default.target" ];
+      wantedBy = ["default.target"];
     };
     "avahi-dash" = {
       enable = true;
@@ -104,8 +105,7 @@
         Type = "simple";
         ExecStart = "${pkgs.avahi}/bin/avahi-publish -a dash.local -R 192.168.1.111";
       };
-      wantedBy = [ "default.target" ];
+      wantedBy = ["default.target"];
     };
   };
-
 }

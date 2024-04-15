@@ -1,7 +1,14 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   programs.yt-dlp = {
     enable = true;
-    package = pkgs.unstable.yt-dlp;
+    package = pkgs.yt-dlp;
     settings = {
       audio-format = "best";
       audio-quality = 0;
@@ -14,6 +21,4 @@
       sub-langs = "all";
     };
   };
-
-
 }

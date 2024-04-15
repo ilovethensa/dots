@@ -1,4 +1,11 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   # Steam configurations
   programs.steam = {
     enable = true;
@@ -17,7 +24,6 @@
       extraPkgs = pkgs: [
         # List package dependencies here
       ];
-
     })
     (pkgs.wrapOBS {
       plugins = with pkgs.obs-studio-plugins; [
@@ -38,9 +44,11 @@
   ];
   # Disabled since it doesnt work on gnome(for now)
   # ReplaySorcery service
-  /*   services.replay-sorcery = {
+  /*
+       services.replay-sorcery = {
     enable = true;
     autoStart = true;
     enableSysAdminCapability = true;
-  }; */
+  };
+  */
 }

@@ -1,16 +1,19 @@
-{ pkgs, lib, config, ... }:
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   virtualisation.oci-containers.containers."cloudflared-web" = {
     image = "ghcr.io/wisdomsky/cloudflared-web:latest";
     autoStart = true;
     volumes = [
       "/srv/AppData/cloudflared-web:/config"
     ];
-    extraOptions = [ "--network=host" ];
+    extraOptions = ["--network=host"];
   };
   services.nginx.virtualHosts = {
     "clourflared.local" = {
-
       locations."/".proxyPass = "http://127.0.0.1:14333";
     };
   };

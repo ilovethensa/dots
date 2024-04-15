@@ -1,18 +1,22 @@
-{ inputs, outputs, lib, config, pkgs, secrets, ... }:
-let
-  servicesConfig = {
-    jellyfin = { port = 8096; };
-    transmission = { port = 9091; };
-    radarr = { port = 7878; };
-    sonarr = { port = 8989; };
-    bazarr = { port = 6767; };
-    prowlarr = { port = 9696; };
-    jellyseerr = { port = 5055; };
-  };
-
-in
 {
-
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  secrets,
+  ...
+}: let
+  servicesConfig = {
+    jellyfin = {port = 8096;};
+    transmission = {port = 9091;};
+    radarr = {port = 7878;};
+    sonarr = {port = 8989;};
+    bazarr = {port = 6767;};
+    prowlarr = {port = 9696;};
+    jellyseerr = {port = 5055;};
+  };
+in {
   # Import modules and configuration pieces
   imports = [
     ./hardware-configuration.nix
@@ -21,7 +25,7 @@ in
     ./../common/nix-ld.nix
     ./../common/boot.nix
     ./../common/misc.nix
-    (import ./services/arr.nix { inherit config lib pkgs servicesConfig secrets; })
+    (import ./services/arr.nix {inherit config lib pkgs servicesConfig secrets;})
     ./services/cloudflared-web.nix
     #./services/qbittorrent.nix
     #./services/n8n.nix
@@ -47,7 +51,6 @@ in
     overlays = [
       outputs.overlays.additions
       outputs.overlays.modifications
-      outputs.overlays.unstable-packages
     ];
     config = {
       allowUnfree = true; # Enable unfree packages
@@ -82,7 +85,6 @@ in
         directory = "/root";
         user = "root";
       }
-
     ];
     files = [
       #"/etc/machine-id"
