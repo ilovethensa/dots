@@ -37,6 +37,7 @@
       less = "${pkgs.bat}/bin/bat";
       dmesg = "${pkgs.util-linux}/bin/dmesg --human --color=always";
       tree = "${pkgs.eza}/bin/eza --tree";
+      ping = "${pkgs.gping}/bin/gping";
 
     };
     plugins = [
