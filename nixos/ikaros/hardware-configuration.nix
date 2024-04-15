@@ -11,43 +11,44 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
-
-  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
-
-  fileSystems."/" = {
-    device = "none";
-    fsType = "tmpfs";
+  boot = {
+    initrd = {
+      availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
+      kernelModules = [];
+    };
+    kernelModules = ["kvm-intel"];
+    extraModulePackages = [];
   };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/3FD2-2807";
-    fsType = "vfat";
-  };
-
-  fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/c5dde26d-1377-4ec4-8e25-707f3ef31ed7";
-    fsType = "btrfs";
-    options = ["subvol=@home" "compress-force=zstd:13" "defaults" "noatime"];
-  };
-
-  fileSystems."/srv" = {
-    device = "/dev/disk/by-uuid/c5dde26d-1377-4ec4-8e25-707f3ef31ed7";
-    fsType = "btrfs";
-    options = ["subvol=@data" "compress-force=zstd:13" "defaults" "noatime"];
-  };
-
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/c5dde26d-1377-4ec4-8e25-707f3ef31ed7";
-    fsType = "btrfs";
-    options = ["subvol=@nix" "compress-force=zstd:13" "defaults" "noatime"];
-  };
-  fileSystems."/srv/Media" = {
-    device = "/dev/disk/by-uuid/23fc1491-b1f6-4e69-82e7-6135e4c0a3f1";
-    fsType = "btrfs";
-    options = ["compress-force=zstd:13" "defaults" "noatime" "autodefrag" "nofail"];
+  fileSystems = {
+    "/" = {
+      device = "none";
+      fsType = "tmpfs";
+    };
+    "/boot" = {
+      device = "/dev/disk/by-uuid/3FD2-2807";
+      fsType = "vfat";
+    };
+    "/home" = {
+      device = "/dev/disk/by-uuid/c5dde26d-1377-4ec4-8e25-707f3ef31ed7";
+      fsType = "btrfs";
+      options = ["subvol=@home" "compress-force=zstd:13" "defaults" "noatime"];
+    };
+    "/srv" = {
+      device = "/dev/disk/by-uuid/c5dde26d-1377-4ec4-8e25-707f3ef31ed7";
+      fsType = "btrfs";
+      options = ["subvol=@data" "compress-force=zstd:13" "defaults" "noatime"];
+    };
+    "/nix" = {
+      device = "/dev/disk/by-uuid/c5dde26d-1377-4ec4-8e25-707f3ef31ed7";
+      fsType = "btrfs";
+      options = ["subvol=@nix" "compress-force=zstd:13" "defaults" "noatime"];
+    };
+    "/srv/Media" = {
+      device = "/dev/disk/by-uuid/23fc1491-b1f6-4e69-82e7-6135e4c0a3f1";
+      fsType = "btrfs";
+      options = ["compress-force=zstd:13" "defaults" "noatime" "autodefrag" "nofail"];
+    };
   };
 
   swapDevices = [];
