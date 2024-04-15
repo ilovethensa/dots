@@ -87,8 +87,8 @@
               widget = {
                 type = "transmission";
                 url = "http://192.168.1.111:9091";
-                username = secrets.common.username;
-                password = secrets.common.password;
+                inherit (secrets.common) username;
+                inherit (secrets.common) password;
               };
             };
           }
