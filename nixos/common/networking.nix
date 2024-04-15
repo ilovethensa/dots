@@ -28,6 +28,8 @@
     nssmdns4 = true;
   };
 
+  # Set the timezone to Bulgaria
+  time.timeZone = "Europe/Sofia";
   # Printing service enabled
   services.printing.enable = true;
 }

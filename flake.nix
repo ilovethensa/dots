@@ -8,7 +8,7 @@
     impermanence.url = "github:nix-community/impermanence";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     nixarr.url = "github:rasmus-kirk/nixarr";
-    nix-gaming.url = "github:fufexan/nix-gaming";
+    #nix-gaming.url = "github:fufexan/nix-gaming";
 
     firefox-gnome-theme = {
       url = "github:rafaelmardojai/firefox-gnome-theme";
@@ -52,7 +52,7 @@
     , firefox-gnome-theme
     , morewaita
     , nixarr
-    , nix-gaming
+      #, nix-gaming
     , ...
     }@inputs:
     let

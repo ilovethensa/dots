@@ -8,10 +8,10 @@
     ./../common/users.nix
     ./../common/home.nix
     ./../common/openssh.nix
-    ./../common/optimizations.nix
     ./../common/nix-ld.nix
     ./../common/desktops/gnome.nix
     ./../common/boot.nix
+    ./../common/misc.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -29,7 +29,6 @@
 
   # Networking and system configurations
   networking.hostName = "mute"; # Define hostname
-  boot.kernelParams = [ "mitigations=off" ]; # Set kernel parameters
   networking.networkmanager.enable = true; # Enable NetworkManager
 
   # System state version

@@ -54,5 +54,45 @@
       "net.ipv4.tcp_congestion_control" = "bbr";
       "net.core.default_qdisc" = "cake";
     };
+    blacklistedKernelModules = [
+      # Obscure network protocols
+      "ax25"
+      "netrom"
+      "rose"
+      # Old or rare or insufficiently audited filesystems
+      "adfs"
+      "affs"
+      "befs"
+      "bfs"
+      "btusb"
+      "cifs"
+      "cramfs"
+      "cramfs"
+      "efs"
+      "erofs"
+      "exofs"
+      "f2fs"
+      "freevxfs"
+      "freevxfs"
+      "gfs2"
+      "hfs"
+      "hfsplus"
+      "hpfs"
+      "jffs2"
+      "jfs"
+      "ksmbd"
+      "minix"
+      "nfs"
+      "nfsv3"
+      "nfsv4"
+      "nilfs2"
+      "omfs"
+      "qnx4"
+      "qnx6"
+      "sysv"
+      "udf"
+      "vivid"
+    ];
+
   };
 }

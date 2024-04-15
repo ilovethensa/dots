@@ -9,10 +9,10 @@
     ./../common/gaming.nix
     ./../common/home.nix
     ./../common/openssh.nix
-    ./../common/optimizations.nix
     ./../common/nix-ld.nix
     ./../common/desktops/gnome.nix
     ./../common/networking.nix
+    ./../common/misc.nix
   ];
 
   # Networking and system configurations

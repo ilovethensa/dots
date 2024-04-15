@@ -18,8 +18,9 @@ in
     ./hardware-configuration.nix
     ./../common/users.nix
     ./../common/openssh.nix
-    ./../common/optimizations.nix
     ./../common/nix-ld.nix
+    ./../common/boot.nix
+    ./../common/misc.nix
     (import ./services/arr.nix { inherit config lib pkgs servicesConfig secrets; })
     ./services/cloudflared-web.nix
     #./services/qbittorrent.nix
@@ -53,24 +54,8 @@ in
     };
   };
 
-
-  # Bootloader configuration
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   # Networking and system configurations
   networking.hostName = "ikaros"; # Define hostname
-  time.timeZone = "Europe/Sofia"; # Set timezone
-
-  # OpenSSH configuration
-  services.openssh = {
-    enable = true;
-    settings.PasswordAuthentication = true;
-    settings.KbdInteractiveAuthentication = true;
-  };
-
-  # Disable the firewall
-  networking.firewall.enable = false;
 
   virtualisation.oci-containers.backend = "podman";
   environment.systemPackages = with pkgs; [
