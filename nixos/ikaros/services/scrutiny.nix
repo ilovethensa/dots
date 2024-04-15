@@ -8,8 +8,8 @@
     image = "ghcr.io/analogj/scrutiny:master-omnibus";
     autoStart = true;
     volumes = [
-      "/srv/AppData/scrutiny/config:/opt/scrutiny/config"
-      "/srv/AppData/scrutiny/database:/opt/scrutiny/influxdb"
+      "/srv/data/scrutiny/config:/opt/scrutiny/config"
+      "/srv/data/scrutiny/database:/opt/scrutiny/influxdb"
       "/run/udev:/run/udev:ro"
     ];
     ports = [
