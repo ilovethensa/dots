@@ -8,6 +8,7 @@
     impermanence.url = "github:nix-community/impermanence";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     nixarr.url = "github:rasmus-kirk/nixarr";
+    nix-gaming.url = "github:fufexan/nix-gaming";
 
     firefox-gnome-theme = {
       url = "github:rafaelmardojai/firefox-gnome-theme";
@@ -51,6 +52,7 @@
     , firefox-gnome-theme
     , morewaita
     , nixarr
+    , nix-gaming
     , ...
     }@inputs:
     let
@@ -93,30 +95,30 @@
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
         # FIXME replace with your hostname
-        desktop = nixpkgs.lib.nixosSystem {
+        viper = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs secrets spicetify-nix; };
           modules = [
             # > Our main nixos configuration file <
             chaotic.nixosModules.default
-            ./nixos/desktop
+            ./nixos/viper
           ];
         };
-        thinkpad = nixpkgs.lib.nixosSystem {
+        mute = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs secrets spicetify-nix; };
           modules = [
             # > Our main nixos configuration file <
             chaotic.nixosModules.default
-            ./nixos/thinkpad
+            ./nixos/mute
           ];
         };
-        server = nixpkgs.lib.nixosSystem {
+        ikaros = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs secrets spicetify-nix; };
           modules = [
             # > Our main nixos configuration file <
             chaotic.nixosModules.default
             impermanence.nixosModules.impermanence
             nixarr.nixosModules.default
-            ./nixos/server
+            ./nixos/ikaros
           ];
         };
         #nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {

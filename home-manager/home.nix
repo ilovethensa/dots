@@ -65,6 +65,7 @@ in
     enable = true;
     userName = "Bill Gates";
     userEmail = "me@theholytachanka.com";
+    extraConfig.init.defaultBranch = "main";
   };
 
   # Enable home-manager and git

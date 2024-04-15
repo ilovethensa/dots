@@ -10,6 +10,8 @@
       dates = [ "03:45" ];
     };
   };
+  # Disables it for faster boot times
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
 
   system.autoUpgrade = {
     enable = true;

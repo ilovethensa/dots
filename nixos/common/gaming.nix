@@ -19,6 +19,14 @@
       ];
 
     })
+    (pkgs.wrapOBS {
+      plugins = with pkgs.obs-studio-plugins; [
+        wlrobs
+        obs-vkcapture
+        obs-pipewire-audio-capture
+        obs-vaapi
+      ];
+    })
 
     gnome3.adwaita-icon-theme
     qbittorrent
@@ -28,11 +36,11 @@
     mangohud
     gamescope
   ];
-
+  # Disabled since it doesnt work on gnome(for now)
   # ReplaySorcery service
-  services.replay-sorcery = {
+  /*   services.replay-sorcery = {
     enable = true;
     autoStart = true;
     enableSysAdminCapability = true;
-  };
+  }; */
 }

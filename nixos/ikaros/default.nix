@@ -59,7 +59,7 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Networking and system configurations
-  networking.hostName = "server"; # Define hostname
+  networking.hostName = "ikaros"; # Define hostname
   time.timeZone = "Europe/Sofia"; # Set timezone
 
   # OpenSSH configuration

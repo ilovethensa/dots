@@ -28,7 +28,7 @@
   };
 
   # Networking and system configurations
-  networking.hostName = "thinkpad"; # Define hostname
+  networking.hostName = "mute"; # Define hostname
   boot.kernelParams = [ "mitigations=off" ]; # Set kernel parameters
   networking.networkmanager.enable = true; # Enable NetworkManager
 

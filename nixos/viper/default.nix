@@ -12,12 +12,11 @@
     ./../common/optimizations.nix
     ./../common/nix-ld.nix
     ./../common/desktops/gnome.nix
-    ./../common/avahi.nix
     ./../common/networking.nix
   ];
 
   # Networking and system configurations
-  networking.hostName = "desktop"; # Set hostname
+  networking.hostName = "viper"; # Set hostname
   boot.kernelParams = [ "mitigations=off" ]; # Kernel parameters
   hardware.bluetooth.enable = false; # Disable Bluetooth
 
