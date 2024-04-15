@@ -19,6 +19,7 @@ in
     ./apps/vscode
     ./apps/firefox
     ./apps/fish
+    ./apps/yt-dlp
     ./desktops/gnome
     spicetify-nix.homeManagerModule
   ];
@@ -65,7 +66,10 @@ in
     enable = true;
     userName = "Bill Gates";
     userEmail = "me@theholytachanka.com";
-    extraConfig.init.defaultBranch = "main";
+    extraConfig = {
+      core.pager = "bat";
+      init.defaultBranch = "main";
+    };
   };
 
   # Enable home-manager and git
