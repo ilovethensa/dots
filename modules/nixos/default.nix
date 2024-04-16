@@ -3,6 +3,5 @@
 {
   # List your module files here
   # my-module = import ./my-module.nix;
-  homepage-dashboard = import ./homepage-dashboard.nix;
-  mdns = import ./mdns.nix;
+  #mdns = import ./mdns.nix;
 }
