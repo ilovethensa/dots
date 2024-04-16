@@ -70,4 +70,8 @@
     RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}"; # Support completion in vscode
   };
   zramSwap.enable = true;
+  services.earlyoom = {
+    enable = true;
+    enableNotifications = true;
+  };
 }
