@@ -31,8 +31,8 @@
   environment.systemPackages = with pkgs; [
     krita
     pywhat
-    toolbox
-    #davinci-resolve
+    distrobox
+    davinci
   ];
   services.flatpak.enable = true;
   virtualisation.podman = {
