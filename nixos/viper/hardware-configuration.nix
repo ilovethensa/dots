@@ -13,13 +13,14 @@
   ];
   boot = {
     initrd = {
-      availableKernelModules = ["xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
+      availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
       kernelModules = [];
       luks.devices."cryptroot".device = "/dev/disk/by-uuid/d024e02e-d5aa-4a00-b0df-5cc847252de7";
     };
     kernelModules = ["kvm-amd"];
     extraModulePackages = [];
   };
+
   fileSystems = {
     "/" = {
       device = "none";
@@ -33,12 +34,12 @@
     "/home" = {
       device = "/dev/disk/by-uuid/dface61b-5d67-4158-97f6-9f44c1a35346";
       fsType = "btrfs";
-      options = ["subvol=@home" "compress=zstd" "ssd"];
+      options = ["subvol=@home" "noatime" "compress=zstd" "ssd"];
     };
     "/nix" = {
       device = "/dev/disk/by-uuid/dface61b-5d67-4158-97f6-9f44c1a35346";
       fsType = "btrfs";
-      options = ["subvol=@nix" "compress=zstd" "ssd"];
+      options = ["subvol=@nix" "noatime" "compress=zstd" "ssd"];
     };
   };
   swapDevices = [];
