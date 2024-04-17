@@ -6,6 +6,9 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./../greetd.nix
+  ];
   services.gnome.gnome-keyring.enable = true;
   programs.sway = {
     enable = true;
