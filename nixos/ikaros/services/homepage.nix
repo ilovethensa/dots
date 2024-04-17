@@ -43,7 +43,7 @@
     };
 
     # https://gethomepage.dev/latest/configs/bookmarks/
-    bookmarks = [];
+    #bookmarks = [];
 
     # https://gethomepage.dev/latest/configs/services/
     services = [

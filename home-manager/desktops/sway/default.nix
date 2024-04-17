@@ -13,9 +13,10 @@
       # Use kitty as default terminal
       terminal = "${pkgs.foot}/bin/foot";
       keybindings = {
+        "${modifier}+Return" = "exec ${pkgs.foot}/bin/foot";
+        "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun | ${pkgs.findutils}/bin/xargs swaymsg exec --";
         "${modifier}+q" = "kill";
         "${modifier}+f" = "fullscreen toggle";
-        "${modifier}+d" = "exec ${pkgs.rofi-wayland}/bin/rofi-wayland -show drun";
         "${modifier}+1" = "workspace 1";
         "${modifier}+2" = "workspace 2";
         "${modifier}+3" = "workspace 3";
@@ -37,6 +38,14 @@
         "${modifier}+Shift+9" = "move container to workspace 9";
         "${modifier}+Shift+0" = "move container to workspace 10";
       };
+      startup = [
+        {command = "${pkgs.gammastep}/bin/gammastep -o -O 2000";}
+      ];
     };
+    extraConfig = ''
+      gaps inner 10
+      default_border none
+      output * background /home/tht/Pictures/wall.png fill
+    '';
   };
 }
