@@ -18,7 +18,7 @@
     ./../common/home.nix
     ./../common/openssh.nix
     ./../common/nix-ld.nix
-    ./../common/desktops/sway
+    ./../common/desktops/gnome
     ./../common/networking.nix
     ./../common/misc.nix
   ];
