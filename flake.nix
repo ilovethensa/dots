@@ -8,7 +8,6 @@
     impermanence.url = "github:nix-community/impermanence";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     nixarr.url = "github:rasmus-kirk/nixarr";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
     #nix-gaming.url = "github:fufexan/nix-gaming";
 
     firefox-gnome-theme = {
@@ -44,7 +43,6 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-stable,
     home-manager,
     chaotic,
     firefox-addons,
@@ -69,7 +67,6 @@
     # pass to it, with each system as an argument
     forAllSystems = nixpkgs.lib.genAttrs systems;
     secrets = builtins.fromJSON (builtins.readFile "${self}/secrets.json");
-    system = "x86_64-linux";
   in {
     # Your custom packages
     # Accessible through 'nix build', 'nix shell', etc
@@ -110,16 +107,13 @@
           ./nixos/mute
         ];
       };
-      ikaros = nixpkgs-stable.lib.nixosSystem {
+      ikaros = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs secrets spicetify-nix;};
         modules = [
           # > Our main nixos configuration file <
-          #chaotic.nixosModules.default
+          chaotic.nixosModules.default
           impermanence.nixosModules.impermanence
           nixarr.nixosModules.default
-          {
-            nixpkgs.config.pkgs = import nixpkgs-stable {inherit system;};
-          }
           ./nixos/ikaros
         ];
       };
