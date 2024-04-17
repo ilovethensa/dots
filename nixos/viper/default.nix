@@ -31,9 +31,16 @@
   environment.systemPackages = with pkgs; [
     krita
     pywhat
+    toolbox
+    #davinci-resolve
   ];
   services.flatpak.enable = true;
-
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+    dockerSocket.enable = true;
+    autoPrune.enable = true;
+  };
   # System state version
   system.stateVersion = "23.05";
 }
