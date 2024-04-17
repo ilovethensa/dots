@@ -9,7 +9,7 @@
   wayland.windowManager.sway = {
     enable = true;
     config = rec {
-      modifier = "Alt_L";
+      modifier = "Mod1";
       # Use kitty as default terminal
       terminal = "${pkgs.foot}/bin/foot";
     };
