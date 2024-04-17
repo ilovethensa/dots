@@ -18,7 +18,7 @@
     ./../common/home.nix
     ./../common/openssh.nix
     ./../common/nix-ld.nix
-    ./../common/desktops/gnome.nix
+    ./../common/desktops/sway
     ./../common/networking.nix
     ./../common/misc.nix
   ];
@@ -32,7 +32,6 @@
     krita
     pywhat
     distrobox
-    davinci
   ];
   services.flatpak.enable = true;
   virtualisation.podman = {
@@ -40,6 +39,19 @@
     dockerCompat = true;
     dockerSocket.enable = true;
     autoPrune.enable = true;
+  };
+  environment.etc.machine-id = {
+    text = ''
+      12345678901234567890123456789012
+    '';
+  };
+  environment.persistence."/nix/persist" = {
+    hideMounts = true;
+    directories = [
+      "/var/log"
+      "/var/lib/nixos"
+      "/etc/NetworkManager/system-connections"
+    ];
   };
   # System state version
   system.stateVersion = "23.05";

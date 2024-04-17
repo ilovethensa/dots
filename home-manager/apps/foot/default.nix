@@ -16,7 +16,8 @@
         dpi-aware = "yes";
       };
 
-      colors = {
+      /*
+         colors = {
         foreground = "${config.colorScheme.palette.base05}"; # Text
         background = "${config.colorScheme.palette.base00}"; # Base
         regular0 = "${config.colorScheme.palette.base03}"; # Surface 1
@@ -36,6 +37,7 @@
         bright6 = "${config.colorScheme.palette.base0C}"; # teal
         bright7 = "${config.colorScheme.palette.base02}"; # Subtext 0
       };
+      */
     };
   };
 }

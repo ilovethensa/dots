@@ -8,10 +8,10 @@
 }: {
   imports = [
     ./cava
-    ./foot
     ./waybar
     ./wm
     ./mako
     ./themes.nix
+    ./../../apps/foot
   ];
 }

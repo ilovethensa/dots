@@ -95,6 +95,7 @@
         modules = [
           # > Our main nixos configuration file <
           chaotic.nixosModules.default
+          impermanence.nixosModules.impermanence
           ./nixos/viper
         ];
       };

@@ -58,7 +58,8 @@
     })
     config.nix.registry;
   # Enable appimage support
-  boot.binfmt.registrations.appimage = {
+  /*
+     boot.binfmt.registrations.appimage = {
     wrapInterpreterInShell = false;
     interpreter = "${pkgs.appimage-run}/bin/appimage-run";
     recognitionType = "magic";
@@ -66,6 +67,7 @@
     mask = "\\xff\\xff\\xff\\xff\\x00\\x00\\x00\\x00\\xff\\xff\\xff";
     magicOrExtension = "\\x7fELF....AI\\x02";
   };
+  */
   environment.variables = {
     RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}"; # Support completion in vscode
   };
