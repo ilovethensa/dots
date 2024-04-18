@@ -11,9 +11,4 @@
     environment = {WEBHOOK_URL = "https://n8n.theholytachanka.com";};
     autoStart = true;
   };
-  services.nginx.virtualHosts = {
-    "n8n.local" = {
-      locations."/".proxyPass = "http://127.0.0.1:14333";
-    };
-  };
 }

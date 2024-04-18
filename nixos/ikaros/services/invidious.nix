@@ -17,9 +17,4 @@
       db.dbname = "invidious";
     };
   };
-  services.nginx.virtualHosts = {
-    "invidious.local" = {
-      locations."/".proxyPass = "http://127.0.0.1:14333";
-    };
-  };
 }

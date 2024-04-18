@@ -252,9 +252,4 @@
       #"/etc/homepage-dashboard"
     ];
   };
-  services.nginx.virtualHosts = {
-    "dash.local" = {
-      locations."/".proxyPass = "http://127.0.0.1:8082";
-    };
-  };
 }

@@ -17,9 +17,4 @@
     };
     wantedBy = ["default.target"];
   };
-  services.nginx.virtualHosts = {
-    "mindustry.local" = {
-      locations."/".proxyPass = "http://127.0.0.1:14333";
-    };
-  };
 }

@@ -182,10 +182,10 @@
         @import "firefox-gnome-theme/userContent.css";
       '';
       search = {
-        default = "Brave";
-        privateDefault = "Brave";
+        default = "DuckDuckGo";
+        privateDefault = "DuckDuckGo";
         force = true;
-        order = ["Brave" "NixOS Wiki" "Nix Packages"];
+        order = ["DuckDuckGo" "NixOS Wiki" "Nix Packages"];
         engines = {
           "Nix Packages" = {
             urls = [
@@ -218,13 +218,13 @@
             updateInterval = 24 * 60 * 60 * 1000; # every day
             definedAliases = ["nw"];
           };
-          "Brave" = {
+          "DuckDuckGo" = {
             urls = [
               {
-                template = "https://search.brave.com/search?q={searchTerms}";
+                template = "https://duckduckgo.com/search?q={searchTerms}";
               }
             ];
-            iconUpdateURL = "https://brave.com/static-assets/images/brave-logo-sans-text.svg";
+            #iconUpdateURL = "https://brave.com/static-assets/images/brave-logo-sans-text.svg";
             updateInterval = 24 * 60 * 60 * 1000; # every day
             definedAliases = ["br"];
           };
