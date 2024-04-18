@@ -4,12 +4,17 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    chaotic.url = "https://flakehub.com/f/chaotic-cx/nyx/*.tar.gz";
     impermanence.url = "github:nix-community/impermanence";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     nixarr.url = "github:rasmus-kirk/nixarr";
-    #nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-gaming.url = "github:fufexan/nix-gaming";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     firefox-gnome-theme = {
       url = "github:rafaelmardojai/firefox-gnome-theme";
       flake = false;
@@ -51,7 +56,9 @@
     firefox-gnome-theme,
     morewaita,
     nixarr,
-    #, nix-gaming
+    nix-gaming,
+    nixos-hardware,
+    nix-index-database,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -96,6 +103,9 @@
           # > Our main nixos configuration file <
           chaotic.nixosModules.default
           impermanence.nixosModules.impermanence
+          nix-index-database.nixosModules.nix-index
+          #nixos-hardware.nixosModules.common-gpu-amd
+          #nixos-hardware.nixosModules.common-cpu-amd
           ./nixos/viper
         ];
       };
@@ -104,6 +114,7 @@
         modules = [
           # > Our main nixos configuration file <
           chaotic.nixosModules.default
+          nix-index-database.nixosModules.nix-index
           ./nixos/mute
         ];
       };
@@ -114,6 +125,7 @@
           chaotic.nixosModules.default
           impermanence.nixosModules.impermanence
           nixarr.nixosModules.default
+          nix-index-database.nixosModules.nix-index
           ./nixos/ikaros
         ];
       };

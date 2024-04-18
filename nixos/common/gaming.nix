@@ -31,6 +31,7 @@
         obs-vkcapture
         obs-pipewire-audio-capture
         obs-vaapi
+        obs-studio-plugins.obs-vaapi
       ];
     })
 

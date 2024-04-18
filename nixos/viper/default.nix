@@ -32,6 +32,8 @@
     krita
     pywhat
     distrobox
+    davinci-resolve
+    clinfo
   ];
   services.flatpak.enable = true;
   virtualisation.podman = {
@@ -45,6 +47,7 @@
       12345678901234567890123456789012
     '';
   };
+  programs.command-not-found.enable = false;
   environment.persistence."/nix/persist" = {
     hideMounts = true;
     directories = [
