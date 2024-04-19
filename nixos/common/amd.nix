@@ -8,9 +8,10 @@
 }: {
   # Configurations for AMDGPU and ROCm setup
   # Some programs hard-code the path to HIP
-  systemd.tmpfiles.rules = [
-    "L+ /opt/rocm/hip - - - - ${pkgs.rocmPackages.clr}"
-  ];
+  # systemd.tmpfiles.rules = [
+  #   "L+ /opt/rocm/hip - - - - ${pkgs.rocmPackages_5.clr}"
+  #   "L+ /etc/OpenCL - - - - /run/opengl-driver/etc/OpenCL"
+  # ];
   # Enable ROCM on my RX 580
   environment = {
     variables = {
@@ -18,6 +19,10 @@
     };
     systemPackages = with pkgs; [
       clinfo
+      rocmPackages_5.clr.icd
+      rocmPackages_5.clr
+      rocmPackages_5.rocminfo
+      rocmPackages_5.rocm-runtime
     ];
   };
   # Additional hardware configurations
@@ -28,8 +33,13 @@
     driSupport = true;
     driSupport32Bit = true;
     extraPackages = with pkgs; [
-      rocm-opencl-icd
-      rocm-opencl-runtime
+      rocmPackages_5.clr.icd
+      rocmPackages_5.clr
+      rocmPackages_5.rocminfo
+      rocmPackages_5.rocm-runtime
     ];
   };
+  systemd.tmpfiles.rules = [
+    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages_5.clr}"
+  ];
 }
