@@ -135,7 +135,7 @@
           # > Our main nixos configuration file <
           chaotic.nixosModules.default
           nix-index-database.nixosModules.nix-index
-          nixos-hardware.nixosModules.common-gpu-nvidia
+          #nixos-hardware.nixosModules.common-gpu-nvidia
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
           ./nixos/slash
