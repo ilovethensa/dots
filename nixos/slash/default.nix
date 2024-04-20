@@ -73,7 +73,7 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
+  services.flatpak.enable = true;
   # List services that you want to enable:
 
   home-manager = {
