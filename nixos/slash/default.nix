@@ -42,14 +42,20 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.mars = {
-    isNormalUser = true;
-    description = "mars";
-    extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      firefox
-      #  thunderbird
-    ];
+  programs.fish.enable = true;
+  users = {
+    defaultUserShell = pkgs.fish;
+    users = {
+      mars = {
+        isNormalUser = true;
+        description = "mars";
+        extraGroups = ["networkmanager" "wheel"];
+        packages = with pkgs; [
+          firefox
+          #  thunderbird
+        ];
+      };
+    };
   };
 
   # List packages installed in system profile. To search, run:
