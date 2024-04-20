@@ -9,6 +9,7 @@
   # Networking configurations
   networking = {
     firewall.enable = false;
+    networkmanager.enable = true;
     dhcpcd.extraConfig = ''
       noarp
     '';
