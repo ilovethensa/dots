@@ -60,7 +60,7 @@
       };
     };
   };
-
+  services.flatpak.enable = true;
   home-manager = {
     extraSpecialArgs = {inherit inputs outputs spicetify-nix;};
     users = {
@@ -68,6 +68,8 @@
       tht = import ../../home-manager/mars/home.nix;
     };
   };
+  programs.command-not-found.enable = false;
+  hardware.bluetooth.enable = false; # Disable Bluetooth
   # System state version
   system.stateVersion = "23.05";
 }
