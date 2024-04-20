@@ -134,8 +134,6 @@
         modules = [
           # > Our main nixos configuration file <
           chaotic.nixosModules.default
-          impermanence.nixosModules.impermanence
-          nixarr.nixosModules.default
           nix-index-database.nixosModules.nix-index
           nixos-hardware.nixosModules.common-gpu-nvidia
           nixos-hardware.nixosModules.common-cpu-intel
