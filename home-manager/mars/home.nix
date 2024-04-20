@@ -62,17 +62,29 @@ in {
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
   home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt git-crypt];
-  programs.spicetify = {
-    enable = true;
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = "mocha";
+  programs = {
+    home-manager.enable = true;
+    git = {
+      enable = true;
+      userName = "Bill Gates";
+      userEmail = "me@theholytachanka.com";
+      extraConfig = {
+        core.pager = "bat";
+        init.defaultBranch = "main";
+      };
+    };
+    spicetify = {
+      enable = true;
+      theme = spicePkgs.themes.catppuccin;
+      colorScheme = "mocha";
 
-    enabledExtensions = with spicePkgs.extensions; [
-      brokenAdblock
-    ];
-    enabledCustomApps = with spicePkgs.apps; [
-      lyrics-plus
-    ];
+      enabledExtensions = with spicePkgs.extensions; [
+        brokenAdblock
+      ];
+      enabledCustomApps = with spicePkgs.apps; [
+        lyrics-plus
+      ];
+    };
   };
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
