@@ -129,6 +129,20 @@
           ./nixos/ikaros
         ];
       };
+      slash = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs secrets spicetify-nix;};
+        modules = [
+          # > Our main nixos configuration file <
+          chaotic.nixosModules.default
+          impermanence.nixosModules.impermanence
+          nixarr.nixosModules.default
+          nix-index-database.nixosModules.nix-index
+          nixos-hardware.nixosModules.common-gpu-nvidia
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-pc-ssd
+          ./nixos/slash
+        ];
+      };
       #nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
       #  modules = [ ./nixos/pixel ];
       #};

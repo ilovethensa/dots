@@ -42,6 +42,9 @@
     dockerSocket.enable = true;
     autoPrune.enable = true;
   };
+  virtualisation.containers = {
+    enable = true;
+  };
   environment.etc.machine-id = {
     text = ''
       12345678901234567890123456789012

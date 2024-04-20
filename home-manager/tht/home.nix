@@ -24,7 +24,7 @@ in {
     inputs.nix-colors.homeManagerModules.default
     ./apps/vscode
     ./apps/firefox
-    ./apps/fish
+    ../common/fish
     ./apps/yt-dlp
     ./desktops/sway
     spicetify-nix.homeManagerModule
