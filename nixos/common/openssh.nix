@@ -11,6 +11,17 @@
     ports = [
       69 # Funny number
     ];
+    banner = ''
+      **********************************************************************
+      **                      Official CIA spyware node                   **
+      **                                                                  **
+      ** This system can only by accessed by the SSH backdoor our friends **
+      ** at the NSA gave us, no other way is possible. If you dont have   **
+      ** Please contact your authoritives                                 **
+      **                                                                  **
+      ** All activities performed on this system are logged and monitored.**
+      **********************************************************************
+    '';
     # require public key authentication for better security
     settings = {
       PasswordAuthentication = false;
