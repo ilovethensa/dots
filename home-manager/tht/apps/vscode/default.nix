@@ -24,6 +24,7 @@
       vscode-icons-team.vscode-icons
       aaron-bond.better-comments
       kamadorueda.alejandra
+      astro-build.astro-vscode
     ];
 
     # Define user settings for Visual Studio Code

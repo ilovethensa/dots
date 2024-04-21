@@ -45,7 +45,7 @@
     extraConfig = ''
       gaps inner 10
       default_border none
-      output * background /home/tht/Pictures/wall.png fill
+      #output * background /home/tht/Pictures/wall.png fill
     '';
   };
 }

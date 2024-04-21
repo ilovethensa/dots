@@ -10,7 +10,7 @@
     nixarr.url = "github:rasmus-kirk/nixarr";
     nix-gaming.url = "github:fufexan/nix-gaming";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
+    nixinate.url = "github:matthewcroughan/nixinate";
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,7 +20,7 @@
       flake = false;
     };
     home-manager = {
-      url = "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     firefox-addons = {
@@ -59,6 +59,7 @@
     nix-gaming,
     nixos-hardware,
     nix-index-database,
+    nixinate,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -93,6 +94,8 @@
 
     templates = import ./templates;
 
+    apps = nixinate.nixinate.x86_64-linux self;
+
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
@@ -107,6 +110,15 @@
           #nixos-hardware.nixosModules.common-gpu-amd
           #nixos-hardware.nixosModules.common-cpu-amd
           ./nixos/viper
+          {
+            _module.args.nixinate = {
+              host = "192.168.1.102";
+              sshUser = "root";
+              buildOn = "local"; # valid args are "local" or "remote"
+              substituteOnTarget = true; # if buildOn is "local" then it will substitute on the target, "-s"
+              hermetic = false;
+            };
+          }
         ];
       };
       mute = nixpkgs.lib.nixosSystem {
@@ -127,6 +139,15 @@
           nixarr.nixosModules.default
           nix-index-database.nixosModules.nix-index
           ./nixos/ikaros
+          {
+            _module.args.nixinate = {
+              host = "192.168.1.111";
+              sshUser = "root";
+              buildOn = "remote"; # valid args are "local" or "remote"
+              substituteOnTarget = true; # if buildOn is "local" then it will substitute on the target, "-s"
+              hermetic = false;
+            };
+          }
         ];
       };
       slash = nixpkgs.lib.nixosSystem {
@@ -139,6 +160,15 @@
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
           ./nixos/slash
+          {
+            _module.args.nixinate = {
+              host = "192.168.1.100";
+              sshUser = "root";
+              buildOn = "remote"; # valid args are "local" or "remote"
+              substituteOnTarget = true; # if buildOn is "local" then it will substitute on the target, "-s"
+              hermetic = false;
+            };
+          }
         ];
       };
       #nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
