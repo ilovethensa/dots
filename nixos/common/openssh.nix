@@ -16,6 +16,7 @@
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "yes";
+      LogLevel = "VERBOSE";
       Ciphers = [
         "aes256-gcm@openssh.com"
         "aes256-ctr,aes192-ctr"
