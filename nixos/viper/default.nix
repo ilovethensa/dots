@@ -27,13 +27,15 @@
   networking.hostName = "viper"; # Set hostname
   boot.kernelParams = ["mitigations=off"]; # Kernel parameters
   hardware.bluetooth.enable = false; # Disable Bluetooth
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
   environment.systemPackages = with pkgs; [
     krita
     pywhat
     distrobox
     davinci-resolve
-    clinfo
+    quickemu
   ];
   services.flatpak.enable = true;
   virtualisation.podman = {
