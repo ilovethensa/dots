@@ -64,6 +64,7 @@ in {
   environment.systemPackages = with pkgs; [
     jdk17
     playit
+    git
   ];
   # Persistence configuration
   environment.persistence."/nix/persist" = {
