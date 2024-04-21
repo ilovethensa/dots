@@ -37,7 +37,11 @@
     };
     printing.enable = true;
   };
-
+  environment.etc.machine-id = {
+    text = ''
+      12345678901234567890123456789012
+    '';
+  };
   # Set the timezone to Bulgaria
   time.timeZone = "Europe/Sofia";
 }
