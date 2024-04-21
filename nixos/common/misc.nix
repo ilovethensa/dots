@@ -76,4 +76,5 @@
     enable = true;
     enableNotifications = true;
   };
+  programs.command-not-found.enable = false;
 }

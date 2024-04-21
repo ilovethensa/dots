@@ -11,7 +11,7 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixinate.url = "github:matthewcroughan/nixinate";
-    
+
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -113,7 +113,7 @@
           ./nixos/viper
           {
             _module.args.nixinate = {
-              host = "192.168.1.102";
+              host = "192.168.1.102:69";
               sshUser = "root";
               buildOn = "local"; # valid args are "local" or "remote"
               substituteOnTarget = true; # if buildOn is "local" then it will substitute on the target, "-s"
@@ -142,7 +142,7 @@
           ./nixos/ikaros
           {
             _module.args.nixinate = {
-              host = "192.168.1.111";
+              host = "192.168.1.111:69";
               sshUser = "root";
               buildOn = "remote"; # valid args are "local" or "remote"
               substituteOnTarget = true; # if buildOn is "local" then it will substitute on the target, "-s"
@@ -163,7 +163,7 @@
           ./nixos/slash
           {
             _module.args.nixinate = {
-              host = "192.168.1.100";
+              host = "192.168.1.100:69";
               sshUser = "root";
               buildOn = "remote"; # valid args are "local" or "remote"
               substituteOnTarget = true; # if buildOn is "local" then it will substitute on the target, "-s"

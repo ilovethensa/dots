@@ -89,6 +89,22 @@ in {
         lyrics-plus
       ];
     };
+    ssh = {
+      enable = true;
+      extraConfig = ''
+        Host ikaros
+            HostName 192.168.1.111
+            Port 69
+
+        Host slash
+            HostName 192.168.1.100
+            Port 69
+
+        Host viper
+            HostName 192.168.1.102
+            Port 69
+      '';
+    };
   };
 
   # Nicely reload system units when changing configs

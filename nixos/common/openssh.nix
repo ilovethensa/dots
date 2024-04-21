@@ -69,11 +69,6 @@
       "hmac-sha2-256-etm@openssh.com"
       "umac-128-etm@openssh.com"
     ];
-    knownHosts = {
-      ikaros.HostNames = ["192.168.1.111:69"];
-      slash.HostNames = ["192.168.1.100:69"];
-      viper.HostNames = ["192.168.1.102:69"];
-    };
   };
   # Timeout TTY after 1 hour
   programs.bash.interactiveShellInit = "if [[ $(tty) =~ /dev\\/tty[1-6] ]]; then TMOUT=3600; fi";
