@@ -95,7 +95,11 @@ in {
       "/etc/ssh/ssh_host_ed25519_key.pub"
     ];
   };
-
+  environment.etc.machine-id = {
+    text = ''
+      12345678901234567890123456789012
+    '';
+  };
   # System state version
   system.stateVersion = "23.05";
 }
