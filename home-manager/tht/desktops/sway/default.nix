@@ -46,6 +46,12 @@
       gaps inner 10
       default_border none
       #output * background /home/tht/Pictures/wall.png fill
+      input type:touchpad {
+        tap enabled
+        natural_scroll enabled
+      }
+      bindgesture swipe:right workspace prev
+      bindgesture swipe:left workspace next
     '';
   };
 }
