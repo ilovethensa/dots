@@ -37,9 +37,24 @@
 
   environment.systemPackages = with pkgs; [
     aircrack-ng
-    wifite2
+    airgeddon
+    wavemon
   ];
-
+  services.fwupd.enable = true;
+  services.auto-cpufreq = {
+    enable = true;
+    settings = {
+      battery = {
+        governor = "powersave";
+        turbo = "never";
+      };
+      charger = {
+        governor = "performance";
+        turbo = "auto";
+      };
+    };
+  };
+  powerManagement.powertop.enable = true;
   # System state version
   system.stateVersion = "23.05";
 }
