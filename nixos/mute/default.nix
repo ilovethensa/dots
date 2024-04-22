@@ -15,7 +15,7 @@
     ./../common/home.nix
     ./../common/openssh.nix
     ./../common/nix-ld.nix
-    ./../common/desktops/gnome
+    ./../common/desktops/sway
     ./../common/boot.nix
     ./../common/misc.nix
     inputs.home-manager.nixosModules.home-manager
@@ -31,10 +31,14 @@
       allowUnfree = true; # Enable unfree packages
     };
   };
-
   # Networking and system configurations
   networking.hostName = "mute"; # Define hostname
   networking.networkmanager.enable = true; # Enable NetworkManager
+
+  environment.systemPackages = with pkgs; [
+    aircrack-ng
+    wifite2
+  ];
 
   # System state version
   system.stateVersion = "23.05";
