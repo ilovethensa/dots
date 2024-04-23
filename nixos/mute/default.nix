@@ -37,8 +37,9 @@
 
   environment.systemPackages = with pkgs; [
     aircrack-ng
-    airgeddon
-    wavemon
+    wifite2
+    hcxtools
+    hcxdumptool
   ];
   services.fwupd.enable = true;
   services.auto-cpufreq = {
