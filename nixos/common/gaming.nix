@@ -42,6 +42,7 @@
     protonup-qt
     mangohud
     gamescope
+    openjdk17
   ];
   # Disabled since it doesnt work on gnome(for now)
   # ReplaySorcery service
