@@ -59,8 +59,21 @@ in {
 
   # Networking and system configurations
   networking.hostName = "ikaros"; # Define hostname
+  virtualisation = {
+    oci-containers.backend = "docker";
+    docker = {
+      enable = true;
+      storageDriver = "btrfs";
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
+      daemon.settings = {
+        data-root = "/var/lib/docker";
+      };
+    };
+  };
 
-  virtualisation.oci-containers.backend = "podman";
   environment.systemPackages = with pkgs; [
     jdk17
     playit
