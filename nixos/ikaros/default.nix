@@ -40,7 +40,7 @@ in {
     ./services/playit.nix
     ./services/glances.nix
     #./services/nextcloud.nix
-    ./services/nginx.nix
+    ./services/caddy.nix
     ./avahi.nix
     ./services/jellyseerr.nix
     inputs.home-manager.nixosModules.home-manager
