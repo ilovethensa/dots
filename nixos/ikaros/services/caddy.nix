@@ -12,9 +12,6 @@
       "mc.theholytachanka.com".extraConfig = ''
         reverse_proxy 192.168.1.111:25565
       '';
-      "md.theholytachanka.com".extraConfig = ''
-        reverse_proxy 127.0.0.1:6567
-      '';
     };
   };
   services.cfdyndns = {
@@ -22,7 +19,6 @@
     apiTokenFile = "/etc/cloudflare-api-token";
     records = [
       "mc.theholytachanka.com"
-      "md.theholytachanka.com"
     ];
   };
 }
