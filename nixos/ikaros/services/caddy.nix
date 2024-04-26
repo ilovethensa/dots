@@ -5,7 +5,7 @@
   secrets,
   ...
 }: {
-  environment.etc."cloudflare-api-key".text = secrets.cloudflare.apikey;
+  environment.etc."cloudflare-api-token".text = secrets.cloudflare.apitoken;
   services.caddy = {
     enable = true;
     virtualHosts = {
@@ -16,8 +16,7 @@
   };
   services.cfdyndns = {
     enable = true;
-    email = secrets.cloudflare.email;
-    apikeyFile = "/etc/cloudflare-api-key";
+    apiTokenFile = "/etc/cloudflare-api-token";
     records = [
       "mc.theholytachanka.com"
     ];
