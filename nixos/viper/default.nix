@@ -21,6 +21,7 @@
     ./../common/desktops/sway
     ./../common/networking.nix
     ./../common/misc.nix
+    ./../common/security.nix
   ];
 
   # Networking and system configurations

@@ -12,12 +12,14 @@
   security.protectKernelImage = true;
 
   boot = {
-    # tmpfs = /tmp is mounted in ram. Doing so makes temp file management speedy
-    # on ssd systems, and volatile! Because it's wiped on reboot.
-    tmpOnTmpfs = lib.mkDefault true;
-    # If not using tmpfs, which is naturally purged on reboot, we must clean it
-    # /tmp ourselves. /tmp should be volatile storage!
-    cleanTmpDir = lib.mkDefault (!config.boot.tmpOnTmpfs);
+    tmp = {
+      # tmpfs = /tmp is mounted in ram. Doing so makes temp file management speedy
+      # on ssd systems, and volatile! Because it's wiped on reboot.
+      useTmpfs = lib.mkDefault true;
+      # If not using tmpfs, which is naturally purged on reboot, we must clean it
+      # /tmp ourselves. /tmp should be volatile storage!
+      cleanOnBoot = lib.mkDefault (!config.boot.tmpOnTmpfs);
+    };
     # Fix a security hole in place for backwards compatibility. See desc in
     # https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/system/boot/loader/systemd-boot/systemd-boot.nix#L149
     loader.systemd-boot.editor = false;
