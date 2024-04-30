@@ -37,6 +37,7 @@
     distrobox
     davinci-resolve
     quickemu
+    qemu
   ];
   services.flatpak.enable = true;
   virtualisation.podman = {

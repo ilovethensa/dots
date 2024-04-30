@@ -14,8 +14,15 @@
       devShells.default = pkgs.mkShell {
         packages = with pkgs; [
           python3
-          python311Packages.pip
+          uv
         ];
+        shellHook = ''
+          if [ ! -d ".venv" ]; then
+              echo "Creating virtual environment..."
+              uv venv
+          fi
+          source ".venv/bin/activate"
+        '';
       };
     });
 }
