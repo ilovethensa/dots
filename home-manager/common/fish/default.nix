@@ -16,6 +16,7 @@
     crabz
     hex
     suckit
+    nom
   ];
   programs.fish = {
     enable = true;
