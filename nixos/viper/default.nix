@@ -38,6 +38,7 @@
     davinci-resolve
     quickemu
     qemu
+    masscan-mc
   ];
   services.flatpak.enable = true;
   virtualisation.podman = {

@@ -8,24 +8,24 @@
   libpcap,
 }:
 stdenv.mkDerivation rec {
-  pname = "masscan";
-  version = "2b3fea1c99a165381c8f390772d7ca64a9ced5a5";
+  pname = "masscan-mc";
+  version = "d415038c386801068e727b5d151e4ce2453c4d36";
 
   src = fetchFromGitHub {
     owner = "adrian154";
     repo = "masscan";
     rev = version;
-    sha256 = "sha256-mnGC/moQANloR5ODwRjzJzBa55OEZ9QU+9WpAHxQE/g=";
+    sha256 = "sha256-6goyTi2QWMSSoKpFCD4I5cPMJu+srUr+nOM3GSADEyE=";
   };
 
-  patches = [
+/*   patches = [
     # Patches the missing "--resume" functionality
     (fetchpatch {
       name = "resume.patch";
       url = "https://github.com/robertdavidgraham/masscan/commit/90791550bbdfac8905917a109ed74024161f14b3.patch";
       sha256 = "sha256-A7Fk3MBNxaad69MrUYg7fdMG77wba5iESDTIRigYslw=";
     })
-  ];
+  ]; */
 
   postPatch = lib.optionalString stdenv.isDarwin ''
     # Fix broken install command
