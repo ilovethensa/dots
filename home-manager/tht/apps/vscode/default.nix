@@ -25,6 +25,11 @@
       aaron-bond.better-comments
       kamadorueda.alejandra
       astro-build.astro-vscode
+      octref.vetur
+      svelte.svelte-vscode
+      tiehuis.zig
+      ms-python.python
+      ms-python.vscode-pylance
     ];
 
     # Define user settings for Visual Studio Code

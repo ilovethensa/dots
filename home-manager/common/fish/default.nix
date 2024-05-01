@@ -13,7 +13,9 @@
     gitoxide
     fd
     tealdeer
-    ouch
+    crabz
+    hex
+    suckit
   ];
   programs.fish = {
     enable = true;
