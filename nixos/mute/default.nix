@@ -15,7 +15,7 @@
     ./../common/home.nix
     ./../common/openssh.nix
     ./../common/nix-ld.nix
-    ./../common/desktops/sway
+    ./../common/desktops/gnome
     ./../common/boot.nix
     ./../common/misc.nix
     inputs.home-manager.nixosModules.home-manager
