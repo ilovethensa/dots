@@ -29,8 +29,6 @@ with lib.hm.gvariant; {
       font-antialiasing = "rgba";
       font-hinting = "full";
       font-name = "FiraCode Nerd Font";
-      gtk-theme = "Adwaita";
-      icon-theme = "Adwaita";
       monospace-font-name = "FiraCode Nerd Font 10";
       show-battery-percentage = true;
     };
