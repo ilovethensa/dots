@@ -21,10 +21,10 @@
       name = "adw-gtk3-dark";
     };
 
-    cursorTheme = {
-      package = pkgs.vimix-cursors;
-      name = "Vimix-cursors";
-    };
+    #cursorTheme = {
+    #  package = pkgs.vimix-cursors;
+    #  name = "Vimix-cursors";
+    #};
     iconTheme.name = "MoreWaita";
     font = {
       package = pkgs.fira-code-nerdfont;
