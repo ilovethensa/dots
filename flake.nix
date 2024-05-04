@@ -128,6 +128,7 @@
           # > Our main nixos configuration file <
           chaotic.nixosModules.default
           nix-index-database.nixosModules.nix-index
+          impermanence.nixosModules.impermanence
           ./nixos/mute
         ];
       };
