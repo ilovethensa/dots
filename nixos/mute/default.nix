@@ -18,6 +18,7 @@
     ./../common/desktops/gnome
     ./../common/boot.nix
     ./../common/misc.nix
+    ./../common/persist.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -56,6 +57,7 @@
     };
   };
   powerManagement.powertop.enable = true;
+
   # System state version
   system.stateVersion = "23.05";
 }

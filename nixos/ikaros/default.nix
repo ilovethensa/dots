@@ -25,6 +25,7 @@ in {
     ./../common/nix-ld.nix
     ./../common/boot.nix
     ./../common/misc.nix
+    ./../common/persist.nix
     (import ./services/arr.nix {inherit config lib pkgs servicesConfig secrets;})
     ./services/cloudflared-web.nix
     #./services/qbittorrent.nix
@@ -83,14 +84,8 @@ in {
   environment.persistence."/nix/persist" = {
     hideMounts = true;
     directories = [
-      "/var/log"
-      "/var/lib/nixos"
-      "/etc/NetworkManager/system-connections"
-      #"/srv"
       "/var/lib/jellyfin"
       "/etc/jellyfin"
-      "/var/lib/docker"
-      "/var/lib/containers"
       {
         directory = "/home/tht";
         user = "tht";
@@ -107,11 +102,6 @@ in {
       "/etc/ssh/ssh_host_ed25519_key"
       "/etc/ssh/ssh_host_ed25519_key.pub"
     ];
-  };
-  environment.etc.machine-id = {
-    text = ''
-      12345678901234567890123456789012
-    '';
   };
   # System state version
   system.stateVersion = "23.05";

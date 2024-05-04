@@ -22,6 +22,7 @@
     ./../common/networking.nix
     ./../common/misc.nix
     ./../common/security.nix
+    ./../common/persist.nix
   ];
 
   # Networking and system configurations
