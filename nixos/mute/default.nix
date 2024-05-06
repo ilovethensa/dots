@@ -19,6 +19,7 @@
     ./../common/boot.nix
     ./../common/misc.nix
     ./../common/persist.nix
+    ./../common/gaming.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -41,6 +42,8 @@
     wifite2
     hcxtools
     hcxdumptool
+    qemu
+    qbittorrent
   ];
   services.fwupd.enable = true;
   services.auto-cpufreq = {
@@ -58,6 +61,8 @@
   };
   powerManagement.powertop.enable = true;
 
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
   # System state version
   system.stateVersion = "23.05";
 }
