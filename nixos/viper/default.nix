@@ -23,6 +23,7 @@
     ./../common/misc.nix
     ./../common/security.nix
     ./../common/persist.nix
+    ./../common/virtualization.nix
   ];
 
   # Networking and system configurations
@@ -42,24 +43,7 @@
     masscan-mc
   ];
   services.flatpak.enable = true;
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-    dockerSocket.enable = true;
-    autoPrune.enable = true;
-  };
-  virtualisation.containers = {
-    enable = true;
-  };
   programs.command-not-found.enable = false;
-  environment.persistence."/nix/persist" = {
-    hideMounts = true;
-    directories = [
-      "/var/log"
-      "/var/lib/nixos"
-      "/etc/NetworkManager/system-connections"
-    ];
-  };
   # System state version
   system.stateVersion = "23.05";
 }

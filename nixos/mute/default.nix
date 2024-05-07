@@ -20,6 +20,7 @@
     ./../common/misc.nix
     ./../common/persist.nix
     ./../common/gaming.nix
+    ./../common/virtualization.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -60,9 +61,6 @@
     };
   };
   powerManagement.powertop.enable = true;
-
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
   # System state version
   system.stateVersion = "23.05";
 }
