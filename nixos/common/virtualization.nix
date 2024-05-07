@@ -21,4 +21,7 @@
       };
     };
   };
+  envinronment.systemPackages = with pkgs; [
+    distrobox
+  ];
 }
