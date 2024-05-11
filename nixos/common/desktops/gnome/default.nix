@@ -9,14 +9,6 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
   ];
-
-  environment.systemPackages = with pkgs; [
-    gnome3.adwaita-icon-theme
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.appindicator
-    gnomeExtensions.app-hider
-    gnomeExtensions.gsconnect
-  ];
   services = {
     xserver = {
       enable = true;

@@ -18,12 +18,6 @@ with lib.hm.gvariant; {
 
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
-      cursor-theme = "Adwaita";
-      document-font-name = "FiraCode Nerd Font 11";
-      font-antialiasing = "rgba";
-      font-hinting = "full";
-      font-name = "FiraCode Nerd Font";
-      monospace-font-name = "FiraCode Nerd Font 10";
       show-battery-percentage = true;
     };
 
