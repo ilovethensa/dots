@@ -2,12 +2,6 @@
 {lib, ...}:
 with lib.hm.gvariant; {
   dconf.settings = {
-    "org/gnome/Console" = {
-      custom-font = "DejaVu Sans Mono 10";
-      last-window-size = mkTuple [652 480];
-      use-system-font = false;
-    };
-
     "org/gnome/desktop/background" = {
       color-shading-type = "solid";
       picture-options = "zoom";
@@ -61,12 +55,6 @@ with lib.hm.gvariant; {
       primary-color = "#241f31";
       secondary-color = "#000000";
     };
-
-    "org/gnome/desktop/wm/preferences" = {
-      button-layout = "appmenu:minimize,maximize,close";
-      num-workspaces = 1;
-      titlebar-font = "FiraCode Nerd Font 11";
-    };
     "org/gnome/mutter" = {
       dynamic-workspaces = true;
       edge-tiling = true;
@@ -83,9 +71,6 @@ with lib.hm.gvariant; {
     "org/gnome/shell" = {
       enabled-extensions = ["appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "app-hider@lynith.dev"];
       favorite-apps = ["org.gnome.Nautilus.desktop" "org.gnome.Console.desktop" "firefox.desktop" "vscode.desktop"];
-      last-selected-power-profile = "power-saver";
-      remember-mount-password = false;
-      welcome-dialog-last-shown-version = "45.5";
     };
 
     "org/gnome/shell/extensions/app-hider" = {

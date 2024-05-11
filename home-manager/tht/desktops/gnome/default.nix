@@ -25,11 +25,7 @@
     #  package = pkgs.vimix-cursors;
     #  name = "Vimix-cursors";
     #};
-    iconTheme.name = "MoreWaita";
-    font = {
-      package = pkgs.fira-code-nerdfont;
-      name = "FiraCode Nerd Font";
-    };
+    #iconTheme.name = "MoreWaita";
   };
   qt = {
     enable = true;
