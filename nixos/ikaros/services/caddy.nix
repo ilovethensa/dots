@@ -2,8 +2,10 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }: {
+  sops.secrets.cloudflare_key = {};
   services.caddy = {
     enable = true;
     virtualHosts = {

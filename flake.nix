@@ -131,7 +131,7 @@
           impermanence.nixosModules.impermanence
           nixarr.nixosModules.default
           nix-index-database.nixosModules.nix-index
-          sops-nix.nixosModules.sops
+          #sops-nix.nixosModules.sops
           ./nixos/ikaros
         ];
       };
