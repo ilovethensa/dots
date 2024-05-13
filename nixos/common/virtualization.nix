@@ -9,15 +9,13 @@
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
   virtualisation = {
-    docker = {
-      enable = true;
-      storageDriver = "btrfs";
-      rootless = {
+    virtualisation = {
+      oci-containers.backend = "podman";
+      podman = {
         enable = true;
-        setSocketVariable = true;
-      };
-      daemon.settings = {
-        data-root = "/var/lib/docker";
+        dockerCompat = true;
+        dockerSocket.enable = true;
+        autoPrune.enable = true;
       };
     };
   };
