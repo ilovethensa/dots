@@ -10,6 +10,7 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
     spicetify-nix.nixosModule
+    inputs.sops-nix.nixosModules.sops
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./../common/desktops/cinnamon
