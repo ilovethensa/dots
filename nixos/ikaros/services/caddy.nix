@@ -4,7 +4,6 @@
   config,
   ...
 }: {
-
   environment.etc."cloudflare-api-token".text = secrets.cloudflare.apitoken;
   services.caddy = {
     enable = true;
@@ -16,7 +15,7 @@
   };
   services.cfdyndns = {
     enable = true;
-    apiTokenFile =  ${config.sops.secrets."cloudflare_key".path};
+    apiTokenFile = config.sops.secrets."cloudflare_key".path;
     records = [
       "mc.theholytachanka.com"
     ];
