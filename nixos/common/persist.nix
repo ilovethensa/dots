@@ -12,7 +12,6 @@
       "/var/log"
       "/var/lib/nixos"
       "/etc/NetworkManager/system-connections"
-      "/var/lib/docker"
       "/var/lib/containers"
     ];
   };
