@@ -57,7 +57,7 @@
       enable = true;
       dockerCompat = true;
       dockerSocket.enable = true;
-      autoPrun/var/lib/jellyseerr/e.enable = true;
+      autoPrune.enable = true;
     };
   };
 
