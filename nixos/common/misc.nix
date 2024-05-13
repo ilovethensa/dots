@@ -13,7 +13,7 @@
       {
         name = "origin";
         url = "https://github.com/ilovethensa/dots";
-        poller.period = 500;
+        poller.period = 60;
         branches.main.name = "master";
       }
     ];

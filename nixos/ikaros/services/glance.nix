@@ -25,15 +25,6 @@
                 - url: https://ishadeed.com/feed.xml
                   title: Ahmad Shadeed
 
-            - type: twitch-channels
-              channels:
-                - theprimeagen
-                - cohhcarnage
-                - christitustech
-                - blurbs
-                - asmongold
-                - jembawls
-
         - size: full
           widgets:
             - type: hacker-news
@@ -50,26 +41,8 @@
         - size: small
           widgets:
             - type: weather
-              location: London, United Kingdom
+              location: Kochevo, Bulgaria
 
-            - type: stocks
-              stocks:
-                - symbol: SPY
-                  name: S&P 500
-                - symbol: BTC-USD
-                  name: Bitcoin
-                - symbol: NVDA
-                  name: NVIDIA
-                - symbol: AAPL
-                  name: Apple
-                - symbol: MSFT
-                  name: Microsoft
-                - symbol: GOOGL
-                  name: Google
-                - symbol: AMD
-                  name: AMD
-                - symbol: RDDT
-                  name: Reddit
   '';
   virtualisation.oci-containers.containers."glance" = {
     image = "glanceapp/glance";
