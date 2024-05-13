@@ -2,9 +2,9 @@
   pkgs,
   lib,
   config,
-  secrets,
   ...
 }: {
+
   environment.etc."cloudflare-api-token".text = secrets.cloudflare.apitoken;
   services.caddy = {
     enable = true;
@@ -16,7 +16,7 @@
   };
   services.cfdyndns = {
     enable = true;
-    apiTokenFile = "/etc/cloudflare-api-token";
+    apiTokenFile =  ${config.sops.secrets."cloudflare_key".path};
     records = [
       "mc.theholytachanka.com"
     ];

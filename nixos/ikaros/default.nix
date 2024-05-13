@@ -4,19 +4,8 @@
   lib,
   config,
   pkgs,
-  secrets,
   ...
-}: let
-  servicesConfig = {
-    jellyfin = {port = 8096;};
-    transmission = {port = 9091;};
-    radarr = {port = 7878;};
-    sonarr = {port = 8989;};
-    bazarr = {port = 6767;};
-    prowlarr = {port = 9696;};
-    jellyseerr = {port = 5055;};
-  };
-in {
+}: {
   # Import modules and configuration pieces
   imports = [
     ./hardware-configuration.nix
@@ -26,12 +15,13 @@ in {
     ./../common/boot.nix
     ./../common/misc.nix
     ./../common/persist.nix
-    (import ./services/arr.nix {inherit config lib pkgs servicesConfig secrets;})
+    ./../common/sops.nix
+    ./services/arr.nix
     ./services/cloudflared-web.nix
     #./services/qbittorrent.nix
     #./services/n8n.nix
     #./services/unmanic.nix
-    ./services/homepage.nix
+    #./services/homepage.nix
     #./services/glances.nix
     ./services/scrutiny.nix
     #./services/invidious.nix

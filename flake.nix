@@ -11,6 +11,7 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixinate.url = "github:matthewcroughan/nixinate";
+    sops-nix.url = "github:Mic92/sops-nix";
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
@@ -61,6 +62,7 @@
     nixos-hardware,
     nix-index-database,
     nixinate,
+    sops-nix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -75,7 +77,7 @@
     # This is a function that generates an attribute by calling a function you
     # pass to it, with each system as an argument
     forAllSystems = nixpkgs.lib.genAttrs systems;
-    secrets = builtins.fromJSON (builtins.readFile "${self}/secrets.json");
+    #secrets = builtins.fromJSON (builtins.readFile "${self}/secrets.json");
   in {
     # Your custom packages
     # Accessible through 'nix build', 'nix shell', etc
@@ -102,7 +104,7 @@
     nixosConfigurations = {
       # FIXME replace with your hostname
       viper = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs secrets spicetify-nix;};
+        specialArgs = {inherit inputs outputs spicetify-nix;};
         modules = [
           # > Our main nixos configuration file <
           chaotic.nixosModules.default
@@ -123,23 +125,25 @@
         ];
       };
       mute = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs secrets spicetify-nix;};
+        specialArgs = {inherit inputs outputs spicetify-nix;};
         modules = [
           # > Our main nixos configuration file <
           chaotic.nixosModules.default
           nix-index-database.nixosModules.nix-index
           impermanence.nixosModules.impermanence
+          sops-nix.nixosModules.sops
           ./nixos/mute
         ];
       };
       ikaros = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs secrets spicetify-nix;};
+        specialArgs = {inherit inputs outputs spicetify-nix;};
         modules = [
           # > Our main nixos configuration file <
           chaotic.nixosModules.default
           impermanence.nixosModules.impermanence
           nixarr.nixosModules.default
           nix-index-database.nixosModules.nix-index
+          sops-nix.nixosModules.sops
           ./nixos/ikaros
           {
             _module.args.nixinate = {
@@ -153,7 +157,7 @@
         ];
       };
       slash = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs secrets spicetify-nix;};
+        specialArgs = {inherit inputs outputs spicetify-nix;};
         modules = [
           # > Our main nixos configuration file <
           chaotic.nixosModules.default
@@ -161,6 +165,7 @@
           #nixos-hardware.nixosModules.common-gpu-nvidia
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
+          sops-nix.nixosModules.sops
           ./nixos/slash
           {
             _module.args.nixinate = {

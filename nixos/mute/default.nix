@@ -70,12 +70,16 @@
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
       intel-media-driver # LIBVA_DRIVER_NAME=iHD
       intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-      libvdpau-va-gl
-      clblast
       intel-ocl
+      intel-compute-runtime
+      clblast
     ];
+    driSupport32Bit = true;
   };
   environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";}; # Force intel-media-driver
 
