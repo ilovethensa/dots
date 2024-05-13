@@ -21,6 +21,7 @@
     ./../common/persist.nix
     ./../common/gaming.nix
     ./../common/virtualization.nix
+    ./../common/sops.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 

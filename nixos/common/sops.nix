@@ -11,5 +11,5 @@
   ];
   sops.defaultSopsFile = ./secrets/secrets.yaml;
   sops.defaultSopsFormat = "yaml";
-  sops.age.keyFile = "/home/tht/.sops/keys.txt";
+  sops.age.keyFile = "/home/tht/.config/sops/age/keys.txt";
 }

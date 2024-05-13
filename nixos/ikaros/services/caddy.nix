@@ -4,7 +4,6 @@
   config,
   ...
 }: {
-  environment.etc."cloudflare-api-token".text = secrets.cloudflare.apitoken;
   services.caddy = {
     enable = true;
     virtualHosts = {

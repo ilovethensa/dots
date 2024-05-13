@@ -61,7 +61,6 @@
     nix-gaming,
     nixos-hardware,
     nix-index-database,
-    nixinate,
     sops-nix,
     ...
   } @ inputs: let
@@ -97,8 +96,6 @@
 
     templates = import ./templates;
 
-    apps = nixinate.nixinate.x86_64-linux self;
-
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
@@ -113,15 +110,6 @@
           #nixos-hardware.nixosModules.common-gpu-amd
           #nixos-hardware.nixosModules.common-cpu-amd
           ./nixos/viper
-          {
-            _module.args.nixinate = {
-              host = "192.168.1.102:69";
-              sshUser = "root";
-              buildOn = "local"; # valid args are "local" or "remote"
-              substituteOnTarget = true; # if buildOn is "local" then it will substitute on the target, "-s"
-              hermetic = false;
-            };
-          }
         ];
       };
       mute = nixpkgs.lib.nixosSystem {
@@ -145,15 +133,6 @@
           nix-index-database.nixosModules.nix-index
           sops-nix.nixosModules.sops
           ./nixos/ikaros
-          {
-            _module.args.nixinate = {
-              host = "192.168.1.111:69";
-              sshUser = "root";
-              buildOn = "remote"; # valid args are "local" or "remote"
-              substituteOnTarget = true; # if buildOn is "local" then it will substitute on the target, "-s"
-              hermetic = false;
-            };
-          }
         ];
       };
       slash = nixpkgs.lib.nixosSystem {
@@ -167,15 +146,6 @@
           nixos-hardware.nixosModules.common-pc-ssd
           sops-nix.nixosModules.sops
           ./nixos/slash
-          {
-            _module.args.nixinate = {
-              host = "192.168.1.100:69";
-              sshUser = "root";
-              buildOn = "remote"; # valid args are "local" or "remote"
-              substituteOnTarget = true; # if buildOn is "local" then it will substitute on the target, "-s"
-              hermetic = false;
-            };
-          }
         ];
       };
       #nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
