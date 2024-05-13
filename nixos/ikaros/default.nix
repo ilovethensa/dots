@@ -52,17 +52,12 @@
   # Networking and system configurations
   networking.hostName = "ikaros"; # Define hostname
   virtualisation = {
-    oci-containers.backend = "docker";
-    docker = {
+    oci-containers.backend = "podman";
+    podman = {
       enable = true;
-      storageDriver = "btrfs";
-      rootless = {
-        enable = true;
-        setSocketVariable = true;
-      };
-      daemon.settings = {
-        data-root = "/var/lib/docker";
-      };
+      dockerCompat = true;
+      dockerSocket.enable = true;
+      autoPrune.enable = true
     };
   };
 
