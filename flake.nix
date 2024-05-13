@@ -121,6 +121,7 @@
           chaotic.nixosModules.default
           nix-index-database.nixosModules.nix-index
           impermanence.nixosModules.impermanence
+          comin.nixosModules.comin
           ./nixos/mute
         ];
       };
@@ -145,6 +146,7 @@
           #nixos-hardware.nixosModules.common-gpu-nvidia
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
+          comin.nixosModules.comin
           ./nixos/slash
         ];
       };
