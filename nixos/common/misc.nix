@@ -7,16 +7,16 @@
   spicetify-nix,
   ...
 }: {
-  system.autoUpgrade = {
-    allowReboot = true;
-    dates = "04:00";
+  services.comin = {
     enable = true;
-    flake = "github:ilovethensa/dots";
-    randomizedDelaySec = "1h";
-    rebootWindow = {
-      lower = "00:00";
-      upper = "06:00";
-    };
+    remotes = [
+      {
+        name = "origin";
+        url = "https://github.com/ilovethensa/dots";
+        poller.period = 500;
+        branches.main.name = "master";
+      }
+    ];
   };
   # Disables it for faster boot times
   systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;

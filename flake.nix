@@ -12,6 +12,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixinate.url = "github:matthewcroughan/nixinate";
     sops-nix.url = "github:Mic92/sops-nix";
+    comin.url = "github:nlewo/comin";
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
@@ -62,6 +63,7 @@
     nixos-hardware,
     nix-index-database,
     sops-nix,
+    comin,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -119,7 +121,6 @@
           chaotic.nixosModules.default
           nix-index-database.nixosModules.nix-index
           impermanence.nixosModules.impermanence
-          sops-nix.nixosModules.sops
           ./nixos/mute
         ];
       };
@@ -131,7 +132,7 @@
           impermanence.nixosModules.impermanence
           nixarr.nixosModules.default
           nix-index-database.nixosModules.nix-index
-          #sops-nix.nixosModules.sops
+          comin.nixosModules.comin
           ./nixos/ikaros
         ];
       };
@@ -144,7 +145,6 @@
           #nixos-hardware.nixosModules.common-gpu-nvidia
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
-          sops-nix.nixosModules.sops
           ./nixos/slash
         ];
       };
