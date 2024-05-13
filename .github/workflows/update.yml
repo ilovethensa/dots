@@ -1,0 +1,22 @@
+name: Example workflow using use-nix-action
+
+on:
+  schedule:
+    - cron: '0 3 * * *' # This cron schedule triggers the job every day at 3 AM
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: aldoborrero/use-nix-action@v4
+    - run: |
+          nix flake update
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "Updated flake"
+          git push
+
+    # Add additional steps that utilize the environment variables or binaries sourced from direnv
