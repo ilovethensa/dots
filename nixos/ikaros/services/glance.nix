@@ -76,7 +76,7 @@
     ports = ["8080:8080"];
     volumes = [
       "/etc/glance.yml:/app/glance.yml"
-      "/etc/timezone:/etc/timezone:ro"
+      #"/etc/timezone:/etc/timezone:ro"
       "/etc/localtime:/etc/localtime:ro"
     ];
     autoStart = true;
