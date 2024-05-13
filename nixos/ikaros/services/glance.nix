@@ -77,7 +77,7 @@
     volumes = [
       "/etc/glance.yml:/app/glance.yml"
       #"/etc/timezone:/etc/timezone:ro"
-      "/etc/localtime:/etc/localtime:ro"
+      #"/etc/localtime:/etc/localtime:ro"
     ];
     autoStart = true;
     extraOptions = ["--pid=host"];
