@@ -150,6 +150,19 @@
           ./nixos/slash
         ];
       };
+      renegade = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs spicetify-nix;};
+        modules = [
+          # > Our main nixos configuration file <
+          chaotic.nixosModules.default
+          nix-index-database.nixosModules.nix-index
+          #nixos-hardware.nixosModules.common-gpu-nvidia
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-pc-ssd
+          comin.nixosModules.comin
+          ./nixos/renegade
+        ];
+      };
       #nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
       #  modules = [ ./nixos/pixel ];
       #};
