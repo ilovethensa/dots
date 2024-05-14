@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - uses: aldoborrero/use-nix-action@v4
+    - uses: nixbuild/nix-quick-install-action@v28
     - run: |
           nix flake update
           git config user.name github-actions
