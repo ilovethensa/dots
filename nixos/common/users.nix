@@ -21,7 +21,7 @@
       };
       tht = {
         isNormalUser = true;
-        extraGroups = ["wheel" "render" "video" "docker"]; # Enable ‘sudo’ for the user.
+        extraGroups = ["wheel" "render" "video" "docker" "adbusers"]; # Enable ‘sudo’ for the user.
         openssh.authorizedKeys.keys = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBPxwPORGfx1bD9W6Dq0AOkxwlx1eO7AHdO1LhhA9I/n tht" # content of authorized_keys file
           # note: ssh-copy-id will add user@your-machine after the public key

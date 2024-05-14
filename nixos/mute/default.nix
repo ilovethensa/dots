@@ -84,6 +84,10 @@
     driSupport32Bit = true;
   };
   environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";}; # Force intel-media-driver
+  programs.adb.enable = true;
+  services.udev.packages = [
+    pkgs.android-udev-rules
+  ];
 
   # System state version
   system.stateVersion = "23.05";
