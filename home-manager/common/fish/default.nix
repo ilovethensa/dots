@@ -48,6 +48,7 @@
       dmesg = "${pkgs.util-linux}/bin/dmesg --human --color=always";
       tree = "${pkgs.eza}/bin/eza --tree";
       ping = "${pkgs.gping}/bin/gping";
+      ask = "${pkgs.tgpt}/bin/tgpt";
     };
     plugins = [
       # Enable a plugin (here grc for colorized command output) from nixpkgs
