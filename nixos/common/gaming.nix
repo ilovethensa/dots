@@ -44,13 +44,4 @@
     gamescope
     openjdk17
   ];
-  # Disabled since it doesnt work on gnome(for now)
-  # ReplaySorcery service
-  /*
-       services.replay-sorcery = {
-    enable = true;
-    autoStart = true;
-    enableSysAdminCapability = true;
-  };
-  */
 }
