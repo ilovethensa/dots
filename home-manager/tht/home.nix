@@ -23,7 +23,7 @@ in {
     # ./nvim.nix
     inputs.nix-colors.homeManagerModules.default
     ./apps/vscode
-    ./apps/firefox
+    #./apps/firefox
     ../common/fish
     ./apps/yt-dlp
     ./desktops/gnome
@@ -65,7 +65,7 @@ in {
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
-  home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt git-crypt yazi];
+  home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt git-crypt yazi mullvad-browser];
   programs = {
     home-manager.enable = true;
     git = {
