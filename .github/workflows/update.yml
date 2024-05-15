@@ -3,20 +3,19 @@ name: Update flake.lock
 on:
   schedule:
     - cron: '0 3 * * *' # This cron schedule triggers the job every day at 3 AM
-
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
     - uses: actions/checkout@v4
 
     - uses: nixbuild/nix-quick-install-action@v28
-    - run: |
-          nix flake update
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "Updated flake"
-          git push
-
+    - run: nix flake update
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Updated flake
+           
     # Add additional steps that utilize the environment variables or binaries sourced from direnv
