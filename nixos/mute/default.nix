@@ -12,7 +12,7 @@
     #./../common/kde.nix
     ./../common/adb.nix
     ./../common/battery.nix
-    ./../common/gpu/intel
+    ./../common/gpus/intel
     ./../common/sound.nix
     ./../common/users.nix
     ./../common/home.nix
