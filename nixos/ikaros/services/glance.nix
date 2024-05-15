@@ -16,30 +16,14 @@
                 type = "calendar";
               }
               {
-                type = "rss";
-                limit = 10;
-                collapse-after = 3;
-                cache = "3h";
-                feeds = [
-                  {url = "https://ciechanow.ski/atom.xml";}
-                  {
-                    url = "https://www.joshwcomeau.com/rss.xml";
-                    title = "Josh Comeau";
-                  }
-                  {url = "https://samwho.dev/rss.xml";}
-                  {url = "https://awesomekling.github.io/feed.xml";}
-                  {
-                    url = "https://ishadeed.com/feed.xml";
-                    title = "Ahmad Shadeed";
-                  }
-                ];
+                type = "reddit";
+                subreddit = "selfhosted";
               }
             ];
           }
           {
             size = "full";
             widgets = [
-              {type = "hacker-news";}
               {
                 type = "videos";
                 channels = [
@@ -48,19 +32,12 @@
                   "UCOk-gHyjcWZNj3Br4oxwh0A" # Techno Tim
                 ];
               }
-              {
-                type = "reddit";
-                subreddit = "selfhosted";
-              }
             ];
           }
           {
             size = "small";
             widgets = [
-              {
-                type = "weather";
-                location = config.sops.secrets."location";
-              }
+              {type = "hacker-news";}
             ];
           }
         ];
