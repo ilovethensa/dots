@@ -16,6 +16,7 @@
     ./../common/misc.nix
     ./../common/persist.nix
     ./../common/sops.nix
+    ./../common/virtualization.nix
     ./services/arr.nix
     ./services/cloudflared-web.nix
     #./services/qbittorrent.nix
@@ -52,15 +53,6 @@
 
   # Networking and system configurations
   networking.hostName = "ikaros"; # Define hostname
-  virtualisation = {
-    oci-containers.backend = "podman";
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      dockerSocket.enable = true;
-      autoPrune.enable = true;
-    };
-  };
 
   environment.systemPackages = with pkgs; [
     jdk17
