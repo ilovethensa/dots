@@ -9,6 +9,7 @@
   # Import modules and configuration pieces
   imports = [
     ./hardware-configuration.nix
+    ./../common/gpus/intel
     ./../common/users.nix
     ./../common/openssh.nix
     ./../common/nix-ld.nix
