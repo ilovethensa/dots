@@ -23,7 +23,7 @@ in {
     # ./nvim.nix
     inputs.nix-colors.homeManagerModules.default
     ./apps/vscode
-    #./apps/firefox
+    ./apps/shizofox
     ../common/fish
     ./apps/yt-dlp
     ./desktops/gnome
