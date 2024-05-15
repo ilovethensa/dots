@@ -19,7 +19,7 @@
     ./../common/sound.nix
     ./../common/misc.nix
     ./../common/openssh.nix
-    ./../common/nvidia.nix
+    ./../common/gpus/nvidia
     ./../common/gaming.nix
   ];
 

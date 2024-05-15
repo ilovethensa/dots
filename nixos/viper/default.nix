@@ -13,7 +13,7 @@
     ./../common/boot.nix
     ./../common/sound.nix
     ./../common/users.nix
-    ./../common/amd.nix
+    ./../common/gpus/amd
     ./../common/gaming.nix
     ./../common/home.nix
     ./../common/openssh.nix
@@ -31,8 +31,6 @@
   networking.hostName = "viper"; # Set hostname
   boot.kernelParams = ["mitigations=off"]; # Kernel parameters
   hardware.bluetooth.enable = false; # Disable Bluetooth
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
 
   environment.systemPackages = with pkgs; [
     krita

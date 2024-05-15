@@ -10,6 +10,9 @@
   imports = [
     ./hardware-configuration.nix
     #./../common/kde.nix
+    ./../common/adb.nix
+    ./../common/battery.nix
+    ./../common/gpu/intel
     ./../common/sound.nix
     ./../common/users.nix
     ./../common/home.nix
@@ -49,44 +52,6 @@
     qbittorrent
     clblast
     intel-ocl
-  ];
-  services.fwupd.enable = true;
-  services.auto-cpufreq = {
-    enable = true;
-    settings = {
-      battery = {
-        governor = "powersave";
-        turbo = "never";
-      };
-      charger = {
-        governor = "performance";
-        turbo = "auto";
-      };
-    };
-  };
-  powerManagement.powertop.enable = true;
-
-  nixpkgs.config.packageOverrides = pkgs: {
-    intel-vaapi-driver = pkgs.intel-vaapi-driver.override {enableHybridCodec = true;};
-  };
-  hardware.opengl = {
-    enable = true;
-    extraPackages = with pkgs; [
-      vaapiIntel
-      vaapiVdpau
-      libvdpau-va-gl
-      intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-      intel-ocl
-      intel-compute-runtime
-      clblast
-    ];
-    driSupport32Bit = true;
-  };
-  environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";}; # Force intel-media-driver
-  programs.adb.enable = true;
-  services.udev.packages = [
-    pkgs.android-udev-rules
   ];
 
   # System state version
