@@ -9,7 +9,6 @@
   # Import modules and configuration pieces
   imports = [
     ./hardware-configuration.nix
-    #./../common/kde.nix
     ./../common/adb.nix
     ./../common/battery.nix
     ./../common/gpus/intel
@@ -50,8 +49,6 @@
     hcxdumptool
     qemu
     qbittorrent
-    clblast
-    intel-ocl
   ];
 
   # System state version
