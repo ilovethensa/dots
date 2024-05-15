@@ -54,10 +54,6 @@
       "/var/lib/jellyfin"
       "/etc/jellyfin"
       {
-        directory = "/home/tht";
-        user = "tht";
-      }
-      {
         directory = "/root";
         user = "root";
       }
