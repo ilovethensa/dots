@@ -19,21 +19,9 @@
     ./../common/virtualization.nix
     ./services/arr.nix
     ./services/cloudflared-web.nix
-    #./services/qbittorrent.nix
-    #./services/n8n.nix
-    #./services/unmanic.nix
-    #./services/homepage.nix
-    #./services/glances.nix
-    ./services/scrutiny.nix
-    #./services/invidious.nix
-    #./services/libreddit.nix
-    #./services/cron.nix
     ./services/mindustry.nix
     ./services/playit.nix
-    ./services/glances.nix
-    #./services/nextcloud.nix
     ./services/caddy.nix
-    ./avahi.nix
     ./services/jellyseerr.nix
     ./services/glance.nix
     inputs.home-manager.nixosModules.home-manager
