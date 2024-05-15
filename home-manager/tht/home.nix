@@ -65,7 +65,7 @@ in {
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
-  home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt git-crypt yazi mullvad-browser];
+  home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt git-crypt yazi];
   programs = {
     home-manager.enable = true;
     git = {

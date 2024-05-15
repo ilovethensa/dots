@@ -49,6 +49,7 @@
     hcxdumptool
     qemu
     qbittorrent
+    mullvad-browser
   ];
 
   # System state version
