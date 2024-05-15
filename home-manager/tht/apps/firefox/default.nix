@@ -26,6 +26,8 @@
         enhanced-github
       ];
       settings = {
+        "privacy.resistFingerprinting" = true;
+        "privacy.resistFingerprinting.letterboxing" = true;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "browser.uidensity" = 0;
         "svg.context-properties.content.enabled" = true;

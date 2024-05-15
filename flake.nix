@@ -10,10 +10,8 @@
     nixarr.url = "github:rasmus-kirk/nixarr";
     nix-gaming.url = "github:fufexan/nix-gaming";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nixinate.url = "github:matthewcroughan/nixinate";
     sops-nix.url = "github:Mic92/sops-nix";
     comin.url = "github:nlewo/comin";
-    arkenfox-nixos = "github:dwarfmaster/arkenfox-nixos";
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
@@ -65,7 +63,6 @@
     nix-index-database,
     sops-nix,
     comin,
-    arkenfox-nixos,
     ...
   } @ inputs: let
     inherit (self) outputs;
