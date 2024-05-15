@@ -25,6 +25,7 @@
     ./services/caddy.nix
     ./services/jellyseerr.nix
     ./services/glance.nix
+    ./services/cron.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
   ];

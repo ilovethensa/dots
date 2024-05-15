@@ -18,7 +18,6 @@ in {
     enable = true;
     systemCronJobs = [
       "0 * /4 * * * restart-podman.sh"
-      "0 * * * * /home/tht/Projects/earthquake-alert/run.sh"
     ];
   };
 }
