@@ -6,6 +6,11 @@
   pkgs,
   ...
 }: {
+  environment.etc."containers/storage.conf".text = ''
+    [storage]
+
+    driver = "btrfs"
+  '';
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
   virtualisation = {
