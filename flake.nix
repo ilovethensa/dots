@@ -13,7 +13,6 @@
     nixinate.url = "github:matthewcroughan/nixinate";
     sops-nix.url = "github:Mic92/sops-nix";
     comin.url = "github:nlewo/comin";
-    schizofox.url = "github:schizofox/schizofox";
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
@@ -65,7 +64,6 @@
     nix-index-database,
     sops-nix,
     comin,
-    shizofox,
     ...
   } @ inputs: let
     inherit (self) outputs;
