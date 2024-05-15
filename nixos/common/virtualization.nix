@@ -6,11 +6,13 @@
   pkgs,
   ...
 }: {
-  environment.etc."containers/storage.conf".text = lib.mkForce ''
+  /*
+     environment.etc."containers/storage.conf".text = lib.mkForce ''
     [storage]
 
     driver = "btrfs"
   '';
+  */
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
   virtualisation = {
