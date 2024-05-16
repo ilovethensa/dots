@@ -34,11 +34,6 @@
       experimental-features = "nix-command flakes"; # Enable flakes and 'nix' command
       auto-optimise-store = true; # Deduplicate and optimize nix store
     };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
     optimise = {
       automatic = true;
       dates = ["03:45"];
