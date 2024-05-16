@@ -12,3 +12,6 @@ repair:
 
 secrets-edit:
   sops secrets/secrets.yaml
+
+secrets-sync:
+  for file in secrets/*; do sops updatekeys "$file"; done
