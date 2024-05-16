@@ -35,6 +35,7 @@
     qemu
     qbittorrent
     mullvad-browser
+    tor-browser
   ];
   services.tht = {
     adb = true;
