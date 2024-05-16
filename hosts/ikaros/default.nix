@@ -9,14 +9,7 @@
   # Import modules and configuration pieces
   imports = [
     ./hardware-configuration.nix
-    ./../common/gpus/intel
-    ./../common/users.nix
-    ./../common/openssh.nix
-    ./../common/nix-ld.nix
-    ./../common/boot.nix
-    ./../common/misc.nix
-    ./../common/persist.nix
-    ./../common/sops.nix
+    ./../common/tht.nix
     ./../common/options
     ./services/arr.nix
     ./services/cloudflared-web.nix
@@ -40,7 +33,12 @@
       allowUnfree = true; # Enable unfree packages
     };
   };
-
+  services.tht = {
+    gpu.intel = true;
+    home = false;
+    ssh = true;
+    persist = true;
+  };
   # Networking and system configurations
   networking.hostName = "ikaros"; # Define hostname
 

@@ -2,16 +2,14 @@
   pkgs,
   lib,
   config,
+  inputs,
+  outputs,
   ...
 }: let
   service = "tht";
   cfg = config.services.${service};
 in {
   options.services.${service} = {
-    virtualization = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-    };
     autoupdate = lib.mkOption {
       type = lib.types.bool;
       default = true;
@@ -42,7 +40,7 @@ in {
     };
     nix-ld = lib.mkOption {
       type = lib.types.bool;
-      default = true;
+      default = false;
     };
   };
 
@@ -85,19 +83,6 @@ in {
           value.source = value.flake;
         })
         config.nix.registry;
-    }
-    ++ lib.mkIf cfg.virtualization {
-      virtualisation.libvirtd.enable = true;
-      programs.virt-manager.enable = true;
-      virtualisation = {
-        oci-containers.backend = "podman";
-        podman = {
-          enable = true;
-          dockerCompat = true;
-          dockerSocket.enable = true;
-          autoPrune.enable = true;
-        };
-      };
     }
     ++ lib.mkIf cfg.autoupdate {
       services.comin = {

@@ -13,7 +13,7 @@ in {
   options.services.${service} = {
     home-manager = lib.mkOption {
       type = lib.types.bool;
-      default = false;
+      default = true;
     };
   };
 

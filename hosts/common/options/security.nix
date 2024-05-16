@@ -10,7 +10,7 @@ in {
   options.services.${service} = {
     security = lib.mkOption {
       type = lib.types.bool;
-      default = false;
+      default = true;
     };
   };
 

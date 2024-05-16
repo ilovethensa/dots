@@ -10,7 +10,7 @@ in {
   options.services.${service} = {
     systemd-boot = lib.mkOption {
       type = lib.types.bool;
-      default = false;
+      default = true;
     };
   };
 
