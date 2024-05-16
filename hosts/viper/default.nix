@@ -41,7 +41,7 @@
     masscan-mc
   ];
   services.tht = {
-    virtualization.enable = true;
+    virtualization = true;
   };
   services.flatpak.enable = true;
   programs.command-not-found.enable = false;

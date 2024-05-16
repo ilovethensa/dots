@@ -17,6 +17,7 @@
     ./../common/misc.nix
     ./../common/persist.nix
     ./../common/sops.nix
+    ./../common/options
     ./services/arr.nix
     ./services/cloudflared-web.nix
     ./services/mindustry.nix
@@ -67,9 +68,7 @@
       "/etc/ssh/ssh_host_ed25519_key.pub"
     ];
   };
-  services.tht = {
-    virtualization.enable = true;
-  };
+  services.tht.virtualization = true;
   # System state version
   system.stateVersion = "23.05";
 }

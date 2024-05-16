@@ -51,7 +51,7 @@
     mullvad-browser
   ];
   services.tht = {
-    virtualization.enable = true;
+    virtualization = true;
   };
   # System state version
   system.stateVersion = "23.05";
