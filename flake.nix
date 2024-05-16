@@ -2,24 +2,14 @@
   description = "Your new nix config";
 
   inputs = {
-    # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     impermanence.url = "github:nix-community/impermanence";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     nixarr.url = "github:rasmus-kirk/nixarr";
     nix-gaming.url = "github:fufexan/nix-gaming";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     sops-nix.url = "github:Mic92/sops-nix";
     comin.url = "github:nlewo/comin";
 
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    firefox-gnome-theme = {
-      url = "github:rafaelmardojai/firefox-gnome-theme";
-      flake = false;
-    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,8 +18,13 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     morewaita = {
       url = "github:somepaulo/MoreWaita";
+      flake = false;
+    };
+    firefox-gnome-theme = {
+      url = "github:rafaelmardojai/firefox-gnome-theme";
       flake = false;
     };
 
@@ -57,8 +52,6 @@
     morewaita,
     nixarr,
     nix-gaming,
-    nixos-hardware,
-    nix-index-database,
     sops-nix,
     comin,
     ...
@@ -98,23 +91,17 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      # FIXME replace with your hostname
       viper = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs spicetify-nix;};
         modules = [
           # > Our main nixos configuration file <
           impermanence.nixosModules.impermanence
-          nix-index-database.nixosModules.nix-index
-          #nixos-hardware.nixosModules.common-gpu-amd
-          #nixos-hardware.nixosModules.common-cpu-amd
           ./hosts/viper
         ];
       };
       mute = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs spicetify-nix;};
         modules = [
-          # > Our main nixos configuration file <
-          nix-index-database.nixosModules.nix-index
           impermanence.nixosModules.impermanence
           comin.nixosModules.comin
           ./hosts/mute
@@ -123,10 +110,8 @@
       ikaros = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs spicetify-nix;};
         modules = [
-          # > Our main nixos configuration file <
           impermanence.nixosModules.impermanence
           nixarr.nixosModules.default
-          nix-index-database.nixosModules.nix-index
           comin.nixosModules.comin
           ./hosts/ikaros
         ];
@@ -134,11 +119,6 @@
       slash = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs spicetify-nix;};
         modules = [
-          # > Our main nixos configuration file <
-          nix-index-database.nixosModules.nix-index
-          #nixos-hardware.nixosModules.common-gpu-nvidia
-          nixos-hardware.nixosModules.common-cpu-intel
-          nixos-hardware.nixosModules.common-pc-ssd
           comin.nixosModules.comin
           ./hosts/slash
         ];
