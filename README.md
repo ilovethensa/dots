@@ -1,6 +1,18 @@
-# Dots: NixOS Dotfiles
+## Highlights
 
-Welcome to my NixOS dotfiles repository, where I meticulously manage configurations for (almost) every device on my network—excluding my phone and router (though I'm actively working on incorporating them too).
+These are the Nix/NixOS configurations for my homelab servers, desktop and laptop
+
+- ❄️ Nix flakes handle upstream dependencies, tracks unstable channel of Nixpkgs
+- 🏠 [home-manager](https://github.com/nix-community/home-manager) manages
+  dotfiles 
+- 🤫 [sops-nix](https://github.com/Mic92/sops-nix) manages secrets 
+- 🌬️ Root on tmpfs aka impermanence 
+- 🧩 Home-assistant, Jellyfin, among other nice
+  self-hosted applications 
+- ⚡️ `justfile` contains useful aliases for many frequent and atrociously long
+  `nix` commands 
+- 🤖 `flake.lock` updated daily via GitHub Action, servers are configured to 
+  automatically upgradew
 
 | Hostname |        Board         |       CPU        | RAM  |      Primary GPU      | Role | OS  | State |
 | :------: | :------------------: | :--------------: | :--: | :-------------------: | :--: | :-: | :---: |
@@ -15,3 +27,4 @@ Welcome to my NixOS dotfiles repository, where I meticulously manage configurati
 - 🖥️ : Desktop
 - 💻️ : Laptop
 - 🗄️ : Server
+
