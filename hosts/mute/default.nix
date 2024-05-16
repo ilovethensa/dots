@@ -9,20 +9,8 @@
   # Import modules and configuration pieces
   imports = [
     ./hardware-configuration.nix
-    ./../common/adb.nix
-    ./../common/battery.nix
-    ./../common/gpus/intel
-    ./../common/sound.nix
-    ./../common/users.nix
-    ./../common/home.nix
-    ./../common/openssh.nix
-    ./../common/nix-ld.nix
-    ./../common/desktops/gnome
-    ./../common/boot.nix
-    ./../common/misc.nix
-    ./../common/persist.nix
-    ./../common/gaming.nix
-    ./../common/sops.nix
+    ./../common/tht.nix
+    ./../common/options
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
   ];
@@ -51,7 +39,17 @@
     mullvad-browser
   ];
   services.tht = {
+    adb = true;
+    battery = true;
+    gaming = true;
+    appimage = true;
+    rust = true;
+    nix-ld = true;
+    persist = true;
+    sound = true;
+    intel = true;
     virtualization = true;
+    gnome = true;
   };
   # System state version
   system.stateVersion = "23.05";

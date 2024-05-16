@@ -4,17 +4,17 @@
   config,
   ...
 }: let
-  service = "tht.gpu";
+  service = "tht";
   cfg = config.services.${service};
 in {
   options.services.${service} = {
-    gpu.amd = lib.mkOption {
+    amd = lib.mkOption {
       type = lib.types.bool;
       default = false;
     };
   };
 
-  config = lib.mkIf cfg.gpu.amd {
+  config = lib.mkIf cfg.amd {
     environment = {
       variables = {
         ROC_ENABLE_PRE_VEGA = "1";

@@ -4,17 +4,17 @@
   config,
   ...
 }: let
-  service = "tht.gpu";
+  service = "tht";
   cfg = config.services.${service};
 in {
   options.services.${service} = {
-    gpu.nvidia = lib.mkOption {
+    nvidia = lib.mkOption {
       type = lib.types.bool;
       default = false;
     };
   };
 
-  config = lib.mkIf cfg.gpu.nvidia {
+  config = lib.mkIf cfg.nvidia {
     # Enable OpenGL
     hardware.opengl = {
       enable = true;

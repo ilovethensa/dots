@@ -10,7 +10,7 @@ in {
   options.services.${service} = {
     ssh = lib.mkOption {
       type = lib.types.bool;
-      default = false;
+      default = true;
     };
   };
 

@@ -4,17 +4,17 @@
   config,
   ...
 }: let
-  service = "tht.gpu";
+  service = "tht";
   cfg = config.services.${service};
 in {
   options.services.${service} = {
-    gpu.intel = lib.mkOption {
+    intel = lib.mkOption {
       type = lib.types.bool;
       default = false;
     };
   };
 
-  config = lib.mkIf cfg.gpu.intel {
+  config = lib.mkIf cfg.intel {
     nixpkgs.config.packageOverrides = pkgs: {
       intel-vaapi-driver = pkgs.intel-vaapi-driver.override {enableHybridCodec = true;};
     };

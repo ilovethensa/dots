@@ -34,7 +34,7 @@
     };
   };
   services.tht = {
-    gpu.intel = true;
+    intel = true;
     home = false;
     ssh = true;
     persist = true;
@@ -66,7 +66,6 @@
       "/etc/ssh/ssh_host_ed25519_key.pub"
     ];
   };
-  services.tht.virtualization = true;
   # System state version
   system.stateVersion = "23.05";
 }

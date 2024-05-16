@@ -10,19 +10,8 @@
   # Import modules and configuration pieces
   imports = [
     ./hardware-configuration.nix
-    ./../common/boot.nix
-    ./../common/sound.nix
-    ./../common/users.nix
-    ./../common/gpus/amd
-    ./../common/gaming.nix
-    ./../common/home.nix
-    ./../common/openssh.nix
-    ./../common/nix-ld.nix
-    ./../common/desktops/gnome
-    ./../common/networking.nix
-    ./../common/misc.nix
-    ./../common/security.nix
-    ./../common/persist.nix
+    ./../common/tht.nix
+    ./../common/options
     inputs.sops-nix.nixosModules.sops
   ];
 
@@ -41,7 +30,17 @@
     masscan-mc
   ];
   services.tht = {
+    adb = true;
+    battery = true;
+    gaming = true;
+    appimage = true;
+    rust = true;
+    nix-ld = true;
+    persist = true;
+    sound = true;
+    amd = true;
     virtualization = true;
+    gnome = true;
   };
   services.flatpak.enable = true;
   programs.command-not-found.enable = false;

@@ -13,14 +13,7 @@
     inputs.sops-nix.nixosModules.sops
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./../common/desktops/cinnamon
-    ./../common/boot.nix
-    ./../common/networking.nix
-    ./../common/sound.nix
-    ./../common/misc.nix
-    ./../common/openssh.nix
-    ./../common/gpus/nvidia
-    ./../common/gaming.nix
+    ./../common/options
   ];
 
   networking.hostName = "slash"; # Define your hostname
@@ -97,7 +90,19 @@
       mars = import ../../home-manager/mars/home.nix;
     };
   };
-
+  services.tht = {
+    adb = true;
+    battery = true;
+    gaming = true;
+    appimage = true;
+    rust = true;
+    nix-ld = true;
+    persist = true;
+    sound = true;
+    amd = true;
+    virtualization = true;
+    cinnamon = true;
+  };
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   programs.nix-index.enableBashIntegration = false;

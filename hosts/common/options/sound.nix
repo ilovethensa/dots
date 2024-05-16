@@ -8,6 +8,9 @@
   service = "tht";
   cfg = config.services.${service};
 in {
+  imports = [
+    inputs.nix-gaming.nixosModules.pipewireLowLatency
+  ];
   options.services.${service} = {
     sound = lib.mkOption {
       type = lib.types.bool;
@@ -16,10 +19,6 @@ in {
   };
 
   config = lib.mkIf cfg.sound {
-    imports = [
-      inputs.nix-gaming.nixosModules.pipewireLowLatency
-    ];
-
     # Enable sound with pipewire.
     sound.enable = true;
     hardware.pulseaudio.enable = false;
