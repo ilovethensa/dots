@@ -8,19 +8,10 @@
   ...
 }: {
   imports = [
-    ./adb.nix
-    ./battery.nix
-    ./boot.nix
-    ./gaming.nix
-    ./home.nix
-    #./misc.nix
-    ./openssh.nix
-    ./persist.nix
-    ./security.nix
-    ./sound.nix
-    ./virtualization.nix
-    ./gpu
     ./desktop
+    ./extra
+    ./hardware
+    ./system
   ];
   networking.firewall.enable = false;
   time.timeZone = "Europe/Sofia";
@@ -65,4 +56,11 @@
     })
     config.nix.registry;
   programs.command-not-found.enable = false;
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
+  networking.dhcpcd.extraConfig = ''
+    noarp
+  '';
+  environment.variables = {
+    RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}"; # Support completion in vscode
+  };
 }
