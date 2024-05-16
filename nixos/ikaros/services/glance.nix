@@ -15,10 +15,6 @@
               {
                 type = "calendar";
               }
-              {
-                type = "reddit";
-                subreddit = "selfhosted";
-              }
             ];
           }
           {
@@ -32,12 +28,16 @@
                   "UCOk-gHyjcWZNj3Br4oxwh0A" # Techno Tim
                 ];
               }
+              {
+                type = "reddit";
+                subreddit = "selfhosted";
+              }
             ];
           }
           {
             size = "small";
             widgets = [
-              {type = "hacker-news";}
+              #{type = "hacker-news";}
             ];
           }
         ];
