@@ -4,7 +4,6 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    chaotic.url = "https://flakehub.com/f/chaotic-cx/nyx/*.tar.gz";
     impermanence.url = "github:nix-community/impermanence";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
     nixarr.url = "github:rasmus-kirk/nixarr";
@@ -51,7 +50,6 @@
     self,
     nixpkgs,
     home-manager,
-    chaotic,
     firefox-addons,
     impermanence,
     spicetify-nix,
@@ -105,7 +103,6 @@
         specialArgs = {inherit inputs outputs spicetify-nix;};
         modules = [
           # > Our main nixos configuration file <
-          chaotic.nixosModules.default
           impermanence.nixosModules.impermanence
           nix-index-database.nixosModules.nix-index
           #nixos-hardware.nixosModules.common-gpu-amd
@@ -117,7 +114,6 @@
         specialArgs = {inherit inputs outputs spicetify-nix;};
         modules = [
           # > Our main nixos configuration file <
-          chaotic.nixosModules.default
           nix-index-database.nixosModules.nix-index
           impermanence.nixosModules.impermanence
           comin.nixosModules.comin
@@ -128,7 +124,6 @@
         specialArgs = {inherit inputs outputs spicetify-nix;};
         modules = [
           # > Our main nixos configuration file <
-          chaotic.nixosModules.default
           impermanence.nixosModules.impermanence
           nixarr.nixosModules.default
           nix-index-database.nixosModules.nix-index
@@ -140,7 +135,6 @@
         specialArgs = {inherit inputs outputs spicetify-nix;};
         modules = [
           # > Our main nixos configuration file <
-          chaotic.nixosModules.default
           nix-index-database.nixosModules.nix-index
           #nixos-hardware.nixosModules.common-gpu-nvidia
           nixos-hardware.nixosModules.common-cpu-intel
@@ -153,7 +147,6 @@
         specialArgs = {inherit inputs outputs spicetify-nix;};
         modules = [
           # > Our main nixos configuration file <
-          chaotic.nixosModules.default
           nix-index-database.nixosModules.nix-index
           #nixos-hardware.nixosModules.common-gpu-nvidia
           nixos-hardware.nixosModules.common-cpu-intel
