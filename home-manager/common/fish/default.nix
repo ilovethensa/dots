@@ -10,6 +10,8 @@
     hex
     suckit
     nom
+    statix
+    deadnix
   ];
   programs.fish = {
     enable = true;
