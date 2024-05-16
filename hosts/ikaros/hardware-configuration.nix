@@ -32,22 +32,22 @@
     "/home" = {
       device = "/dev/disk/by-uuid/c5dde26d-1377-4ec4-8e25-707f3ef31ed7";
       fsType = "btrfs";
-      options = ["subvol=@home" "compress-force=zstd:15" "defaults" "noatime"];
+      options = ["subvol=@home" "compress=zstd:15" "defaults" "noatime"];
     };
     "/srv" = {
       device = "/dev/disk/by-uuid/c5dde26d-1377-4ec4-8e25-707f3ef31ed7";
       fsType = "btrfs";
-      options = ["subvol=@data" "compress-force=zstd:15" "defaults" "noatime"];
+      options = ["subvol=@data" "compress=zstd:15" "defaults" "noatime"];
     };
     "/nix" = {
       device = "/dev/disk/by-uuid/c5dde26d-1377-4ec4-8e25-707f3ef31ed7";
       fsType = "btrfs";
-      options = ["subvol=@nix" "compress-force=zstd:15" "defaults" "noatime"];
+      options = ["subvol=@nix" "compress=zstd:15" "defaults" "noatime"];
     };
     "/srv/Media" = {
       device = "/dev/disk/by-uuid/23fc1491-b1f6-4e69-82e7-6135e4c0a3f1";
       fsType = "btrfs";
-      options = ["compress-force=zstd:15" "defaults" "noatime" "autodefrag" "nofail"];
+      options = ["compress=zstd:15" "defaults" "noatime" "autodefrag" "nofail"];
     };
   };
 
