@@ -16,6 +16,6 @@
     ./openssh.nix
     ./security.nix
     ./sound.nix
-    ./virtulization.nix
+    ./virtualization.nix
   ];
 }

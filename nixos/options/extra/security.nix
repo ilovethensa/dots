@@ -25,7 +25,7 @@ in {
         useTmpfs = lib.mkDefault true;
         # If not using tmpfs, which is naturally purged on reboot, we must clean it
         # /tmp ourselves. /tmp should be volatile storage!
-        cleanOnBoot = lib.mkDefault (!config.boot.tmpOnTmpfs);
+        cleanOnBoot = lib.mkDefault (!config.boot.tmp.useTmpfs);
       };
       # Fix a security hole in place for backwards compatibility. See desc in
       # https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/system/boot/loader/systemd-boot/systemd-boot.nix#L149
