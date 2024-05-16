@@ -9,8 +9,8 @@
   # Import modules and configuration pieces
   imports = [
     ./hardware-configuration.nix
-    ./../common/tht.nix
-    ./../common/options
+    ./../../nixos/tht.nix
+    ./../../nixos/options
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
   ];
