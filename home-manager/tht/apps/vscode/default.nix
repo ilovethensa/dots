@@ -46,6 +46,8 @@
       "notebook.formatOnSave.enabled" = true;
       "notebook.formatOnCellExecution" = true;
       "rust-analyzer.checkOnSave.command" = "clippy";
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "${pkgs.nil}/bin/nil";
     };
   };
 }
