@@ -37,7 +37,23 @@
           {
             size = "small";
             widgets = [
-              #{type = "hacker-news";}
+              {
+                type = "stocks";
+                stocks = [
+                  {
+                    symbol = "AAPL";
+                    name = "Apple";
+                  }
+                  {
+                    symbol = "TSLA";
+                    name = "Tesla";
+                  }
+                  {
+                    symbol = "MSFT";
+                    name = "Microsoft";
+                  }
+                ];
+              }
             ];
           }
         ];
