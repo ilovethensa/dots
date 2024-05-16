@@ -110,7 +110,7 @@
           nix-index-database.nixosModules.nix-index
           #nixos-hardware.nixosModules.common-gpu-amd
           #nixos-hardware.nixosModules.common-cpu-amd
-          ./nixos/viper
+          ./hosts/viper
         ];
       };
       mute = nixpkgs.lib.nixosSystem {
@@ -121,7 +121,7 @@
           nix-index-database.nixosModules.nix-index
           impermanence.nixosModules.impermanence
           comin.nixosModules.comin
-          ./nixos/mute
+          ./hosts/mute
         ];
       };
       ikaros = nixpkgs.lib.nixosSystem {
@@ -133,7 +133,7 @@
           nixarr.nixosModules.default
           nix-index-database.nixosModules.nix-index
           comin.nixosModules.comin
-          ./nixos/ikaros
+          ./hosts/ikaros
         ];
       };
       slash = nixpkgs.lib.nixosSystem {
@@ -146,7 +146,7 @@
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
           comin.nixosModules.comin
-          ./nixos/slash
+          ./hosts/slash
         ];
       };
       renegade = nixpkgs.lib.nixosSystem {
@@ -159,11 +159,11 @@
           nixos-hardware.nixosModules.common-cpu-intel
           nixos-hardware.nixosModules.common-pc-ssd
           comin.nixosModules.comin
-          ./nixos/renegade
+          ./hosts/renegade
         ];
       };
       #nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-      #  modules = [ ./nixos/pixel ];
+      #  modules = [ ./hosts/pixel ];
       #};
     };
   };

@@ -17,7 +17,6 @@
     ./../common/misc.nix
     ./../common/persist.nix
     ./../common/sops.nix
-    ./../common/virtualization.nix
     ./services/arr.nix
     ./services/cloudflared-web.nix
     ./services/mindustry.nix

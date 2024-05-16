@@ -22,7 +22,6 @@
     ./../common/misc.nix
     ./../common/persist.nix
     ./../common/gaming.nix
-    ./../common/virtualization.nix
     ./../common/sops.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops

@@ -23,7 +23,6 @@
     ./../common/misc.nix
     ./../common/security.nix
     ./../common/persist.nix
-    ./../common/virtualization.nix
     inputs.sops-nix.nixosModules.sops
   ];
 
