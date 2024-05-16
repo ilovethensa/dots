@@ -1,10 +1,6 @@
 {
   inputs,
-  outputs,
-  lib,
-  config,
   pkgs,
-  spicetify-nix,
   ...
 }: {
   # Import modules and configuration pieces

@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   systemd.user.services.playit = {
     enable = true;
     description = "Playit.gg daemon";

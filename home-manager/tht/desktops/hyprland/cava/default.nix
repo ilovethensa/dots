@@ -1,11 +1,4 @@
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{...}: {
   home.file.".config/cava/config".text = ''
     [ color ]
 

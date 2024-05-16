@@ -1,12 +1,4 @@
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  sops,
-  ...
-}: {
+{...}: {
   imports = [
     ./adb.nix
     ./appimage.nix

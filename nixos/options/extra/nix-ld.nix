@@ -1,8 +1,6 @@
 {
-  pkgs,
   lib,
   config,
-  inputs,
   ...
 }: let
   service = "tht";
@@ -17,7 +15,7 @@ in {
 
   config = lib.mkIf cfg.nix-ld {
     programs.nix-ld.enable = true;
-    programs.nix-ld.libraries = with pkgs; [
+    programs.nix-ld.libraries = [
       # Add any missing dynamic libraries for unpackaged
       # programs here, NOT in environment.systemPackages
     ];

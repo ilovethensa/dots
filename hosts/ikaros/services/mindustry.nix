@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   systemd.services.mindustry = {
     enable = true;
     description = "Mindustry server";
