@@ -43,7 +43,6 @@
     battery = true;
     gaming = true;
     appimage = true;
-    rust = true;
     nix-ld = true;
     persist = true;
     sound = true;
