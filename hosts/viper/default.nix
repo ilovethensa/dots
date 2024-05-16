@@ -40,6 +40,9 @@
     qemu
     masscan-mc
   ];
+  services.tht = {
+    virtualization.enable = true;
+  };
   services.flatpak.enable = true;
   programs.command-not-found.enable = false;
   # System state version

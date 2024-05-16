@@ -67,6 +67,9 @@
       "/etc/ssh/ssh_host_ed25519_key.pub"
     ];
   };
+  services.tht = {
+    virtualization.enable = true;
+  };
   # System state version
   system.stateVersion = "23.05";
 }

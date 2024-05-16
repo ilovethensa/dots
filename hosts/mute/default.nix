@@ -50,7 +50,9 @@
     qbittorrent
     mullvad-browser
   ];
-
+  services.tht = {
+    virtualization.enable = true;
+  };
   # System state version
   system.stateVersion = "23.05";
 }
