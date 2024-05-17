@@ -18,8 +18,8 @@
     environment = {
       WG_HOST = config.sops.secrets.ip_address;
       PASSWORD = "Just fucking work";
-      PORT = 51821;
-      WG_PORT = 51820;
+      PORT = "51821";
+      WG_PORT = "51820";
     };
     extraOptions = [
       "--cap-add=NET_ADMIN"
