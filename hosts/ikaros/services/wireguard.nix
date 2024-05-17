@@ -5,7 +5,7 @@
     image = "ghcr.io/wg-easy/wg-easy";
     autoStart = true;
     volumes = [
-      "/srv/data/cloudflared-web:/config"
+      "/srv/data/wireguard:/etc/wireguard"
     ];
     ports = [
       "51820:51820/udp"
