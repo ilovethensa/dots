@@ -1,5 +1,6 @@
 {config, ...}: {
   sops.secrets.ip_address = {};
+  sops.secrets.mute_private_key = {};
   # Enable WireGuard
   networking.wireguard.interfaces = {
     # "wg0" is the network interface name. You can name the interface arbitrarily.
