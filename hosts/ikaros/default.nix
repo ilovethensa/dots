@@ -18,7 +18,6 @@
     ./services/glance.nix
     ./services/cron.nix
     ./services/wireguard.nix
-    ./services/grafana
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
   ];
