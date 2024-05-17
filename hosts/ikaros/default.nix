@@ -17,6 +17,7 @@
     ./services/jellyseerr.nix
     ./services/glance.nix
     ./services/cron.nix
+    ./service/wireguard.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
   ];
