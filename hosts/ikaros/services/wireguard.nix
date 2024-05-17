@@ -1,4 +1,8 @@
-{...}: {
+{config, ...}: {
+  sops.secrets.vpn_pass = {};
+  sops.templates."wireguard-env".content = ''
+    PASSWORD="${config.sops.placeholder.vpn_pass}"
+  '';
   virtualisation.oci-containers.containers."wireguard" = {
     image = "ghcr.io/wg-easy/wg-easy";
     autoStart = true;
@@ -12,10 +16,12 @@
     environment = {
       LANG = "en";
       WG_HOST = "91.139.255.26";
-      PASSWORD = "test123";
       PORT = "51821";
       WG_PORT = "51820";
     };
+    environmentFiles = [
+      config.sops.templates."wireguard-env".path
+    ];
     extraOptions = [
       "--cap-add=NET_ADMIN"
       "--cap-add=SYS_MODULE"
