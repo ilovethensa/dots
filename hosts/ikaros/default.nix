@@ -52,7 +52,7 @@
   environment.persistence."/nix/persist" = {
     hideMounts = true;
     directories = [
-      "/var/lib/jellyfin"
+      "/var/lib"
       "/etc/jellyfin"
       {
         directory = "/root";
