@@ -1,6 +1,10 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   sops.secrets.ip_address = {};
-  sops.secrets.wireguard_pass = {};
+  sops.secrets."wireguard_pass" = {};
   virtualisation.oci-containers.containers."wireguard" = {
     image = "ghcr.io/wg-easy/wg-easy";
     autoStart = true;
@@ -13,7 +17,7 @@
     ];
     environment = {
       WG_HOST = config.sops.secrets.ip_address;
-      PASSWORD = "${config.sops.secrets.wireguard_pass}";
+      PASSWORD = "Just fucking work";
       PORT = 51821;
       WG_PORT = 51820;
     };
