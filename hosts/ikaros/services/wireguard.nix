@@ -12,8 +12,8 @@
       "51821:51821/tcp"
     ];
     environment = {
-      WG_HOST = "${config.sops.secrets.ip_address}";
-      PASSWORD = "${config.sops.secrets.wireguard_pass}";
+      WG_HOST = config.sops.secrets.ip_address;
+      PASSWORD = config.sops.secrets.wireguard_pass;
       PORT = 51821;
       WG_PORT = 51820;
     };
