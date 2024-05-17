@@ -1,0 +1,27 @@
+{config, ...}: {
+  sops.secrets.ip_address = {};
+  sops.secrets.wireguard_pass = {};
+  virtualisation.oci-containers.containers."wireguard" = {
+    image = "ghcr.io/wg-easy/wg-easy";
+    autoStart = true;
+    volumes = [
+      "/srv/data/cloudflared-web:/config"
+    ];
+    ports = [
+      "51820:51820/udp"
+      "51821:51821/tcp"
+    ];
+    environment = {
+      WG_HOST = config.sops.secrets."ip_address";
+      PASSWORD = config.sops.secrets."wireguard_pass";
+      PORT = 51821;
+      WG_PORT = 51820;
+    };
+    extraOptions = [
+      "--cap-add=NET_ADMIN"
+      "--cap-add=SYS_MODULE"
+      "--sysctl=\"net.ipv4.conf.all.src_valid_mark=1\""
+      "--sysctl=\"net.ipv4.ip_forward=1\""
+    ];
+  };
+}
