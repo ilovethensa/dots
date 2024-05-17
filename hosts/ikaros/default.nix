@@ -45,6 +45,7 @@
     playit
     git
   ];
+  networking.wireguard.enable = true;
   # Persistence configuration
   environment.persistence."/nix/persist" = {
     hideMounts = true;
