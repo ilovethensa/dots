@@ -16,7 +16,7 @@
       "51821:51821/tcp"
     ];
     environment = {
-      WG_HOST = config.sops.secrets.ip_address;
+      WG_HOST = "vpn.theholytachanka.com";
       PASSWORD = "Just fucking work";
       PORT = "51821";
       WG_PORT = "51820";
