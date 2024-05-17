@@ -36,6 +36,8 @@
     qbittorrent
     mullvad-browser
     tor-browser
+    calyx-vpn
+    riseup-vpn
   ];
   services.tht = {
     adb = true;
