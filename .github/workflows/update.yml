@@ -1,24 +1,21 @@
-name: Bump flake.lock
+name: Update flake.lock
+
 on:
   schedule:
-    - cron: 0 6 * * *
-  workflow_dispatch: null
+    - cron: '0 3 * * *' # This cron schedule triggers the job every day at 3 AM
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: cachix/install-nix-action@v26
-      - run: nix flake update
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: bump flake.lock"
-          commit_user_name: Flake Bot
-          commit_options: --no-verify --signoff
-          commit_author: Flake Bot <actions@github.com>
-          branch: main
-          file_pattern: flake.lock
-          skip_dirty_check: false
-          skip_fetch: true
+    - uses: actions/checkout@v4
+
+    - uses: nixbuild/nix-quick-install-action@v28
+    - run: nix flake update
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Updated flake
+           
+    # Add additional steps that utilize the environment variables or binaries sourced from direnv
