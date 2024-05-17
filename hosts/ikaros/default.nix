@@ -18,7 +18,7 @@
     ./services/glance.nix
     ./services/cron.nix
     ./services/wireguard.nix
-    ./services/adguard.nix
+    ./services/grafana
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
   ];
@@ -52,7 +52,7 @@
   environment.persistence."/nix/persist" = {
     hideMounts = true;
     directories = [
-      "/var/lib"
+      "/var/lib/jellyfin"
       "/etc/jellyfin"
       {
         directory = "/root";
