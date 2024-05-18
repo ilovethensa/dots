@@ -64,7 +64,7 @@ with lib.hm.gvariant; {
 
     "org/gnome/shell" = {
       enabled-extensions = ["appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "app-hider@lynith.dev"];
-      favorite-apps = ["org.gnome.Nautilus.desktop" "org.gnome.Console.desktop" "firefox.desktop" "mullvad-browser.desktop"];
+      favorite-apps = ["org.gnome.Nautilus.desktop" "org.gnome.Console.desktop" "brave-browser.desktop" "mullvad-browser.desktop"];
     };
 
     "org/gnome/shell/extensions/app-hider" = {
