@@ -94,7 +94,6 @@
       viper = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs spicetify-nix;};
         modules = [
-          # > Our main nixos configuration file <
           impermanence.nixosModules.impermanence
           ./hosts/viper
         ];
