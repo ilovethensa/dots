@@ -36,7 +36,7 @@
     qbittorrent
     mullvad-browser
     tor-browser
-    ungoogled-chromium
+    brave
     rage
   ];
   services.tht = {
