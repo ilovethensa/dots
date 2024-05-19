@@ -21,13 +21,13 @@
     enable = true;
     scrapeConfigs = [
       {
-        job_name = "renegade";
+        job_name = "main";
         static_configs = [
           {targets = ["192.168.1.104:9100"];}
         ];
       }
       {
-        job_name = "ikaros";
+        job_name = "main";
         static_configs = [
           {targets = ["127.0.0.1:9100"];}
         ];
