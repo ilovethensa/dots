@@ -21,6 +21,7 @@
     #./services/homepage.nix
     ./services/crafty.nix
     ./services/grafana.nix
+    ./services/n8n.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
   ];
