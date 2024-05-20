@@ -38,6 +38,7 @@
     tor-browser
     brave
     rage
+    flare-signal
   ];
   services.tht = {
     adb = true;
