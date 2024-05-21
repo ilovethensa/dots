@@ -7,7 +7,6 @@
   # Import modules and configuration pieces
   imports = [
     ./hardware-configuration.nix
-    ./wireguard.nix
     ./../../nixos/tht.nix
     ./../../nixos/options
     inputs.home-manager.nixosModules.home-manager
