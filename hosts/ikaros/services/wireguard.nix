@@ -1,7 +1,7 @@
 {config, ...}: {
   sops.secrets.vpn_pass = {};
   sops.templates."wireguard_env".content = ''
-    PASSWORD="${config.sops.placeholder.vpn_pass}"
+    export PASSWORD="${config.sops.placeholder.vpn_pass}"
   '';
   virtualisation.oci-containers.containers."wireguard" = {
     image = "ghcr.io/wg-easy/wg-easy";
