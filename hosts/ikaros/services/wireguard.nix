@@ -1,6 +1,6 @@
 {config, ...}: {
   sops.secrets.vpn_pass = {};
-  sops.templates."wireguard-env".content = ''
+  sops.templates."wireguard_env".content = ''
     PASSWORD="${config.sops.placeholder.vpn_pass}"
   '';
   virtualisation.oci-containers.containers."wireguard" = {
@@ -20,7 +20,7 @@
       WG_PORT = "51820";
     };
     environmentFiles = [
-      config.sops.templates."wireguard-env".path
+      config.sops.templates."wireguard_env".path
     ];
     extraOptions = [
       "--cap-add=NET_ADMIN"
