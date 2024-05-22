@@ -22,6 +22,7 @@
                   "UCv6J_jJa8GJqFwQNgNrMuww" # ServeTheHome
                   "UCOk-gHyjcWZNj3Br4oxwh0A" # Techno Tim
                   "UCgdTVe88YVSrOZ9qKumhULQ" # Hardware heaven
+                  "UC6mIxFTvXkWQVEHPsEdflzQ" # GreatScott!
                 ];
               }
               {
