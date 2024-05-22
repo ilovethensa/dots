@@ -21,6 +21,7 @@
                   "UCR-DXc1voovS8nhAvccRZhg" # Jeff Geerling
                   "UCv6J_jJa8GJqFwQNgNrMuww" # ServeTheHome
                   "UCOk-gHyjcWZNj3Br4oxwh0A" # Techno Tim
+                  "UCgdTVe88YVSrOZ9qKumhULQ" # Hardware heaven
                 ];
               }
               {
