@@ -9,5 +9,6 @@
     ./security.nix
     ./sound.nix
     ./virtualization.nix
+    ./bluetooth.nix
   ];
 }
