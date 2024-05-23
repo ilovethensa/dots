@@ -12,7 +12,7 @@
     adminCredentialsFile = config.sops.templates."miniflux_env".path;
     createDatabaseLocally = true;
     config = {
-      LISTEN_ADDR = "0.0.0.0:8080";
+      LISTEN_ADDR = "0.0.0.0:2653";
     };
   };
 }
