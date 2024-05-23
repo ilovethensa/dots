@@ -49,6 +49,11 @@
       fsType = "btrfs";
       options = ["compress-force=zstd:15" "defaults" "noatime" "autodefrag" "nofail"];
     };
+    "/srv/nvme" = {
+      device = "/dev/disk/by-uuid/03652c7f-d16f-4634-b916-69917242da9";
+      fsType = "btrfs";
+      options = ["compress-force=zstd:15" "defaults" "noatime" "nofail"];
+    };
   };
 
   swapDevices = [];
