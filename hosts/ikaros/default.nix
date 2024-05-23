@@ -22,6 +22,7 @@
     ./services/crafty.nix
     ./services/grafana.nix
     ./services/n8n.nix
+    ./services/miniflux.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
   ];
@@ -55,7 +56,7 @@
   environment.persistence."/nix/persist" = {
     hideMounts = true;
     directories = [
-      "/var/lib/jellyfin"
+      "/var/lib"
       "/etc/jellyfin"
       {
         directory = "/root";
