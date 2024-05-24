@@ -7,7 +7,7 @@
     ];
     volumes = [
       "/run/user/1000/podman/podman.sock:/run/user/1000/podman/podman.sock:ro"
-      "/var/run/docker.sock:/var/run/docker.sock:ro"
+      #"/var/run/docker.sock:/var/run/docker.sock:ro"
     ];
     environment = {
       GLANCES_OPT = "-w";
