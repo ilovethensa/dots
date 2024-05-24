@@ -13,7 +13,7 @@
       GLANCES_OPT = "-w";
     };
     extraOptions = [
-      "--pid host"
+      "--pid=host"
     ];
   };
 }
