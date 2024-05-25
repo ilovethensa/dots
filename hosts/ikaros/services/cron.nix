@@ -1,11 +1,7 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   check-space = pkgs.writeShellScriptBin "check-space.sh" ''
-    USER_KEY="${config.sops.secrets.pushover_user}"
-    API_TOKEN="${config.sops.secrets.pushover_key}"
+    API_TOKEN=$(cat /run/secrets/pushover_key)
+    USER_KEY=$(cat /run/secrets/pushover_user)
     for dir in /nix /srv/nvme /srv/Media; do
       [ $(df "$dir" --output=pcent | tail -1 | tr -d ' %') -ge 90 ] && \
       ${pkgs.curl}/bin/curl -s -F "token=$API_TOKEN" -F "user=$USER_KEY" -F "message=Warning: $dir is full!" https://api.pushover.net/1/messages.json
