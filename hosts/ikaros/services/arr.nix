@@ -1,8 +1,8 @@
 {...}: {
   nixarr = {
     enable = true;
-    mediaDir = "/srv/Media";
-    stateDir = "/srv/data";
+    mediaDir = "/mnt/media";
+    stateDir = "/media/data";
 
     jellyfin.enable = true;
     transmission = {
