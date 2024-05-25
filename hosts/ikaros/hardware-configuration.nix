@@ -26,16 +26,16 @@
       options = ["defaults" "size=2G" "mode=755"];
     };
     "/boot" = {
-      device = "/dev/disk/by-uuid/1C12-2DE6";
+      device = "/dev/disk/by-uuid/9333-E11B";
       fsType = "vfat";
     };
     "/home" = {
-      device = "/dev/disk/by-uuid/45b5f20e-b959-4dce-b423-901b0f9992ad";
+      device = "/dev/disk/by-uuid/893f5d89-f0eb-4168-bccb-d604472fe9ad";
       fsType = "btrfs";
       options = ["subvol=@home" "compress-force=zstd:15" "defaults" "noatime"];
     };
     "/nix" = {
-      device = "/dev/disk/by-uuid/45b5f20e-b959-4dce-b423-901b0f9992ad";
+      device = "/dev/disk/by-uuid/893f5d89-f0eb-4168-bccb-d604472fe9ad";
       fsType = "btrfs";
       options = ["subvol=@nix" "compress-force=zstd:15" "defaults" "noatime"];
     };
