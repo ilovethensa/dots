@@ -14,7 +14,7 @@
     #./services/mindustry.nix
     #./services/playit.nix
     #./services/caddy.nix
-    #./services/jellyseerr.nix
+    ./services/jellyseerr.nix
     #./services/glance.nix
     #./services/cron.nix
     #./services/wireguard.nix
