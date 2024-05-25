@@ -26,21 +26,16 @@
       options = ["defaults" "size=2G" "mode=755"];
     };
     "/boot" = {
-      device = "/dev/disk/by-uuid/3FD2-2807";
+      device = "/dev/disk/by-uuid/1C12-2DE6";
       fsType = "vfat";
     };
     "/home" = {
-      device = "/dev/disk/by-uuid/c5dde26d-1377-4ec4-8e25-707f3ef31ed7";
+      device = "/dev/disk/by-uuid/45b5f20e-b959-4dce-b423-901b0f9992ad";
       fsType = "btrfs";
       options = ["subvol=@home" "compress-force=zstd:15" "defaults" "noatime"];
     };
-    "/srv" = {
-      device = "/dev/disk/by-uuid/c5dde26d-1377-4ec4-8e25-707f3ef31ed7";
-      fsType = "btrfs";
-      options = ["subvol=@data" "compress-force=zstd:15" "defaults" "noatime"];
-    };
     "/nix" = {
-      device = "/dev/disk/by-uuid/c5dde26d-1377-4ec4-8e25-707f3ef31ed7";
+      device = "/dev/disk/by-uuid/45b5f20e-b959-4dce-b423-901b0f9992ad";
       fsType = "btrfs";
       options = ["subvol=@nix" "compress-force=zstd:15" "defaults" "noatime"];
     };
@@ -49,13 +44,11 @@
       fsType = "btrfs";
       options = ["compress-force=zstd:15" "defaults" "noatime" "autodefrag" "nofail"];
     };
-    /*
-       "/srv/nvme" = {
-      device = "/dev/disk/by-uuid/03652c7f-d16f-4634-b916-69917242da99";
+    "/srv" = {
+      device = "/dev/disk/by-uuid/c5dde26d-1377-4ec4-8e25-707f3ef31ed7";
       fsType = "btrfs";
-      options = ["compress-force=zstd:15" "defaults" "noatime" "nofail"];
+      options = ["subvol=@data" "compress-force=zstd:15" "defaults" "noatime"];
     };
-    */
   };
 
   swapDevices = [];
