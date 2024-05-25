@@ -15,4 +15,7 @@
       LISTEN_ADDR = "0.0.0.0:2653";
     };
   };
+  networking.firewall.allowedTCPPorts = [
+    "2653"
+  ];
 }

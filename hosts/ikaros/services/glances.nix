@@ -16,4 +16,8 @@
       "--pid=host"
     ];
   };
+  networking.firewall.allowedTCPPorts = [
+    "61208"
+    "61209"
+  ];
 }

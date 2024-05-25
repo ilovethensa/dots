@@ -12,7 +12,7 @@
     ./hardware
     ./system
   ];
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
   time.timeZone = "Europe/Sofia";
   sops.defaultSopsFile = ./../../secrets/secrets.yaml;
   sops.defaultSopsFormat = "yaml";

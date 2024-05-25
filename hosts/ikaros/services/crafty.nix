@@ -16,4 +16,7 @@
       "/mnt/data/crafty/import:/crafty/import"
     ];
   };
+  networking.firewall.allowedTCPPorts = [
+    "25565" # Minecraft
+  ];
 }
