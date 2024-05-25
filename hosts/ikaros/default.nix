@@ -10,7 +10,7 @@
     ./../../nixos/tht.nix
     ./../../nixos/options
     ./services/arr.nix
-    #./services/cloudflared-web.nix
+    ./services/cloudflared-web.nix
     #./services/mindustry.nix
     #./services/playit.nix
     #./services/caddy.nix
