@@ -50,8 +50,16 @@
       options = ["defaults" "nofail"];
     };
     "/srv/data" = {
+      depends = [
+        # The mounts above have to be mounted in this given order
+        "/mnt/data"
+      ];
       device = "/mnt/data";
-      fsType = "bindfs";
+      fsType = "none";
+      options = [
+        "bind"
+        "nofail"
+      ];
     };
   };
 
