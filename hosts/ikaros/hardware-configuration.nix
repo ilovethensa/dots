@@ -45,9 +45,9 @@
       options = ["compress-force=zstd:15" "defaults" "noatime" "autodefrag" "nofail"];
     };
     "/srv" = {
-      device = "/dev/disk/by-uuid/23fc1491-b1f6-4e69-82e7-6135e4c0a3f1";
+      device = "/dev/disk/by-uuid/e3a81ea7-a52d-4fa2-83ac-dea18e0e20a7";
       fsType = "btrfs";
-      options = ["subvol=@data" "compress-force=zstd:15" "defaults" "noatime" "nofail"];
+      options = ["compress-force=zstd:15" "defaults" "noatime" "nofail"];
     };
   };
 
