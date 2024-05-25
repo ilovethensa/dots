@@ -13,6 +13,7 @@
     ./system
   ];
   networking.firewall.enable = true;
+  networking.nftables.enable = true;
   time.timeZone = "Europe/Sofia";
   sops.defaultSopsFile = ./../../secrets/secrets.yaml;
   sops.defaultSopsFormat = "yaml";
