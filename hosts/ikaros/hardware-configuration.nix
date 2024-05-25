@@ -47,7 +47,7 @@
     "/srv" = {
       device = "/dev/disk/by-uuid/c5dde26d-1377-4ec4-8e25-707f3ef31ed7";
       fsType = "btrfs";
-      options = ["subvol=@data" "compress-force=zstd:15" "defaults" "noatime"];
+      options = ["subvol=@data" "compress-force=zstd:15" "defaults" "noatime" "nofail"];
     };
   };
 
