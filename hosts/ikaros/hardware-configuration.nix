@@ -45,7 +45,7 @@
       options = ["compress-force=zstd:15" "defaults" "noatime" "autodefrag" "nofail"];
     };
     "/mnt/data" = {
-      device = "/dev/disk/by-uuid/df05109-d59f-4417-ae8f-75a7dbb836b5";
+      device = "/dev/disk/by-uuid/4df05109-d59f-4417-ae8f-75a7dbb836b5";
       #fsType = "btrfs";
       options = ["defaults" "nofail"];
     };
