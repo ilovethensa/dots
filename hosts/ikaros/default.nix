@@ -19,10 +19,10 @@
     #./services/cron.nix
     #./services/wireguard.nix
     #./services/homepage.nix
-    #./services/crafty.nix
+    ./services/crafty.nix
     #./services/grafana.nix
     #./services/n8n.nix
-    #./services/miniflux.nix
+    ./services/miniflux.nix
     #./services/glances.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
