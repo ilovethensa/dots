@@ -12,7 +12,11 @@
     ./hardware
     ./system
   ];
-  networking.firewall.enable = true;
+  networking.firewall = {
+    enable = true;
+    logRefusedPackets = true;
+    logRefusedConnections = true;
+  };
   # networking.nftables.enable = true;
   time.timeZone = "Europe/Sofia";
   sops.defaultSopsFile = ./../../secrets/secrets.yaml;
