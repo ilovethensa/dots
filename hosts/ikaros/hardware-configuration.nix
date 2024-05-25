@@ -49,8 +49,7 @@
       #fsType = "btrfs";
       options = ["defaults" "nofail"];
     };
-    /*
-       "/srv/data" = {
+    "/srv/data" = {
       depends = [
         # The mounts above have to be mounted in this given order
         "/mnt/data"
@@ -62,7 +61,6 @@
         "nofail"
       ];
     };
-    */
   };
 
   swapDevices = [];
