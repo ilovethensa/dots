@@ -10,20 +10,20 @@
     ./../../nixos/tht.nix
     ./../../nixos/options
     ./services/arr.nix
-    ./services/cloudflared-web.nix
-    ./services/mindustry.nix
-    ./services/playit.nix
-    ./services/caddy.nix
-    ./services/jellyseerr.nix
-    ./services/glance.nix
-    ./services/cron.nix
-    ./services/wireguard.nix
+    #./services/cloudflared-web.nix
+    #./services/mindustry.nix
+    #./services/playit.nix
+    #./services/caddy.nix
+    #./services/jellyseerr.nix
+    #./services/glance.nix
+    #./services/cron.nix
+    #./services/wireguard.nix
     #./services/homepage.nix
-    ./services/crafty.nix
-    ./services/grafana.nix
-    ./services/n8n.nix
-    ./services/miniflux.nix
-    ./services/glances.nix
+    #./services/crafty.nix
+    #./services/grafana.nix
+    #./services/n8n.nix
+    #./services/miniflux.nix
+    #./services/glances.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
   ];
@@ -52,7 +52,7 @@
     playit
     git
   ];
-  networking.wireguard.enable = true;
+  #networking.wireguard.enable = true;
   # Persistence configuration
   environment.persistence."/nix/persist" = {
     hideMounts = true;

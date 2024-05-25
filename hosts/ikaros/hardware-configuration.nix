@@ -29,26 +29,26 @@
       device = "/dev/disk/by-uuid/9333-E11B";
       fsType = "vfat";
     };
-    "/home" = {
-      device = "/dev/disk/by-uuid/893f5d89-f0eb-4168-bccb-d604472fe9ad";
-      fsType = "btrfs";
-      options = ["subvol=@home" "compress-force=zstd:15" "defaults" "noatime"];
-    };
+    #"/home" = {
+    #  device = "/dev/disk/by-uuid/893f5d89-f0eb-4168-bccb-d604472fe9ad";
+    #  fsType = "btrfs";
+    #  options = ["subvol=@home" "compress-force=zstd:15" "defaults" "noatime" "nofail"];
+    #};
     "/nix" = {
       device = "/dev/disk/by-uuid/893f5d89-f0eb-4168-bccb-d604472fe9ad";
       fsType = "btrfs";
       options = ["subvol=@nix" "compress-force=zstd:15" "defaults" "noatime"];
     };
-    "/mnt/media" = {
-      device = "/dev/disk/by-uuid/23fc1491-b1f6-4e69-82e7-6135e4c0a3f1";
-      fsType = "btrfs";
-      options = ["compress-force=zstd:15" "defaults" "noatime" "autodefrag" "nofail"];
-    };
-    "/mnt/data" = {
-      device = "/dev/disk/by-uuid/4df05109-d59f-4417-ae8f-75a7dbb836b5";
-      #fsType = "btrfs";
-      options = ["defaults" "nofail"];
-    };
+    #"/mnt/media" = {
+    #  device = "/dev/disk/by-uuid/23fc1491-b1f6-4e69-82e7-6135e4c0a3f1";
+    #  fsType = "btrfs";
+    #  options = ["compress-force=zstd:15" "defaults" "noatime" "autodefrag" "nofail"];
+    #};
+    #"/mnt/data" = {
+    #  device = "/dev/disk/by-uuid/sda1";
+    #  fsType = "btrfs";
+    #  options = ["compress-force=zstd:15" "defaults" "noatime" "nofail"];
+    #};
   };
 
   swapDevices = [];
