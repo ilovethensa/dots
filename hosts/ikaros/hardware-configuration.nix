@@ -49,6 +49,10 @@
       #fsType = "btrfs";
       options = ["defaults" "nofail"];
     };
+    "/srv/data" = {
+      device = "/mnt/data";
+      fsType = "bindfs";
+    };
   };
 
   swapDevices = [];
