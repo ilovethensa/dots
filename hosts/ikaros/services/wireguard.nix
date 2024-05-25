@@ -11,7 +11,7 @@
       "51821:51821/tcp"
     ];
     volumes = [
-      "/srv/data/wireguard:/etc/wireguard"
+      "/mnt/data/wireguard:/etc/wireguard"
     ];
     environment = {
       LANG = "en";

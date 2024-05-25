@@ -9,11 +9,11 @@
       "25500-25600:25500-25600"
     ];
     volumes = [
-      "/srv/data/crafty/backups:/crafty/backups"
-      "/srv/data/crafty/logs:/crafty/logs"
-      "/srv/data/crafty/servers:/crafty/servers"
-      "/srv/data/crafty/config:/crafty/app/config"
-      "/srv/data/crafty/import:/crafty/import"
+      "/mnt/data/crafty/backups:/crafty/backups"
+      "/mnt/data/crafty/logs:/crafty/logs"
+      "/mnt/data/crafty/servers:/crafty/servers"
+      "/mnt/data/crafty/config:/crafty/app/config"
+      "/mnt/data/crafty/import:/crafty/import"
     ];
   };
 }

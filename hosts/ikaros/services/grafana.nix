@@ -1,7 +1,7 @@
 {...}: {
   services.grafana = {
     enable = true;
-    dataDir = "/srv/data/grafana";
+    dataDir = "/mnt/data/grafana";
     settings = {
       server = {
         # Listening Address
