@@ -30,8 +30,12 @@
       "--sysctl=\"net.ipv4.ip_forward=1\""
     ];
   };
-  networking.firewall.allowedTCPPorts = [
-    "51820" # UI
-    "51821" # VPN
-  ];
+  networking.firewall = {
+    allowedTCPPorts = [
+      "51821"
+    ];
+    allowedUDPPorts = [
+      "51820"
+    ];
+  };
 }
