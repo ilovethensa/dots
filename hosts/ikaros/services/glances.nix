@@ -17,7 +17,7 @@
     ];
   };
   networking.firewall.allowedTCPPorts = [
-    "61208"
-    "61209"
+    61208
+    61209
   ];
 }

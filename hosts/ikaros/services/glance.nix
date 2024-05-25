@@ -72,6 +72,6 @@ in {
     autoStart = true;
   };
   networking.firewall.allowedTCPPorts = [
-    "8080" # UI
+    8080 # UI
   ];
 }

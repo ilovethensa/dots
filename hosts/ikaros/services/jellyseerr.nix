@@ -10,6 +10,6 @@
     ];
   };
   networking.firewall.allowedTCPPorts = [
-    "5055"
+    5055
   ];
 }

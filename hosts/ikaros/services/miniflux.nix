@@ -16,6 +16,6 @@
     };
   };
   networking.firewall.allowedTCPPorts = [
-    "2653"
+    2653
   ];
 }
