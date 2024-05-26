@@ -25,6 +25,7 @@
     ./services/miniflux.nix
     ./services/glances.nix
     ./services/changedetection.nix
+    ./services/speedtest-tracker.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
   ];
