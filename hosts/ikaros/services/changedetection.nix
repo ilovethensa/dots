@@ -20,10 +20,10 @@
       "--cap-add=SYS_ADMIN"
     ];
     environment = {
-      SCREEN_WIDTH = 1920;
-      SCREEN_HEIGHT = 1024;
-      SCREEN_DEPTH = 16;
-      MAX_CONCURRENT_CHROME_PROCESSES = 10;
+      SCREEN_WIDTH = "1920";
+      SCREEN_HEIGHT = "1024";
+      SCREEN_DEPTH = "16";
+      MAX_CONCURRENT_CHROME_PROCESSES = "10";
     };
   };
 }
