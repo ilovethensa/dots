@@ -76,11 +76,11 @@
       {
         "Graphs" = [
           {
-            "Network" = {
+            "Ram" = {
               widget = {
                 type = "glances";
                 url = "http://192.168.1.111:61208";
-                metric = "network:eth0";
+                metric = "memory";
                 chart = false;
               };
             };
