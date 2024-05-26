@@ -167,29 +167,45 @@
         ];
       }
       {
-        "Bookmarks" = [
+        "Graphs" = [
           {
-            "DigitalOcean" = {
-              href = "https://cloud.digitalocean.com/projects";
-              icon = "si-digitalocean-#0080FF";
+            "PVE" = {
+              widget = {
+                type = "glances";
+                url = "http://localhost:61208";
+                metric = "info";
+                chart = false;
+              };
             };
           }
           {
-            "Akamai Cloud" = {
-              href = "https://cloud.linode.com/linodes";
-              icon = "si-akamai-#0096D6";
+            "NAS" = {
+              widget = {
+                type = "glances";
+                url = "http://localhost:61208";
+                metric = "fs:/mnt/media";
+                chart = false;
+              };
             };
           }
           {
-            "Cloudflare Zero Trust" = {
-              href = "https://one.dash.cloudflare.com/6b5c2bfa84447747dfcb713f9f245479/home";
-              icon = "si-cloudflare-#F38020";
+            "Internal" = {
+              widget = {
+                type = "glances";
+                url = "http://localhost:61208";
+                metric = "network:vmbr1";
+                chart = false;
+              };
             };
           }
           {
-            "GitHub" = {
-              href = "https://github.com/";
-              icon = "si-github-#FFFFFF";
+            "External" = {
+              widget = {
+                type = "glances";
+                url = "http://localhost:61208";
+                metric = "network:enp5s0";
+                chart = false;
+              };
             };
           }
         ];
