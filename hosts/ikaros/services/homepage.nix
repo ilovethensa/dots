@@ -42,26 +42,6 @@
         Downloads = {
           header = false;
           style = "row";
-          columns = 3;
-        };
-        HCI = {
-          header = false;
-          style = "row";
-          columns = 3;
-        };
-        Cloud = {
-          header = false;
-          style = "column";
-          columns = 2;
-        };
-        CloudBookmarks = {
-          header = false;
-          style = "column";
-          columns = 2;
-        };
-        Bookmarks = {
-          header = false;
-          style = "row";
           columns = 2;
         };
       };
