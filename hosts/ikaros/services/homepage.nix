@@ -6,12 +6,12 @@
   sops.secrets.sonarr_key = {};
   sops.secrets.bazarr_key = {};
   sops.templates."homepage_env".content = ''
-    export HOMEPAGE_VAR_JELLYFIN_KEY="${config.sops.secrets.jellyfin_key}"
-    export HOMEPAGE_VAR_JELLYSEERR_KEY="${config.sops.secrets.jellyseerr_key}"
-    export HOMEPAGE_VAR_PROWLARR_KEY="${config.sops.secrets.prowlarr_key}"
-    export HOMEPAGE_VAR_RADARR_KEY="${config.sops.secrets.radarr_key}"
-    export HOMEPAGE_VAR_SONARR_KEY="${config.sops.secrets.sonarr_key}"
-    export HOMEPAGE_VAR_BAZARR_KEY="${config.sops.secrets.bazarr_key}"
+    HOMEPAGE_VAR_JELLYFIN_KEY="${config.sops.placeholder.jellyfin_key}"
+    HOMEPAGE_VAR_JELLYSEERR_KEY="${config.sops.placeholder.jellyseerr_key}"
+    HOMEPAGE_VAR_PROWLARR_KEY="${config.sops.placeholder.prowlarr_key}"
+    HOMEPAGE_VAR_RADARR_KEY="${config.sops.placeholder.radarr_key}"
+    HOMEPAGE_VAR_SONARR_KEY="${config.sops.placeholder.sonarr_key}"
+    HOMEPAGE_VAR_BAZARR_KEY="${config.sops.placeholder.bazarr_key}"
   '';
   services.homepage-dashboard = {
     enable = true;
