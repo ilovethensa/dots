@@ -1,6 +1,6 @@
 {...}: {
   virtualisation.oci-containers.containers."glances" = {
-    image = "nicolargo/glances:latest-full";
+    image = "nicolargo/glances:3.3.0.4-full";
     autoStart = true;
     ports = [
       "61208-61209:61208-61209"
@@ -10,7 +10,7 @@
       #"/var/run/docker.sock:/var/run/docker.sock:ro"
     ];
     environment = {
-      GLANCES_OPT = "-w --disable-webui";
+      GLANCES_OPT = "-w";
     };
     extraOptions = [
       "--pid=host"
