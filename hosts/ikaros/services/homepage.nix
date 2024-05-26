@@ -225,7 +225,7 @@
             "ChangeDetection" = {
               description = "Detecting changes";
               href = "http://192.168.1.111:5000";
-              icon = "changedetectionio.png";
+              icon = "changedetection-io.png";
               widget = {
                 type = "changedetectionio";
                 url = "http://192.168.1.111:5000";
