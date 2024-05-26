@@ -76,7 +76,7 @@
       {
         "Graphs" = [
           {
-            "ENetwork" = {
+            "Network" = {
               widget = {
                 type = "glances";
                 url = "http://192.168.1.111:61208";
