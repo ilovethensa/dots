@@ -23,7 +23,7 @@
     #./services/grafana.nix
     #./services/n8n.nix
     ./services/miniflux.nix
-    #./services/glances.nix
+    ./services/glances.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
   ];
