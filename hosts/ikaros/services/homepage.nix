@@ -33,22 +33,22 @@
       headerStyle = "clean";
 
       layout = {
-        Graphs = {
+        A = {
           header = false;
           style = "row";
           columns = 4;
         };
-        Players = {
+        B = {
           header = false;
           style = "row";
           columns = 2;
         };
-        Media = {
+        C = {
           header = false;
           style = "row";
           columns = 3;
         };
-        Downloads = {
+        D = {
           header = false;
           style = "row";
           columns = 2;
@@ -74,7 +74,7 @@
 
     services = [
       {
-        "Graphs" = [
+        "A" = [
           {
             "Ram" = {
               widget = {
@@ -100,7 +100,7 @@
               widget = {
                 type = "glances";
                 url = "http://192.168.1.111:61208";
-                metric = "fs:/mnt/media";
+                metric = "fs:/mnt/C";
                 chart = false;
               };
             };
@@ -119,7 +119,7 @@
       }
 
       {
-        "Media" = [
+        "C" = [
           {
             "Bazarr" = {
               description = "Subtitle downloader";
@@ -162,7 +162,7 @@
       }
 
       {
-        "Players" = [
+        "B" = [
           {
             "Jellyseerr" = {
               description = "Request movies and TV shows.";
@@ -192,7 +192,7 @@
         ];
       }
       {
-        "Downloads" = [
+        "D" = [
           {
             "Prowlarr" = {
               description = "Tracker manager";
