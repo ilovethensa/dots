@@ -235,22 +235,22 @@
             };
           }
           {
-            "Home assistant" = {
-              description = "Controlling the home";
-              href = "http://192.168.1.104:8123";
-              icon = "homeassistant.png";
-              refreshInterval = 1000;
-            };
-          }
-          {
             "Speedtest" = {
               description = "Tracking network speed";
               href = "http://192.168.1.111:2563";
-              icon = "speedtest.png";
+              icon = "speedtest-tracker.png";
               widget = {
                 type = "speedtest";
                 url = "http://192.168.1.111:2563";
               };
+              refreshInterval = 1000;
+            };
+          }
+          {
+            "Home assistant" = {
+              description = "Controlling the home";
+              href = "http://192.168.1.104:8123";
+              icon = "home-assistant.png";
               refreshInterval = 1000;
             };
           }
