@@ -4,7 +4,7 @@
       image = "dgtlmoon/changedetection.io";
       autoStart = true;
       environment = {
-        PLAYWRIGHT_DRIVER_URL = "ws://playwright-chrome:3000";
+        PLAYWRIGHT_DRIVER_URL = "ws://localhost:3000";
       };
       volumes = [
         "/mnt/data/changedetection:/datastore"
