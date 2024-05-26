@@ -48,11 +48,13 @@
           style = "row";
           columns = 3;
         };
-        Downloads = {
+        /*
+           Downloads = {
           header = false;
           style = "row";
           columns = 2;
         };
+        */
       };
     };
 
