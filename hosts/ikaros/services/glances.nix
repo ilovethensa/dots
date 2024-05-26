@@ -10,7 +10,7 @@
       #"/var/run/docker.sock:/var/run/docker.sock:ro"
     ];
     environment = {
-      GLANCES_OPT = "-w";
+      GLANCES_OPT = "-w --disable-webui";
     };
     extraOptions = [
       "--pid=host"
