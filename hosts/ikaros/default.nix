@@ -18,7 +18,7 @@
     ./services/glance.nix
     ./services/cron.nix
     ./services/wireguard.nix
-    #./services/homepage.nix
+    ./services/homepage.nix
     ./services/crafty.nix
     #./services/grafana.nix
     #./services/n8n.nix
