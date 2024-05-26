@@ -29,10 +29,6 @@
       enable = true;
       openFirewall = true;
     };
-    lidarr = {
-      enable = true;
-      openFirewall = true;
-    };
   };
   networking.firewall.allowedTCPPorts = [
     3000 # Transmission
