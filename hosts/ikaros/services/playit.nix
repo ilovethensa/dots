@@ -7,7 +7,7 @@
   sops.templates."playit.toml".content = ''
     secret_key = "${config.sops.placeholder.playit_secret}"
   '';
-  systemd.user.services.playit = {
+  systemd.services.playit = {
     enable = true;
     description = "Playit.gg daemon";
     serviceConfig = {
