@@ -4,6 +4,8 @@
   ...
 }: {
   services.homepage-dashboard = {
+    enable = true;
+    openFirewall = true;
     settings = {
       title = "THT cloud";
       cardBlur = "sm";
@@ -14,5 +16,21 @@
         };
       };
     };
+
+    widgets = [
+      {
+        resources = {
+          cpu = true;
+          disk = "/";
+          memory = true;
+        };
+      }
+      {
+        search = {
+          provider = "duckduckgo";
+          target = "_blank";
+        };
+      }
+    ];
   };
 }
