@@ -5,6 +5,7 @@
   sops.secrets.radarr_key = {};
   sops.secrets.sonarr_key = {};
   sops.secrets.bazarr_key = {};
+  sops.secrets.changedetection_key = {};
   sops.templates."homepage_env".content = ''
     HOMEPAGE_VAR_JELLYFIN_KEY="${config.sops.placeholder.jellyfin_key}"
     HOMEPAGE_VAR_JELLYSEERR_KEY="${config.sops.placeholder.jellyseerr_key}"
@@ -12,6 +13,7 @@
     HOMEPAGE_VAR_RADARR_KEY="${config.sops.placeholder.radarr_key}"
     HOMEPAGE_VAR_SONARR_KEY="${config.sops.placeholder.sonarr_key}"
     HOMEPAGE_VAR_BAZARR_KEY="${config.sops.placeholder.bazarr_key}"
+    HOMEPAGE_VAR_CHANGEDETECTION_KEY="${config.sops.placeholder.changedetection_key}"
   '';
   services.homepage-dashboard = {
     enable = true;
@@ -215,6 +217,19 @@
                 type = "transmission";
                 url = "http://192.168.1.111:9091";
                 fields = ["download" "upload"];
+              };
+              refreshInterval = 1000;
+            };
+          }
+          {
+            "ChangeDetection" = {
+              description = "Detecting changes";
+              href = "http://192.168.1.111:5000";
+              icon = "changedetectionio.png";
+              widget = {
+                type = "changedetectionio";
+                url = "http://192.168.1.111:5000";
+                key = "{{HOMEPAGE_VAR_CHANGEDETECTION_KEY}}";
               };
               refreshInterval = 1000;
             };
