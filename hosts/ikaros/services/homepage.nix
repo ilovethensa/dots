@@ -76,21 +76,21 @@
       {
         "Graphs" = [
           {
-            "External" = {
+            "ENetwork" = {
               widget = {
                 type = "glances";
                 url = "http://192.168.1.111:61208";
-                metric = "network:enp5s0";
+                metric = "network:eth0";
                 chart = false;
               };
             };
           }
           {
-            "Internal" = {
+            "Data" = {
               widget = {
                 type = "glances";
                 url = "http://192.168.1.111:61208";
-                metric = "network:vmbr1";
+                metric = "fs:/mnt/data";
                 chart = false;
               };
             };
@@ -106,7 +106,7 @@
             };
           }
           {
-            "PVE" = {
+            "INFO" = {
               widget = {
                 type = "glances";
                 url = "http://192.168.1.111:61208";
