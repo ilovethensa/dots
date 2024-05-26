@@ -74,31 +74,75 @@
 
     services = [
       {
-        "Players" = [
+        "Graphs" = [
           {
-            "Jellyfin" = {
-              description = "Watch movies and TV shows.";
-              href = "http://192.168.1.111:8096";
-              icon = "jellyfin.png";
+            "External" = {
               widget = {
-                type = "jellyfin";
-                url = "http://192.168.1.111:8096";
-                key = "{{HOMEPAGE_VAR_JELLYFIN_KEY}}";
+                type = "glances";
+                url = "http://192.168.1.111:61208";
+                metric = "network:enp5s0";
+                chart = false;
               };
             };
           }
           {
-            "Jellyseerr" = {
-              description = "Request movies and TV shows.";
-              href = "https://192.168.1.111:5055";
-              icon = "jellyseerr.png";
-              server = "192.168.1.111";
-              container = "jellyseerr";
+            "Internal" = {
               widget = {
-                type = "jellyseerr";
-                url = "http://192.168.1.111:5055";
-                key = "{{HOMEPAGE_VAR_JELLYSEERR_KEY}}";
+                type = "glances";
+                url = "http://192.168.1.111:61208";
+                metric = "network:vmbr1";
+                chart = false;
               };
+            };
+          }
+          {
+            "NAS" = {
+              widget = {
+                type = "glances";
+                url = "http://192.168.1.111:61208";
+                metric = "fs:/mnt/media";
+                chart = false;
+              };
+            };
+          }
+          {
+            "PVE" = {
+              widget = {
+                type = "glances";
+                url = "http://192.168.1.111:61208";
+                metric = "info";
+                chart = false;
+              };
+            };
+          }
+        ];
+      }
+      {
+        "Downloads" = [
+          {
+            "Prowlarr" = {
+              description = "Tracker manager";
+              href = "http://192.168.1.111:9696";
+              icon = "prowlarr.png";
+              widget = {
+                type = "prowlarr";
+                url = "http://192.168.1.111:9696";
+                key = "{{HOMEPAGE_VAR_PROWLARR_KEY}}";
+                fields = ["numberOfGrabs" "numberOfQueries"];
+              };
+            };
+          }
+          {
+            "Transmission" = {
+              description = "Iso downloader";
+              href = "http://192.168.1.111:9091";
+              icon = "transmission.png";
+              widget = {
+                type = "flood";
+                url = "http://192.168.1.111:9091";
+                fields = ["download" "upload"];
+              };
+              refreshInterval = 1000;
             };
           }
         ];
@@ -106,15 +150,14 @@
       {
         "Media" = [
           {
-            "Radarr" = {
-              description = "Request and manage movies.";
-              href = "http://192.168.1.111:7878";
-              icon = "radarr.png";
+            "Bazarr" = {
+              description = "Subtitle downloader";
+              href = "http://192.168.1.111:6767";
+              icon = "bazarr.png";
               widget = {
-                type = "radarr";
-                url = "http://192.168.1.111:7878";
-                key = "{{HOMEPAGE_VAR_RADARR_KEY}}";
-                fields = ["wanted" "movies"];
+                type = "bazarr";
+                url = "http://192.168.1.111:6767";
+                key = "{{HOMEPAGE_VAR_BAZARR_KEY}}";
               };
             };
           }
@@ -132,88 +175,45 @@
             };
           }
           {
-            "Bazarr" = {
-              description = "Subtitle downloader";
-              href = "http://192.168.1.111:6767";
-              icon = "bazarr.png";
+            "Radarr" = {
+              description = "Request and manage movies.";
+              href = "http://192.168.1.111:7878";
+              icon = "radarr.png";
               widget = {
-                type = "bazarr";
-                url = "http://192.168.1.111:6767";
-                key = "{{HOMEPAGE_VAR_BAZARR_KEY}}";
+                type = "radarr";
+                url = "http://192.168.1.111:7878";
+                key = "{{HOMEPAGE_VAR_RADARR_KEY}}";
+                fields = ["wanted" "movies"];
               };
             };
           }
         ];
       }
       {
-        "Downloads" = [
+        "Players" = [
           {
-            "Transmission" = {
-              description = "Iso downloader";
-              href = "http://192.168.1.111:9091";
-              icon = "transmission.png";
+            "Jellyseerr" = {
+              description = "Request movies and TV shows.";
+              href = "https://192.168.1.111:5055";
+              icon = "jellyseerr.png";
+              server = "192.168.1.111";
+              container = "jellyseerr";
               widget = {
-                type = "flood";
-                url = "http://192.168.1.111:9091";
-                fields = ["download" "upload"];
-              };
-              refreshInterval = 1000;
-            };
-          }
-          {
-            "Prowlarr" = {
-              description = "Tracker manager";
-              href = "http://192.168.1.111:9696";
-              icon = "prowlarr.png";
-              widget = {
-                type = "prowlarr";
-                url = "http://192.168.1.111:9696";
-                key = "{{HOMEPAGE_VAR_PROWLARR_KEY}}";
-                fields = ["numberOfGrabs" "numberOfQueries"];
-              };
-            };
-          }
-        ];
-      }
-      {
-        "Graphs" = [
-          {
-            "PVE" = {
-              widget = {
-                type = "glances";
-                url = "http://192.168.1.111:61208";
-                metric = "info";
-                chart = false;
+                type = "jellyseerr";
+                url = "http://192.168.1.111:5055";
+                key = "{{HOMEPAGE_VAR_JELLYSEERR_KEY}}";
               };
             };
           }
           {
-            "NAS" = {
+            "Jellyfin" = {
+              description = "Watch movies and TV shows.";
+              href = "http://192.168.1.111:8096";
+              icon = "jellyfin.png";
               widget = {
-                type = "glances";
-                url = "http://192.168.1.111:61208";
-                metric = "fs:/mnt/media";
-                chart = false;
-              };
-            };
-          }
-          {
-            "Internal" = {
-              widget = {
-                type = "glances";
-                url = "http://192.168.1.111:61208";
-                metric = "network:vmbr1";
-                chart = false;
-              };
-            };
-          }
-          {
-            "External" = {
-              widget = {
-                type = "glances";
-                url = "http://192.168.1.111:61208";
-                metric = "network:enp5s0";
-                chart = false;
+                type = "jellyfin";
+                url = "http://192.168.1.111:8096";
+                key = "{{HOMEPAGE_VAR_JELLYFIN_KEY}}";
               };
             };
           }
