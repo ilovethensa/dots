@@ -168,7 +168,7 @@
           {
             "Jellyseerr" = {
               description = "Request movies and TV shows.";
-              href = "https://192.168.1.111:5055";
+              href = "http://192.168.1.111:5055";
               icon = "jellyseerr.png";
               server = "192.168.1.111";
               container = "jellyseerr";
