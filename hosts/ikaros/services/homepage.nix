@@ -21,7 +21,7 @@
       {
         resources = {
           cpu = true;
-          disk = "/";
+          disk = "/nix";
           memory = true;
         };
       }
@@ -30,6 +30,29 @@
           provider = "duckduckgo";
           target = "_blank";
         };
+      }
+    ];
+
+    services = [
+      {
+        "My First Group" = [
+          {
+            "My First Service" = {
+              description = "Homepage is awesome";
+              href = "http://localhost/";
+            };
+          }
+        ];
+      }
+      {
+        "My Second Group" = [
+          {
+            "My Second Service" = {
+              description = "Homepage is the best";
+              href = "http://localhost/";
+            };
+          }
+        ];
       }
     ];
   };
