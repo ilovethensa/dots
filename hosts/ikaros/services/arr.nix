@@ -4,15 +4,35 @@
     mediaDir = "/mnt/media";
     stateDir = "/mnt/data";
 
-    jellyfin.enable = true;
+    jellyfin = {
+      enable = true;
+      openFirewall = true;
+    };
     transmission = {
       enable = true;
       peerPort = 50000;
+      openFirewall = true;
     };
-    bazarr.enable = true;
-    prowlarr.enable = true;
-    radarr.enable = true;
-    sonarr.enable = true;
+    bazarr = {
+      enable = true;
+      openFirewall = true;
+    };
+    prowlarr = {
+      enable = true;
+      openFirewall = true;
+    };
+    radarr = {
+      enable = true;
+      openFirewall = true;
+    };
+    sonarr = {
+      enable = true;
+      openFirewall = true;
+    };
+    lidarr = {
+      enable = true;
+      openFirewall = true;
+    };
   };
   networking.firewall.allowedTCPPorts = [
     3000 # Transmission
