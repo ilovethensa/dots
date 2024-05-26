@@ -43,18 +43,16 @@
           style = "row";
           columns = 2;
         };
+        Downloads = {
+          header = false;
+          style = "row";
+          columns = 2;
+        };
         Media = {
           header = false;
           style = "row";
           columns = 3;
         };
-        /*
-           Downloads = {
-          header = false;
-          style = "row";
-          columns = 2;
-        };
-        */
       };
     };
 
