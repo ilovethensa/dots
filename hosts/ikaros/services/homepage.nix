@@ -145,7 +145,7 @@
               icon = "flood.png";
               widget = {
                 type = "flood";
-                url = "http://172.16.1.10:9091";
+                url = "http://192.168.1.111:9091";
                 fields = ["download" "upload"];
               };
               refreshInterval = 1000;
