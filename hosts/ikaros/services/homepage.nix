@@ -118,37 +118,6 @@
         ];
       }
 
-      {
-        "Downloads" = [
-          {
-            "Prowlarr" = {
-              description = "Tracker manager";
-              href = "http://192.168.1.111:9696";
-              icon = "prowlarr.png";
-              widget = {
-                type = "prowlarr";
-                url = "http://192.168.1.111:9696";
-                key = "{{HOMEPAGE_VAR_PROWLARR_KEY}}";
-                fields = ["numberOfGrabs" "numberOfQueries"];
-              };
-            };
-          }
-          {
-            "Transmission" = {
-              description = "Iso downloader";
-              href = "http://192.168.1.111:9091";
-              icon = "transmission.png";
-              widget = {
-                type = "transmission";
-                url = "http://192.168.1.111:9091";
-                fields = ["download" "upload"];
-              };
-              refreshInterval = 1000;
-            };
-          }
-        ];
-      }
-
       /*
          {
         "Media" = [
@@ -219,6 +188,36 @@
                 url = "http://192.168.1.111:8096";
                 key = "{{HOMEPAGE_VAR_JELLYFIN_KEY}}";
               };
+            };
+          }
+        ];
+      }
+      {
+        "Downloads" = [
+          {
+            "Prowlarr" = {
+              description = "Tracker manager";
+              href = "http://192.168.1.111:9696";
+              icon = "prowlarr.png";
+              widget = {
+                type = "prowlarr";
+                url = "http://192.168.1.111:9696";
+                key = "{{HOMEPAGE_VAR_PROWLARR_KEY}}";
+                fields = ["numberOfGrabs" "numberOfQueries"];
+              };
+            };
+          }
+          {
+            "Transmission" = {
+              description = "Iso downloader";
+              href = "http://192.168.1.111:9091";
+              icon = "transmission.png";
+              widget = {
+                type = "transmission";
+                url = "http://192.168.1.111:9091";
+                fields = ["download" "upload"];
+              };
+              refreshInterval = 1000;
             };
           }
         ];
