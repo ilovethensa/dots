@@ -148,10 +148,10 @@
       {
         "Downloads" = [
           {
-            "Flood" = {
+            "Transmission" = {
               description = "Iso downloader";
               href = "http://192.168.1.111:9091";
-              icon = "flood.png";
+              icon = "transmission.png";
               widget = {
                 type = "flood";
                 url = "http://192.168.1.111:9091";
