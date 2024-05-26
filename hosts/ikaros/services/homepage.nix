@@ -73,7 +73,7 @@
               icon = "jellyfin.png";
               widget = {
                 type = "jellyfin";
-                url = "http://localhost:8096";
+                url = "http://192.168.1.111:8096";
                 key = config.sops.secrets.jellyfin_key;
               };
             };
@@ -83,11 +83,11 @@
               description = "Request movies and TV shows.";
               href = "https://192.168.1.111:5055";
               icon = "jellyseerr.png";
-              server = "localhost";
+              server = "192.168.1.111";
               container = "jellyseerr";
               widget = {
                 type = "jellyseerr";
-                url = "http://localhost:5055";
+                url = "http://192.168.1.111:5055";
                 key = config.sops.secrets.jellyseerr_key;
               };
             };
@@ -103,7 +103,7 @@
               icon = "radarr.png";
               widget = {
                 type = "radarr";
-                url = "http://localhost:7878";
+                url = "http://192.168.1.111:7878";
                 key = config.sops.secrets.radarr_key;
                 fields = ["wanted" "movies"];
               };
@@ -116,7 +116,7 @@
               icon = "sonarr.png";
               widget = {
                 type = "sonarr";
-                url = "http://localhost:8989";
+                url = "http://192.168.1.111:8989";
                 key = config.sops.secrets.sonarr_key;
                 fields = ["wanted" "series"];
               };
@@ -129,7 +129,7 @@
               icon = "bazarr.png";
               widget = {
                 type = "bazarr";
-                url = "http://localhost:6767";
+                url = "http://192.168.1.111:6767";
                 key = config.sops.secrets.bazarr_key;
               };
             };
@@ -158,7 +158,7 @@
               icon = "prowlarr.png";
               widget = {
                 type = "prowlarr";
-                url = "http://localhost:9696";
+                url = "http://192.168.1.111:9696";
                 key = config.sops.secrets.prowlarr_key;
                 fields = ["numberOfGrabs" "numberOfQueries"];
               };
@@ -172,7 +172,7 @@
             "PVE" = {
               widget = {
                 type = "glances";
-                url = "http://localhost:61208";
+                url = "http://192.168.1.111:61208";
                 metric = "info";
                 chart = false;
               };
@@ -182,7 +182,7 @@
             "NAS" = {
               widget = {
                 type = "glances";
-                url = "http://localhost:61208";
+                url = "http://192.168.1.111:61208";
                 metric = "fs:/mnt/media";
                 chart = false;
               };
@@ -192,7 +192,7 @@
             "Internal" = {
               widget = {
                 type = "glances";
-                url = "http://localhost:61208";
+                url = "http://192.168.1.111:61208";
                 metric = "network:vmbr1";
                 chart = false;
               };
@@ -202,7 +202,7 @@
             "External" = {
               widget = {
                 type = "glances";
-                url = "http://localhost:61208";
+                url = "http://192.168.1.111:61208";
                 metric = "network:enp5s0";
                 chart = false;
               };
