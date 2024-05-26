@@ -5,9 +5,18 @@
   sops.secrets.radarr_key = {};
   sops.secrets.sonarr_key = {};
   sops.secrets.bazarr_key = {};
+  sops.templates."homepage_env".content = ''
+    export HOMEPAGE_VAR_JELLYFIN_KEY="${config.sops.secrets.jellyfin_key}"
+    export HOMEPAGE_VAR_JELLYSEERR_KEY="${config.sops.secrets.jellyseerr_key}"
+    export HOMEPAGE_VAR_PROWLARR_KEY="${config.sops.secrets.prowlarr_key}"
+    export HOMEPAGE_VAR_RADARR_KEY="${config.sops.secrets.radarr_key}"
+    export HOMEPAGE_VAR_SONARR_KEY="${config.sops.secrets.sonarr_key}"
+    export HOMEPAGE_VAR_BAZARR_KEY="${config.sops.secrets.bazarr_key}"
+  '';
   services.homepage-dashboard = {
     enable = true;
     openFirewall = true;
+    environmentFile = config.sops.templates."homepage_env".path;
     settings = {
       title = "THT cloud";
       description = "A personal, hyper converged, self-hosted cloud.";
@@ -74,7 +83,7 @@
               widget = {
                 type = "jellyfin";
                 url = "http://192.168.1.111:8096";
-                key = config.sops.secrets.jellyfin_key;
+                key = "{{HOMEPAGE_VAR_JELLYFIN_KEY}}";
               };
             };
           }
@@ -88,7 +97,7 @@
               widget = {
                 type = "jellyseerr";
                 url = "http://192.168.1.111:5055";
-                key = config.sops.secrets.jellyseerr_key;
+                key = "{{HOMEPAGE_VAR_JELLYSEERR_KEY}}";
               };
             };
           }
@@ -104,7 +113,7 @@
               widget = {
                 type = "radarr";
                 url = "http://192.168.1.111:7878";
-                key = config.sops.secrets.radarr_key;
+                key = "{{HOMEPAGE_VAR_RADARR_KEY}}";
                 fields = ["wanted" "movies"];
               };
             };
@@ -117,7 +126,7 @@
               widget = {
                 type = "sonarr";
                 url = "http://192.168.1.111:8989";
-                key = config.sops.secrets.sonarr_key;
+                key = "{{HOMEPAGE_VAR_SONARR_KEY}}";
                 fields = ["wanted" "series"];
               };
             };
@@ -130,7 +139,7 @@
               widget = {
                 type = "bazarr";
                 url = "http://192.168.1.111:6767";
-                key = config.sops.secrets.bazarr_key;
+                key = "{{HOMEPAGE_VAR_BAZARR_KEY}}";
               };
             };
           }
@@ -159,7 +168,7 @@
               widget = {
                 type = "prowlarr";
                 url = "http://192.168.1.111:9696";
-                key = config.sops.secrets.prowlarr_key;
+                key = "{{HOMEPAGE_VAR_PROWLARR_KEY}}";
                 fields = ["numberOfGrabs" "numberOfQueries"];
               };
             };
