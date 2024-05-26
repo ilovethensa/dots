@@ -61,6 +61,18 @@
         "nofail"
       ];
     };
+    "/srv/Media" = {
+      depends = [
+        # The mounts above have to be mounted in this given order
+        "/mnt/media"
+      ];
+      device = "/mnt/media";
+      fsType = "none";
+      options = [
+        "bind"
+        "nofail"
+      ];
+    };
   };
 
   swapDevices = [];
