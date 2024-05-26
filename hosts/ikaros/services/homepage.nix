@@ -138,7 +138,7 @@
               href = "http://192.168.1.111:9091";
               icon = "transmission.png";
               widget = {
-                type = "flood";
+                type = "transmission";
                 url = "http://192.168.1.111:9091";
                 fields = ["download" "upload"];
               };
