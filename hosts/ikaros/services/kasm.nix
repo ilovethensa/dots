@@ -17,7 +17,12 @@
     ];
     extraOptions = ["--privileged"];
   };
-  networking.firewall.allowedTCPPorts = [
-    3256
-  ];
+  networking.firewall = {
+    allowedTCPPorts = [
+      3256
+    ];
+    allowedUDPPorts = [
+      3256
+    ];
+  };
 }
