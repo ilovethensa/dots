@@ -43,7 +43,7 @@ with lib.hm.gvariant; {
 
     "org/gnome/desktop/screensaver" = {
       color-shading-type = "solid";
-      lock-enabled = false;
+      lock-enabled = true;
       picture-options = "zoom";
       picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
       primary-color = "#241f31";
