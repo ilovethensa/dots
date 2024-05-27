@@ -9,11 +9,11 @@
       "/run/udev/data:/run/udev/data"
     ];
     environment = {
-      KASM_PORT = "443";
+      KASM_PORT = "532";
     };
     ports = [
       "3000:3000"
-      "443:443"
+      "532:532"
     ];
     extraOptions = ["--privileged"];
   };
