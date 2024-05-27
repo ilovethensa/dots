@@ -9,20 +9,20 @@
       "/run/udev/data:/run/udev/data"
     ];
     environment = {
-      KASM_PORT = "443";
+      KASM_PORT = "3647";
     };
     ports = [
       "3000:3000"
-      "443:443"
+      "3647:3647"
     ];
     extraOptions = ["--privileged"];
   };
   networking.firewall = {
     allowedTCPPorts = [
-      443
+      3647
     ];
     allowedUDPPorts = [
-      443
+      3647
     ];
   };
 }
