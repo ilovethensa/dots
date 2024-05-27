@@ -4,7 +4,7 @@
       image = "dgtlmoon/changedetection.io";
       autoStart = true;
       environment = {
-        PLAYWRIGHT_DRIVER_URL = "ws://192.168.1.111:3000";
+        PLAYWRIGHT_DRIVER_URL = "ws://192.168.1.111:3341";
       };
       volumes = [
         "/mnt/data/changedetection:/datastore"
@@ -25,7 +25,7 @@
         MAX_CONCURRENT_CHROME_PROCESSES = "10";
       };
       ports = [
-        "3000:3000"
+        "3341:3341"
       ];
     };
   };
