@@ -17,4 +17,7 @@
     ];
     extraOptions = ["--privileged"];
   };
+  networking.firewall.allowedTCPPorts = [
+    3256
+  ];
 }
