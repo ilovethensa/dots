@@ -26,6 +26,7 @@
     ./services/glances.nix
     ./services/changedetection.nix
     ./services/speedtest-tracker.nix
+    ./services/kasm.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
   ];
