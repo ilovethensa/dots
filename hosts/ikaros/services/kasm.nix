@@ -4,9 +4,9 @@
     autoStart = true;
     volumes = [
       "/mnt/data/kasm/data:/opt"
-      "/mnt/data/kasm/profiles:/profiles"
-      "/dev/input:/dev/input"
-      "/run/udev/data:/run/udev/data"
+      #"/mnt/data/kasm/profiles:/profiles"
+      #"/dev/input:/dev/input"
+      #"/run/udev/data:/run/udev/data"
     ];
     environment = {
       KASM_PORT = "3256";
