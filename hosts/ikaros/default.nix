@@ -46,6 +46,18 @@
     home = false;
     ssh = true;
     persist = true;
+    virtualization = false;
+  };
+  virtualisation = {
+    oci-containers.backend = "docker";
+    docker = {
+      enable = true;
+      storageDriver = "btrfs";
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
+    };
   };
   # Networking and system configurations
   networking.hostName = "ikaros"; # Define hostname
