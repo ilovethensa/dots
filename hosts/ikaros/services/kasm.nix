@@ -9,7 +9,7 @@
       "/run/udev/data:/run/udev/data"
     ];
     environment = {
-      KASM_PORT = 443;
+      KASM_PORT = "443";
     };
     ports = [
       "3000:3000"
