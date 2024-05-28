@@ -14,6 +14,10 @@
     environment = {
       EULA = "TRUE";
       TYPE = "FABRIC";
+      ONLINE_MODE = "FALSE";
+      SERVER_NAME = "CommieMC";
+      USE_AIKAR_FLAGS = "true";
+      MEMORY = "3G";
       PACKWIZ_URL = "https://raw.githubusercontent.com/ilovethensa/better-vanilla/main/pack.toml";
     };
   };
