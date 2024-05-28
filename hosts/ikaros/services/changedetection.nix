@@ -5,5 +5,6 @@
     playwrightSupport = true;
     datastorePath = "/mnt/data/changedetection";
     port = 4361;
+    listenAddress = "192.168.1.111";
   };
 }
