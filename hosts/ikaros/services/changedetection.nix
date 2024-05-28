@@ -1,5 +1,5 @@
 {...}: {
-  changedetection-io = {
+  services.changedetection-io = {
     enable = true;
     datastorePath = "/mnt/data/changedetection";
     port = 3000;
