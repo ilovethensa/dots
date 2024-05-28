@@ -19,7 +19,7 @@
     ./services/cron.nix
     ./services/wireguard.nix
     ./services/homepage.nix
-    ./services/crafty.nix
+    ./services/minecraft.nix
     #./services/grafana.nix
     #./services/n8n.nix
     ./services/miniflux.nix
