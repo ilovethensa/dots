@@ -13,6 +13,7 @@
     ];
     environment = {
       EULA = "TRUE";
+      TYPE = "FABRIC";
       PACKWIZ_URL = "https://raw.githubusercontent.com/ilovethensa/better-vanilla/main/pack.toml";
     };
   };
