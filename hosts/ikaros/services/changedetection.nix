@@ -25,7 +25,7 @@
         MAX_CONCURRENT_CHROME_PROCESSES = "10";
       };
       ports = [
-        "3341:3341"
+        "3341:3000"
       ];
     };
   };
