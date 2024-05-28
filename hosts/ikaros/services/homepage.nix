@@ -224,11 +224,11 @@
           {
             "ChangeDetection" = {
               description = "Detecting changes";
-              href = "http://192.168.1.111:5000";
+              href = "http://192.168.1.111:4361";
               icon = "changedetection-io.png";
               widget = {
                 type = "changedetectionio";
-                url = "http://192.168.1.111:5000";
+                url = "http://192.168.1.111:4361";
                 key = "{{HOMEPAGE_VAR_CHANGEDETECTION_KEY}}";
               };
               refreshInterval = 1000;
