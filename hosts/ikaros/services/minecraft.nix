@@ -14,6 +14,7 @@
     environment = {
       EULA = "TRUE";
       TYPE = "FABRIC";
+      VERSION = "1.20.4";
       ONLINE_MODE = "FALSE";
       SERVER_NAME = "CommieMC";
       USE_AIKAR_FLAGS = "true";
