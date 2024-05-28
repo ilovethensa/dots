@@ -43,7 +43,7 @@
   services.tht = {
     adb = true;
     battery = true;
-    #gaming = true;
+    gaming = true;
     appimage = true;
     nix-ld = true;
     persist = true;
