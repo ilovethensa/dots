@@ -4,6 +4,6 @@
     # webDriverSupport = true;
     playwrightSupport = true;
     datastorePath = "/mnt/data/changedetection";
-    port = "4361";
+    port = 4361;
   };
 }
