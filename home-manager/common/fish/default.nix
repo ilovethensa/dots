@@ -14,6 +14,9 @@
 
     # Start services
     for service in $services; do systemctl_remote start $service || { echo "Failed to start $service on ikaros."; exit 1; }; done
+    tar -I 'zstd -19 --threads=4' -cvf data.tar.zst -C ~/Documents/backup
+    tar -cf ~/Documents/backup/backup.tar ~/Documents/backup/data
+    zstd --ultra -22 -T0 ~/Documents/backup/backup.tar -o ~/Documents/backup/backup.tar.zst
 
     echo "All services started successfully on ikaros."
   '';
