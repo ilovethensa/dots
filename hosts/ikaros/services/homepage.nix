@@ -20,7 +20,7 @@
     openFirewall = true;
     environmentFile = config.sops.templates."homepage_env".path;
     settings = {
-      title = "THT cloud";
+      title = "THT's homelab'";
       description = "A personal, hyper converged, self-hosted cloud.";
 
       background = {
