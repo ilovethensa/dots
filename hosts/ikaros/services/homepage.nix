@@ -184,7 +184,7 @@
               widget = {
                 type = "jellyfin";
                 url = "http://192.168.1.111:8096";
-                key = "{{HOMEPAGE_FILE_/run/secrets/jellyfin_key}}";
+                key = "{{HOMEPAGE_VAR_JELLYFIN_KEY}}";
               };
             };
           }
