@@ -1,7 +1,7 @@
 {pkgs, ...}: let
   backup-server = pkgs.writeShellScriptBin "backup-server.sh" ''
     # Services to stop and start
-    services="'docker-*' bazarr jellyfin radarr sonarr prowlarr homepage-dashboard mindustry miniflux transmission"
+    services="'docker-*' bazarr jellyfin radarr sonarr prowlarr homepage-dashboard mindustry miniflux transmission changedetection-io"
 
     # Remote systemctl function
     systemctl_remote() { ssh root@ikaros "sudo systemctl $@"; }
