@@ -23,10 +23,7 @@
       title = "THT's homelab'";
       description = "A personal, hyper converged, self-hosted cloud.";
 
-      background = {
-        image = "https://cdnb.artstation.com/p/assets/images/images/065/778/947/large/alena-aenami-serenity-1k.jpg";
-        opacity = 60;
-      };
+      background = "https://cdnb.artstation.com/p/assets/images/images/065/778/947/large/alena-aenami-serenity-1k.jpg";
 
       cardBlur = "xl";
       theme = "dark";
