@@ -55,12 +55,13 @@
   boot = {
     plymouth = {
       enable = true;
-      theme = "lone";
+      theme = "ecorp-glitch";
       themePackages = with pkgs; [
         # By default we would install all themes
         (adi1090x-plymouth-themes.override {
           selected_themes = ["lone"];
         })
+        plymouth-ecorp-glitch
       ];
     };
 
