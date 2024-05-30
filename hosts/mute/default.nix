@@ -64,6 +64,10 @@
         })
         plymouth-matrix-theme
       ];
+      logo = pkgs.fetchurl {
+        url = "https://i.imgur.com/e8fbS6I.jpeg";
+        sha256 = "g6jiSQpak8zQ6FgiPIVGXqRgUZbvNqaNzuKF/+cV8jk=";
+      };
     };
 
     # Enable "Silent Boot"
