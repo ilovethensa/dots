@@ -12,7 +12,7 @@ stdenv.mkDerivation {
     repo = "plymouth-anonymous";
     owner = "offensive-hub";
     rev = "05ed8eb8415f993bcc0f4e5b4ca6b5f5c2329049";
-    hash = "sha256-aF4Ro5z4G6LS40ENwFDH8CgV7ldfhzqekuSph/DMQoo=";
+    hash = "sha256-mTA5mTLOYXu9YSWGc0bquCd0GKoJb3Ek188iiFCYnPw=";
   };
 
   dontConfigure = true;
