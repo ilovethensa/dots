@@ -64,9 +64,6 @@
         })
         plymouth-matrix-theme
       ];
-      extraConfig = ''
-        [Daemon]
-        ShowDelay=3'';
     };
 
     # Enable "Silent Boot"
