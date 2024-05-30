@@ -23,7 +23,7 @@
 in {
   home.packages = with pkgs; [
     grc
-    #(uutils-coreutils.override { prefix = ""; })
+    uutils-coreutils-noprefix
     ripgrep
     gitoxide
     fd
