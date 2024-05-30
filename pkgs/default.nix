@@ -4,5 +4,5 @@
   playit = pkgs.callPackage ./playit {};
   pywhat = pkgs.callPackage ./pywhat {};
   masscan-mc = pkgs.callPackage ./masscan-mc {};
-  plymouth-anonymous = pkgs.callPackage ./plymouth-anonymous {};
+  plymouth-ecorp-glitch = pkgs.callPackage ./plymouth-ecorp-glitch {};
 }

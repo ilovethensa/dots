@@ -55,13 +55,12 @@
   boot = {
     plymouth = {
       enable = true;
-      theme = "anon";
+      theme = "lone";
       themePackages = with pkgs; [
         # By default we would install all themes
         (adi1090x-plymouth-themes.override {
           selected_themes = ["lone"];
         })
-        plymouth-anonymous
       ];
     };
 
