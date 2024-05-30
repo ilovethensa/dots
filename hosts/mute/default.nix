@@ -53,6 +53,7 @@
     gnome = true;
   };
   boot = {
+    initrd.systemd.enable = true;
     plymouth = {
       enable = true;
       theme = "matrix";
@@ -63,6 +64,9 @@
         })
         plymouth-matrix-theme
       ];
+      extraConfig = ''
+        [Daemon]
+        ShowDelay=3'';
     };
 
     # Enable "Silent Boot"
