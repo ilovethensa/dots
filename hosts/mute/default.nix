@@ -65,8 +65,8 @@
         plymouth-matrix-theme
       ];
       logo = pkgs.fetchurl {
-        url = "https://i.imgur.com/KzbYLXk.png";
-        sha256 = "i1o+3cNqmXHK6hNNnsG9vQGMC/Wc3Y3xygSRIFpMrSA=";
+        url = "https://i.imgur.com/OegRAKB.png";
+        sha256 = "1z32vg6mkqygg8hs8xlsnz3zbgqbmc47kkrlx151hd7imyjwpv1w";
       };
     };
 
