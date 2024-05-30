@@ -56,7 +56,7 @@
     initrd.systemd.enable = true;
     plymouth = {
       enable = true;
-      theme = "matrix";
+      #theme = "matrix";
       themePackages = with pkgs; [
         # By default we would install all themes
         (adi1090x-plymouth-themes.override {
