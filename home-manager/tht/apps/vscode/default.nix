@@ -5,25 +5,34 @@
     package = pkgs.vscode.fhsWithPackages (ps: with ps; [rustup zlib openssl.dev pkg-config clippy]);
     mutableExtensionsDir = false;
     # Define extensions to be installed
-    extensions = with pkgs.vscode-extensions; [
-      jnoortheen.nix-ide
-      usernamehw.errorlens
-      eamodio.gitlens
-      jdinhlife.gruvbox
-      continue.continue
-      christian-kohler.path-intellisense
-      rust-lang.rust-analyzer
-      github.vscode-pull-request-github
-      vscode-icons-team.vscode-icons
-      aaron-bond.better-comments
-      kamadorueda.alejandra
-      astro-build.astro-vscode
-      octref.vetur
-      svelte.svelte-vscode
-      tiehuis.zig
-      ms-python.python
-      ms-python.vscode-pylance
-    ];
+    extensions = with pkgs.vscode-extensions;
+      [
+        jnoortheen.nix-ide
+        usernamehw.errorlens
+        eamodio.gitlens
+        jdinhlife.gruvbox
+        continue.continue
+        christian-kohler.path-intellisense
+        rust-lang.rust-analyzer
+        github.vscode-pull-request-github
+        vscode-icons-team.vscode-icons
+        aaron-bond.better-comments
+        kamadorueda.alejandra
+        astro-build.astro-vscode
+        octref.vetur
+        svelte.svelte-vscode
+        tiehuis.zig
+        ms-python.python
+        ms-python.vscode-pylance
+      ]
+      ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "codeium";
+          publisher = "Codeium";
+          version = "1.9.51";
+          sha256 = "W7gvT0D/qWUZmLjSfIBInMShiWRxFH8lmy1FPk4BKTg=";
+        }
+      ];
 
     # Define user settings for Visual Studio Code
     userSettings = {
