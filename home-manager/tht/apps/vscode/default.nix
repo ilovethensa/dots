@@ -11,17 +11,13 @@
         usernamehw.errorlens
         eamodio.gitlens
         jdinhlife.gruvbox
-        continue.continue
+        #continue.continue
         christian-kohler.path-intellisense
         rust-lang.rust-analyzer
         github.vscode-pull-request-github
         vscode-icons-team.vscode-icons
         aaron-bond.better-comments
         kamadorueda.alejandra
-        astro-build.astro-vscode
-        octref.vetur
-        svelte.svelte-vscode
-        tiehuis.zig
         ms-python.python
         ms-python.vscode-pylance
       ]
