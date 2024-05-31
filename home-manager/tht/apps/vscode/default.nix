@@ -46,6 +46,10 @@
       "rust-analyzer.checkOnSave.command" = "clippy";
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "${pkgs.nil}/bin/nil";
+      "codeium.enableConfig" = {
+        "*" = true;
+        "nix" = true;
+      };
     };
   };
 }
