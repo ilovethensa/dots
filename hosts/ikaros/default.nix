@@ -25,7 +25,8 @@
     ./services/miniflux.nix
     ./services/glances.nix
     ./services/changedetection.nix
-    ./services/speedtest-tracker.nix
+    #./services/speedtest-tracker.nix
+    ./services/syncthing.nix
     #./services/kasm.nix # Disabled until i upgrade my server
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
