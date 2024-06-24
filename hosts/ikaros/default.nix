@@ -11,7 +11,7 @@
     ./../../nixos/options
     ./services/arr.nix
     ./services/cloudflared-web.nix
-    ./services/mindustry.nix
+    #./services/mindustry.nix
     #./services/playit.nix
     #./services/caddy.nix
     ./services/jellyseerr.nix
@@ -19,14 +19,14 @@
     ./services/cron.nix
     ./services/wireguard.nix
     ./services/homepage.nix
-    ./services/minecraft.nix
+    #./services/minecraft.nix
     #./services/grafana.nix
     #./services/n8n.nix
-    ./services/miniflux.nix
+    #./services/miniflux.nix
     ./services/glances.nix
-    ./services/changedetection.nix
+    #./services/changedetection.nix
     #./services/speedtest-tracker.nix
-    ./services/syncthing.nix
+    #./services/syncthing.nix
     #./services/photoprism.nix
     ./services/nextcloud.nix
     #./services/kasm.nix # Disabled until i upgrade my server
