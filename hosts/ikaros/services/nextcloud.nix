@@ -7,7 +7,7 @@
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud29;
-    hostName = "cloud.ikaros.lan";
+    hostName = "cloud.lan";
     config.adminpassFile = config.sops.secrets.vpn_pass.path;
     configureRedis = true;
     datadir = "/mnt/data/nextcloud";
@@ -17,7 +17,7 @@
     database.createLocally = true;
     settings.overwriteprotocol = "http";
     settings.trusted_domains = [
-      "cloud.ikaros.lan"
+      "cloud.lan"
     ];
   };
   networking.firewall.allowedTCPPorts = [
