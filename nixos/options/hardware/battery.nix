@@ -15,7 +15,7 @@ in {
 
   config = lib.mkIf cfg.battery {
     services = {
-      power-profiles-daemon.enable = true;
+      power-profiles-daemon.enable = false;
       auto-cpufreq = {
         enable = true;
         settings = {
