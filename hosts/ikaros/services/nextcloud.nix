@@ -20,10 +20,14 @@
       "cloud.local"
     ];
     config.overwriteProtocol = "https";
-    nginx.enable = true;
+    https = false;
+  };
+  services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
+    forceSSL = false;
+    enableACME = false;
   };
   networking.firewall.allowedTCPPorts = [
-    433
+    443
     80
   ];
 }
