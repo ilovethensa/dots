@@ -13,7 +13,7 @@
     ./services/cloudflared-web.nix
     #./services/mindustry.nix
     #./services/playit.nix
-    #./services/caddy.nix
+    ./services/caddy.nix
     ./services/jellyseerr.nix
     ./services/glance.nix
     ./services/cron.nix

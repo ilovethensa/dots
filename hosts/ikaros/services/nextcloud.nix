@@ -24,18 +24,14 @@
       redis = true;
     };
   };
-
-  /*
-     services.nginx.virtualHosts."localhost".listen = [
+  services.nginx.virtualHosts."localhost".listen = [
     {
       addr = "127.0.0.1";
-      port = 3524;
+      port = 8080;
     }
   ];
-  */
 
   networking.firewall.allowedTCPPorts = [
-    80 # http
-    443 # https
+    8080
   ];
 }
