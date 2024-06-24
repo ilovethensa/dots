@@ -15,10 +15,12 @@
     appstoreEnable = true;
     autoUpdateApps.enable = true;
     database.createLocally = true;
-    settings.overwriteprotocol = "http";
+    settings.overwriteprotocol = "https";
     settings.trusted_domains = [
       "cloud.local"
     ];
+    config.overwriteProtocol = "https";
+    nginx.enable = true;
   };
   networking.firewall.allowedTCPPorts = [
     433
