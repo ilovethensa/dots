@@ -12,8 +12,11 @@
     configureRedis = true;
     datadir = "/mnt/data/nextcloud";
     home = "/mnt/media/nextcloud";
+    database.createLocally = true;
     config = {
       dbtype = "pgsql";
+      dbuser = "nextcloud";
+      dbpassFile = config.sops.secrets.vpn_pass.path;
       adminpassFile = config.sops.secrets.vpn_pass.path;
       adminuser = "admin";
     };
