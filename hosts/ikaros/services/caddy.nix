@@ -12,7 +12,7 @@
       "mindustry.theholytachanka.com".extraConfig = ''
         reverse_proxy 192.168.1.111:6567
       '';
-      "cloud.lan".extraConfig = ''
+      "cloud.local".extraConfig = ''
         reverse_proxy 192.168.1.111
       '';
     };
