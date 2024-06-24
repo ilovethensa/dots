@@ -15,9 +15,10 @@
     appstoreEnable = true;
     autoUpdateApps.enable = true;
     database.createLocally = true;
+    settings.overwriteprotocol = "http";
   };
   networking.firewall.allowedTCPPorts = [
-    443
+    4433
     80
   ];
 }
