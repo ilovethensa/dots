@@ -1,6 +1,9 @@
 {config, ...}: {
   # Secrets
   sops.secrets.cloudflare_key = {};
+  sops.templates."ddns_env".content = ''
+    CLOUDFLARE_API_TOKEN="${config.sops.placeholder.cloudflare_key}"
+  '';
 
   # Nginx service configuration
   services.nginx = {
@@ -37,11 +40,10 @@
     };
   };
 
-  # Cloudflare Dynamic DNS Update Service
-  services.cfdyndns = {
+  services.cloudflare-dyndns = {
     enable = true;
-    apiTokenFile = config.sops.secrets.cloudflare_key.path;
-    records = [
+    apiTokenFile = config.sops.templates."ddns_env".path;
+    domains = [
       "mc.theholytachanka.com"
       "vpn.theholytachanka.com"
       "mindustry.theholytachanka.com"
