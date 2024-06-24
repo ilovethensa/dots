@@ -17,7 +17,7 @@
     ./services/jellyseerr.nix
     ./services/glance.nix
     ./services/cron.nix
-    ./services/wireguard.nix
+    #./services/wireguard.nix
     ./services/homepage.nix
     #./services/minecraft.nix
     #./services/grafana.nix
