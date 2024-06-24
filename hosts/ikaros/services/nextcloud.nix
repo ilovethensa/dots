@@ -11,7 +11,7 @@
     config.adminpassFile = config.sops.secrets.vpn_pass.path;
     configureRedis = true;
     datadir = "/mnt/data/nextcloud";
-    home = "/mnt/Media/nextcloud";
+    home = "/mnt/media/nextcloud";
     appstoreEnable = true;
     autoUpdateApps.enable = true;
     database.createLocally = true;
@@ -21,7 +21,7 @@
     ];
   };
   networking.firewall.allowedTCPPorts = [
-    4433
+    433
     80
   ];
 }

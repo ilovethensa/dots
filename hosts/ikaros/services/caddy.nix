@@ -40,4 +40,8 @@
       ${config.services.nextcloud.hostName}.email = "me@theholytachanka.com";
     };
   };
+  networking.firewall.allowedTCPPorts = [
+    443
+    80
+  ];
 }
