@@ -24,7 +24,7 @@ in {
     ./apps/firefox
     ../common/fish
     ./apps/yt-dlp
-    ./desktops/sway
+    ./desktops/gnome
     spicetify-nix.homeManagerModule
   ];
 
