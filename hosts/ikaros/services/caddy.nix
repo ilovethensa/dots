@@ -12,6 +12,9 @@
       "mindustry.theholytachanka.com".extraConfig = ''
         reverse_proxy 192.168.1.111:6567
       '';
+      "cloud.ikaros.lan".extraConfig = ''
+        reverse_proxy 192.168.1.111
+      '';
     };
   };
   services.cfdyndns = {
