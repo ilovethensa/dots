@@ -30,15 +30,6 @@
           };
         };
       };
-      "cloud.local" = {
-        locations = {
-          "/" = {
-            proxyPass = "http://192.168.1.111:80";
-          };
-        };
-        enableACME = false;
-        forceSSL = false;
-      };
     };
   };
 
