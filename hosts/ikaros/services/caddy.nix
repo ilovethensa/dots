@@ -13,7 +13,7 @@
         reverse_proxy 192.168.1.111:6567
       '';
       "cloud.local".extraConfig = ''
-        reverse_proxy 192.168.1.111
+        reverse_proxy 192.168.1.111:80
       '';
     };
   };
