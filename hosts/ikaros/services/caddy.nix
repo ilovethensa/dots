@@ -17,6 +17,7 @@
       '';
       "cloud.local".extraConfig = ''
         reverse_proxy 192.168.1.111:80
+        tls internal
       '';
     };
   };
