@@ -16,7 +16,9 @@
     autoUpdateApps.enable = true;
     database.createLocally = true;
     settings.overwriteprotocol = "http";
-    settings.trusted_domains = "cloud.ikaros.lan";
+    settings.trusted_domains = [
+      "cloud.ikaros.lan"
+    ];
   };
   networking.firewall.allowedTCPPorts = [
     4433
