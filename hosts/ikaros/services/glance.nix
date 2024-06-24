@@ -62,7 +62,7 @@
 in {
   sops.secrets.location = {};
   virtualisation.oci-containers.containers."glance" = {
-    image = "glanceapp/glance";
+    image = "glanceapp/glance:v0.5.0";
     ports = ["8080:8080"];
     volumes = [
       "${settingsFormat.generate "glance.yaml" settings}:/app/glance.yml"
