@@ -26,4 +26,10 @@
       "mindustry.theholytachanka.com"
     ];
   };
+  security.acme = {
+    acceptTerms = true;
+    certs = {
+      ${config.services.nextcloud.hostName}.email = "me@theholytachanka.com";
+    };
+  };
 }
