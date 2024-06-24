@@ -18,6 +18,11 @@
       adminpassFile = config.sops.secrets.vpn_pass.path;
       adminuser = "admin";
     };
+    caching = {
+      apcu = true;
+      memcached = true;
+      redis = true;
+    };
   };
 
   /*
