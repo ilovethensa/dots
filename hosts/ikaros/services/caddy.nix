@@ -1,5 +1,8 @@
 {config, ...}: {
   sops.secrets.cloudflare_key = {};
+  sops.templates."acme_env".content = ''
+    CLOUDFLARE_DNS_API_TOKEN="${config.sops.placeholder.cloudflare_key}"
+  '';
   services.caddy = {
     enable = true;
     virtualHosts = {
@@ -28,6 +31,11 @@
   };
   security.acme = {
     acceptTerms = true;
+    defaults = {
+      email = "me@theholytachanka.com";
+      dnsProvider = "cloudflare";
+      environmentFile = config.sops.templates.acme_env.path;
+    };
     certs = {
       ${config.services.nextcloud.hostName}.email = "me@theholytachanka.com";
     };
