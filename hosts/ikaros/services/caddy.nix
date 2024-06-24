@@ -1,25 +1,39 @@
 {config, ...}: {
+  # Secrets
   sops.secrets.cloudflare_key = {};
-  services.caddy = {
+
+  # Nginx service configuration
+  services.nginx = {
     enable = true;
     virtualHosts = {
-      "mc.theholytachanka.com".extraConfig = ''
-        reverse_proxy 192.168.1.111:25565
-      '';
-      "vpn.theholytachanka.com".extraConfig = ''
-        reverse_proxy 192.168.1.111:51821
-      '';
-      "mindustry.theholytachanka.com".extraConfig = ''
-        reverse_proxy 192.168.1.111:6567
-      '';
-      "cloud.local".extraConfig = ''
-        reverse_proxy 192.168.1.111:8080
-      '';
+      "mc.theholytachanka.com" = {
+        locations = {
+          "/" = {
+            proxyPass = "http://192.168.1.111:25565";
+          };
+        };
+      };
+      "vpn.theholytachanka.com" = {
+        locations = {
+          "/" = {
+            proxyPass = "http://192.168.1.111:51821";
+          };
+        };
+      };
+      "mindustry.theholytachanka.com" = {
+        locations = {
+          "/" = {
+            proxyPass = "http://192.168.1.111:6567";
+          };
+        };
+      };
     };
   };
+
+  # Cloudflare Dynamic DNS Update Service
   services.cfdyndns = {
     enable = true;
-    apiTokenFile = config.sops.secrets."cloudflare_key".path;
+    apiTokenFile = config.sops.secrets.cloudflare_key.path;
     records = [
       "mc.theholytachanka.com"
       "vpn.theholytachanka.com"
