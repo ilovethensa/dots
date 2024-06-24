@@ -5,8 +5,8 @@
 }: {
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud28;
-    hostName = "l192.168.1.111";
+    package = pkgs.nextcloud29;
+    hostName = "192.168.1.111";
     config.adminpassFile = config.sops.secrets.vpn_pass.path;
     configureRedis = true;
     datadir = "/mnt/data/nextcloud";
@@ -15,4 +15,8 @@
     autoUpdateApps.enable = true;
     database.createLocally = true;
   };
+  networking.firewall.allowedTCPPorts = [
+    443
+    80
+  ];
 }
