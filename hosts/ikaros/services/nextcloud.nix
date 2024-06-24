@@ -3,6 +3,7 @@
   pkgs,
   ...
 }: {
+  sops.secrets.vpn_pass.mode = "777";
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud29;
