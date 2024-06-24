@@ -6,22 +6,48 @@
   sops.secrets.vpn_pass.mode = "777";
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud29;
     hostName = "cloud.local";
-    config.adminpassFile = config.sops.secrets.vpn_pass.path;
+    appstoreEnable = true;
+    package = pkgs.nextcloud29;
     configureRedis = true;
     datadir = "/mnt/data/nextcloud";
     home = "/mnt/media/nextcloud";
-    appstoreEnable = true;
-    autoUpdateApps.enable = true;
-    database.createLocally = true;
-    settings.trusted_domains = [
-      "cloud.local"
-    ];
-    https = false;
+    config = {
+      dbtype = "pgsql";
+      dbuser = "nextcloud";
+      dbhost = "/run/postgresql"; # nextcloud will add /.s.PGSQL.5432 by itself
+      dbname = "nextcloud";
+      adminpassFile = config.sops.secrets.vpn_pass.path;
+      adminuser = "root";
+    };
   };
-  networking.firewall.allowedTCPPorts = [
-    443
-    80
+
+  services.postgresql = {
+    enable = true;
+    dataDir = "/mnt/data/postgres/${config.services.postgresql.package.psqlSchema}";
+    ensureDatabases = ["nextcloud"];
+    ensureUsers = [
+      {
+        name = "nextcloud";
+        ensurePermissions."DATABASE nextcloud" = "ALL PRIVILEGES";
+      }
+    ];
+  };
+
+  # ensure that postgres is running *before* running the setup
+  systemd.services."nextcloud-setup" = {
+    requires = ["postgresql.service"];
+    after = ["postgresql.service"];
+  };
+
+  /*
+     services.nginx.virtualHosts."localhost".listen = [
+    {
+      addr = "127.0.0.1";
+      port = 3524;
+    }
   ];
+  */
+
+  networking.firewall.allowedTCPPorts = [80 443];
 }
