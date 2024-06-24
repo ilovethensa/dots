@@ -18,7 +18,7 @@
       dbhost = "/run/postgresql"; # nextcloud will add /.s.PGSQL.5432 by itself
       dbname = "nextcloud";
       adminpassFile = config.sops.secrets.vpn_pass.path;
-      adminuser = "root";
+      adminuser = "admin";
     };
   };
 
