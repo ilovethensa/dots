@@ -14,30 +14,9 @@
     home = "/mnt/media/nextcloud";
     config = {
       dbtype = "pgsql";
-      dbuser = "nextcloud";
-      dbhost = "/run/postgresql"; # nextcloud will add /.s.PGSQL.5432 by itself
-      dbname = "nextcloud";
       adminpassFile = config.sops.secrets.vpn_pass.path;
       adminuser = "admin";
     };
-  };
-
-  services.postgresql = {
-    enable = true;
-    dataDir = "/mnt/data/postgres/${config.services.postgresql.package.psqlSchema}";
-    ensureDatabases = ["nextcloud"];
-    ensureUsers = [
-      {
-        name = "nextcloud";
-        ensureDBOwnership = true;
-      }
-    ];
-  };
-
-  # ensure that postgres is running *before* running the setup
-  systemd.services."nextcloud-setup" = {
-    requires = ["postgresql.service"];
-    after = ["postgresql.service"];
   };
 
   /*
