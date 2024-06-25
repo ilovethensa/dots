@@ -15,7 +15,7 @@
         DEFAULT_STEALTH = "true";
       };
       ports = [
-        "4444:3000"
+        "3000:3000"
       ];
       extraOptions = ["--network=bridge"];
     };
