@@ -52,7 +52,7 @@
     virtualization = false;
   };
   virtualisation = {
-    oci-containers.backend = "podman";
+    oci-containers.backend = "docker";
     docker = {
       enable = true;
       storageDriver = "btrfs";
