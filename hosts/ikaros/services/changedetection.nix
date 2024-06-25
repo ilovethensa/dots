@@ -1,6 +1,6 @@
 {...}: {
   virtualisation.oci-containers.containers = {
-    changedetection-io-playwright = {
+    changedetection-playwright = {
       image = "browserless/chrome";
       environment = {
         SCREEN_WIDTH = "1920";
@@ -20,7 +20,7 @@
       ];
       extraOptions = ["--network=bridge"];
     };
-    changedetection-io = {
+    changedetection = {
       image = "ghcr.io/dgtlmoon/changedetection.io:0.45.24";
       environment = {
         PLAYWRIGHT_DRIVER_URL = "ws://192.168.1.111:3000";
@@ -33,7 +33,7 @@
         "/mnt/data/changedetection:/datastore"
       ];
       dependsOn = [
-        "changedetection-io-playwright"
+        "changedetection-playwright"
       ];
     };
   };
