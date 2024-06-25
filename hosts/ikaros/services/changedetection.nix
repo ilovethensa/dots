@@ -22,7 +22,7 @@
     changedetection-io = {
       image = "ghcr.io/dgtlmoon/changedetection.io:0.45.24";
       environment = {
-        PLAYWRIGHT_DRIVER_URL = "ws://192.168.1.111:3000";
+        PLAYWRIGHT_DRIVER_URL = "ws://localhost:3000";
       };
       ports = [
         "5000:5000"
@@ -39,6 +39,6 @@
 
   networking.firewall.allowedTCPPorts = [
     5000
-    4444
+    3000
   ];
 }
