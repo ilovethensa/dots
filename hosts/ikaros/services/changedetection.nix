@@ -13,6 +13,7 @@
         CHROME_REFRESH_TIME = "600000";
         DEFAULT_BLOCK_ADS = "true";
         DEFAULT_STEALTH = "true";
+        HOST = "192.168.1.111";
       };
       ports = [
         "3000:3000"
@@ -22,7 +23,7 @@
     changedetection-io = {
       image = "ghcr.io/dgtlmoon/changedetection.io:0.45.24";
       environment = {
-        PLAYWRIGHT_DRIVER_URL = "ws://localhost:3000";
+        PLAYWRIGHT_DRIVER_URL = "ws://192.168.1.111:3000";
       };
       ports = [
         "5000:5000"
