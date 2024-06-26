@@ -9,6 +9,7 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     sops-nix.url = "github:Mic92/sops-nix";
     comin.url = "github:nlewo/comin";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -54,6 +55,7 @@
     nix-gaming,
     sops-nix,
     comin,
+    nixos-hardware,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -95,6 +97,9 @@
         specialArgs = {inherit inputs outputs spicetify-nix;};
         modules = [
           impermanence.nixosModules.impermanence
+          nixos-hardware.nixosModules.common-cpu-amd
+          nixos-hardware.nixosModules.common-gpu-amd
+          nixos-hardware.nixosModules.common-pc-ssd
           ./hosts/viper
         ];
       };
@@ -103,6 +108,9 @@
         modules = [
           impermanence.nixosModules.impermanence
           comin.nixosModules.comin
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-pc-ssd
+          nixos-hardware.nixosModules.lenovo-thinkpad
           ./hosts/mute
         ];
       };
@@ -112,6 +120,8 @@
           impermanence.nixosModules.impermanence
           nixarr.nixosModules.default
           comin.nixosModules.comin
+          nixos-hardware.nixosModules.common-cpu-intel-kaby-lake
+          nixos-hardware.nixosModules.common-pc-ssd
           ./hosts/ikaros
         ];
       };
@@ -119,6 +129,9 @@
         specialArgs = {inherit inputs outputs spicetify-nix;};
         modules = [
           comin.nixosModules.comin
+          nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-gpu-nvidia
+          nixos-hardware.nixosModules.common-pc-ssd
           ./hosts/slash
         ];
       };
