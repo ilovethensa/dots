@@ -7,4 +7,8 @@
     path = ./python;
     description = "Simple python project";
   };
+  c = {
+    path = ./c;
+    description = "Simple c project";
+  };
 }
