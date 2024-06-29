@@ -24,7 +24,7 @@
     #./services/n8n.nix
     #./services/miniflux.nix
     ./services/glances.nix
-    ./services/changedetection.nix
+    #./services/changedetection.nix
     #./services/speedtest-tracker.nix
     #./services/syncthing.nix
     #./services/photoprism.nix
