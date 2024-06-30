@@ -51,5 +51,8 @@ in {
       excludePackages = [pkgs.xterm];
       displayManager.startx.enable = true;
     };
+    fonts.packages = with pkgs; [
+      (nerdfonts.override {fonts = ["FiraCode"];})
+    ];
   };
 }
