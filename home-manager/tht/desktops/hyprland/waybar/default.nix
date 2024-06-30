@@ -1,7 +1,6 @@
-{pkgs, ...}: {
+{...}: {
   programs.waybar = {
     enable = true;
-    package = pkgs.waybar-new;
     style = ''
       /*
         @import "catppuccin/mocha.css";
