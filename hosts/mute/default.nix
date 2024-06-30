@@ -50,7 +50,7 @@
     sound = true;
     intel = true;
     virtualization = true;
-    gnome = true;
+    hyprland = true;
   };
   boot = {
     initrd.systemd.enable = true;
