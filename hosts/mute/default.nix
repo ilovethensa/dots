@@ -51,42 +51,9 @@
     intel = true;
     virtualization = true;
     hyprland = true;
+    gnome = false;
   };
-  boot = {
-    initrd.systemd.enable = true;
-    plymouth = {
-      enable = true;
-      #theme = "matrix";
-      themePackages = with pkgs; [
-        # By default we would install all themes
-        (adi1090x-plymouth-themes.override {
-          selected_themes = ["lone"];
-        })
-        plymouth-matrix-theme
-      ];
-      logo = pkgs.fetchurl {
-        url = "https://i.imgur.com/OegRAKB.png";
-        sha256 = "1z32vg6mkqygg8hs8xlsnz3zbgqbmc47kkrlx151hd7imyjwpv1w";
-      };
-    };
-
-    # Enable "Silent Boot"
-    consoleLogLevel = 0;
-    initrd.verbose = false;
-    kernelParams = [
-      "quiet"
-      "splash"
-      "boot.shell_on_fail"
-      "loglevel=3"
-      "rd.systemd.show_status=false"
-      "rd.udev.log_level=3"
-      "udev.log_priority=3"
-    ];
-    # Hide the OS choice for bootloaders.
-    # It's still possible to open the bootloader list by pressing any key
-    # It will just not appear on screen unless a key is pressed
-    loader.timeout = 0;
-  };
+  boot.initrd.systemd.enable = true;
   # System state version
   system.stateVersion = "23.05";
 }

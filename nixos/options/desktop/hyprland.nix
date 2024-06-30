@@ -46,5 +46,10 @@ in {
       };
     };
     security.polkit.enable = true;
+    services.xserver = {
+      enable = true;
+      excludePackages = [pkgs.xterm];
+      displayManager.startx.enable = true;
+    };
   };
 }
