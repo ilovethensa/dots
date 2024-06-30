@@ -5,6 +5,7 @@
     ./wm
     ./mako
     ./themes.nix
+    ./rofi
     ./../../apps/foot
   ];
 }
