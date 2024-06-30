@@ -69,6 +69,7 @@
     jdk17
     playit
     git
+    btop
   ];
   #networking.wireguard.enable = true;
   # Persistence configuration
