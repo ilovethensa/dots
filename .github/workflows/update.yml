@@ -4,18 +4,28 @@ on:
   schedule:
     - cron: '0 3 * * *' # This cron schedule triggers the job every day at 3 AM
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - uses: nixbuild/nix-quick-install-action@v28
-    - run: nix flake update
-    - uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: Updated flake
-           
-    # Add additional steps that utilize the environment variables or binaries sourced from direnv
+      - name: Install jq
+        run: sudo apt-get install jq -y
+
+      - name: Run update-containers.sh script
+        run: bash scripts/update-containers.sh .
+
+      - uses: nixbuild/nix-quick-install-action@v28
+        # Add your existing steps here
+        # Example: - run: nix flake update
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Updated flake and containers
+
+      # Add additional steps that utilize the environment variables or binaries sourced from direnv
