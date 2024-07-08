@@ -1,14 +1,15 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  inputs,
-  outputs,
-  pkgs,
-  spicetify-nix,
-  ...
-}: let
+{ inputs
+, outputs
+, pkgs
+, spicetify-nix
+, ...
+}:
+let
   spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
-in {
+in
+{
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -24,8 +25,10 @@ in {
     ./apps/firefox
     ../common/fish
     ./apps/yt-dlp
+    ./apps/neovim
     ./desktops/hyprland
     spicetify-nix.homeManagerModule
+    inputs.nixvim.homeManagerModules.nixvim
   ];
 
   nixpkgs = {
@@ -63,7 +66,7 @@ in {
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
-  home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt git-crypt yazi];
+  home.packages = with pkgs; [ hashcat vesktop nixpkgs-fmt git-crypt yazi ];
   programs = {
     home-manager.enable = true;
     git = {

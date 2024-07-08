@@ -1,8 +1,7 @@
-{
-  inputs,
-  outputs,
-  pkgs,
-  ...
+{ inputs
+, outputs
+, pkgs
+, ...
 }: {
   # Import modules and configuration pieces
   imports = [
