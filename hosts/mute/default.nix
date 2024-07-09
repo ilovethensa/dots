@@ -52,7 +52,13 @@
     hyprland = true;
     gnome = false;
   };
-  boot.initrd.systemd.enable = true;
+  boot = {
+    initrd.systemd.enable = true;
+    kernel.sysctl = {
+      "intel_idle.max_cstate" = "4";
+      "processor.max_cstate" = "1";
+    };
+  };
   # System state version
   system.stateVersion = "23.05";
 }
