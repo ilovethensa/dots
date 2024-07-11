@@ -1,15 +1,14 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ inputs
-, outputs
-, pkgs
-, spicetify-nix
-, ...
-}:
-let
-  spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
-in
 {
+  inputs,
+  outputs,
+  pkgs,
+  spicetify-nix,
+  ...
+}: let
+  spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
+in {
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -26,9 +25,11 @@ in
     ../common/fish
     ./apps/yt-dlp
     ./apps/neovim
+    ./apps/newsboat
     ./desktops/hyprland
     spicetify-nix.homeManagerModule
     inputs.nixvim.homeManagerModules.nixvim
+    inputs.sops-nix.homeManagerModules.sops
   ];
 
   nixpkgs = {
@@ -66,7 +67,7 @@ in
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
-  home.packages = with pkgs; [ hashcat vesktop nixpkgs-fmt git-crypt yazi ];
+  home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt git-crypt yazi];
   programs = {
     home-manager.enable = true;
     git = {
@@ -105,6 +106,22 @@ in
             HostName 192.168.1.102
             Port 69
       '';
+    };
+  };
+  sops = {
+    age = {
+      sshKeyPaths = ["/home/tht/.ssh/id_ed25519"];
+      keyFile = "/home/tht/.config/sops/age/keys.txt";
+    };
+    defaultSopsFile = ./../../secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+    secrets.test = {
+      # sopsFile = ./secrets.yml.enc; # optionally define per-secret files
+
+      # %r gets replaced with a runtime directory, use %% to specify a '%'
+      # sign. Runtime dir is $XDG_RUNTIME_DIR on linux and $(getconf
+      # DARWIN_USER_TEMP_DIR) on darwin.
+      path = "%r/test.txt";
     };
   };
 
