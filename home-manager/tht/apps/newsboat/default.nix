@@ -1,4 +1,7 @@
-{config, ...}: {
+{inputs, config, ...}: {
+  imports = [
+    inputs.sops-nix.homeManagerModules.sops
+  ];
   sops.secrets.vpn_pass = {};
   programs.newsboat = {
     enable = true;
