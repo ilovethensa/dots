@@ -1,11 +1,12 @@
-{
-  lib,
-  config,
-  ...
-}: let
+{ lib
+, config
+, ...
+}:
+let
   service = "tht";
   cfg = config.services.${service};
-in {
+in
+{
   options.services.${service} = {
     battery = lib.mkOption {
       type = lib.types.bool;
@@ -16,6 +17,7 @@ in {
   config = lib.mkIf cfg.battery {
     services = {
       power-profiles-daemon.enable = false;
+      tlp.enable = false;
       auto-cpufreq = {
         enable = true;
         settings = {

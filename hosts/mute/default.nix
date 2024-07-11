@@ -55,8 +55,12 @@
   boot = {
     initrd.systemd.enable = true;
     kernelParams = [
-      "intel_idle.max_cstate=4"
       "processor.max_cstate=1"
+      "i915.enable_dc=0"
+      "intel_idle.max_cstate=2"
+      "i915.enable_psr=0"
+      "i915.enable_rc6=0"
+      "i915.preliminary_hw_support=1"
     ];
   };
   # System state version
