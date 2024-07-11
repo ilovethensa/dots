@@ -33,5 +33,8 @@ in {
         rate = 48000;
       };
     };
+    environment.persistence."/nix/persist".directories = [
+      "/var/lib/alsa"
+    ];
   };
 }
