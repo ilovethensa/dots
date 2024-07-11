@@ -128,6 +128,11 @@
       windowrule = stayfocused,^(Ulauncher)$
       exec-once = gammastep-indicator - t 6500:2500 -l 42.13058:24.73996
       exec-once = waybar
+      input {
+        kb_layout = us,bg
+        kb_variant = ,phonetic
+        kb_options =  grp:alt_space_toggle
+      }
     '';
   };
 }
