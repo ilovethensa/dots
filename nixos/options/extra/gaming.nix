@@ -24,7 +24,7 @@ in {
     };
 
     # Game-related programs and packages
-    programs.gamemode.enable = true;
+    #programs.gamemode.enable = true;
     environment.systemPackages = with pkgs; [
       (lutris.override {
         extraLibraries = pkgs: [

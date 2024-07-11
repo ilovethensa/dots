@@ -40,7 +40,8 @@
     flare-signal
   ];
   services.tht = {
-    adb = true;
+    #adb = true;
+    ssh = false;
     battery = true;
     gaming = true;
     appimage = true;
@@ -61,6 +62,9 @@
       "i915.enable_psr=0"
       "i915.enable_rc6=0"
       "i915.preliminary_hw_support=1"
+      "intel_idle.max_cstate=1"
+      "i915.enable_dc=0"
+      "ahci.mobile_lpm_policy=1"
     ];
   };
   # System state version

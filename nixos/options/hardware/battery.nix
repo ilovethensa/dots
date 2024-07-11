@@ -19,7 +19,7 @@ in
       power-profiles-daemon.enable = false;
       tlp.enable = false;
       auto-cpufreq = {
-        enable = true;
+        enable = false;
         settings = {
           battery = {
             governor = "powersave";
@@ -32,6 +32,6 @@ in
         };
       };
     };
-    powerManagement.powertop.enable = true;
+    powerManagement.powertop.enable = false;
   };
 }
