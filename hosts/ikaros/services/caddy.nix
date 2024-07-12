@@ -4,6 +4,9 @@
   sops.templates."ddns_env".content = ''
     CLOUDFLARE_API_TOKEN="${config.sops.placeholder.cloudflare_key}"
   '';
+  sops.templates."acme_env".content = ''
+    CLOUDFLARE_DNS_API_TOKEN="${config.sops.placeholder.cloudflare_key}"
+  '';
 
   services.caddy = {
     enable = true;
@@ -32,6 +35,14 @@
       "mindustry.theholytachanka.com"
       "test.theholytachanka.com"
     ];
+  };
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "ame@theholytachanka.com";
+    defaults.dnsProvider = "cloudflare";
+    defaults.environmentFile = config.sops.templates."acme_env".path;
+    certs."test.theholytachanka.com" = {
+    };
   };
   networking.firewall.allowedTCPPorts = [
     443
