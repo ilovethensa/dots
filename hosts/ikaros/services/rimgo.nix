@@ -9,17 +9,17 @@
   services.caddy = {
     enable = true;
     virtualHosts = {
-      "rimgo.theholytachanka.com".extraConfig = ''
+      "rimgo.pwned.page".extraConfig = ''
         reverse_proxy http://localhost:3495
       '';
     };
   };
 
   services.cloudflare-dyndns.domains = [
-    "rimgo.theholytachanka.com"
+    "rimgo.pwned.page"
   ];
 
   security.acme.certs = {
-    "rimgo.theholytachanka.com" = {};
+    "rimgo.pwned.page" = {};
   };
 }
