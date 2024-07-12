@@ -4,14 +4,14 @@
     enable = true;
     enableGeoIP = false;
     relay.onionServices = {
-      myOnion = {
+      "theholytachanka.com" = {
         version = 3;
         map = [
           {
             port = 80;
             target = {
               addr = "[::1]";
-              port = 8080;
+              port = 80;
             };
           }
         ];
@@ -23,4 +23,11 @@
       ClientPreferIPv6ORPort = true;
     };
   };
+  services.snowflake-proxy = {
+    enable = true;
+    capacity = 100;
+  };
+  environment.persistence."/nix/persist".directories = [
+    "/var/lib/tor"
+  ];
 }
