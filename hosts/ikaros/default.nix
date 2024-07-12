@@ -32,6 +32,7 @@
     #./services/kasm.nix # Disabled until i upgrade my server
     ./services/unmanic.nix
     ./services/rimgo.nix
+    ./services/libreddit.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
   ];
