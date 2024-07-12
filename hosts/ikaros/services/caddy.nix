@@ -1,6 +1,7 @@
 {config, ...}: {
   # Secrets
   sops.secrets.cloudflare_key = {};
+  sops.secrets.cloudflare_email = {};
   sops.templates."ddns_env".content = ''
     CLOUDFLARE_API_TOKEN="${config.sops.placeholder.cloudflare_key}"
   '';
@@ -58,7 +59,7 @@
   };
   security.acme = {
     acceptTerms = true;
-    defaults.email = "ame@theholytachanka.com";
+    defaults.email = config.sops.secrets."cloudflare_email";
     defaults.dnsProvider = "cloudflare";
     defaults.environmentFile = config.sops.templates."acme_env".path;
     certs = {
