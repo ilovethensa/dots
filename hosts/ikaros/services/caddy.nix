@@ -8,13 +8,13 @@
   services.caddy = {
     enable = true;
     virtualHosts = {
-      "mc.heholytachanka.com".extraConfig = ''
+      "mc.theholytachanka.com".extraConfig = ''
         reverse_proxy http://localhost:25565
       '';
-      "vpn.heholytachanka.com".extraConfig = ''
+      "vpn.theholytachanka.com".extraConfig = ''
         reverse_proxy http://localhost:51821
       '';
-      "mindustry.heholytachanka.com".extraConfig = ''
+      "mindustry.theholytachanka.com".extraConfig = ''
         reverse_proxy http://localhost:6567
       '';
       "test.theholytachanka.com".extraConfig = ''
