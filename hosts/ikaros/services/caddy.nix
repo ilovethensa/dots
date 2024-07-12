@@ -8,6 +8,12 @@
   # Nginx service configuration
   services.nginx = {
     enable = true;
+    locations."/" = {
+      return = "200 '<html><body>It works</body></html>'";
+      extraConfig = ''
+        default_type text/html;
+      '';
+    };
     virtualHosts = {
       "mc.theholytachanka.com" = {
         locations = {
@@ -30,9 +36,6 @@
           };
         };
       };
-      "91.139.255.26".extraConfig = ''
-        respond "Hello, world!"
-      '';
     };
   };
 
