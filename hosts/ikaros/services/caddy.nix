@@ -30,6 +30,9 @@
           };
         };
       };
+      "91.139.255.26".extraConfig = ''
+        respond "Hello, world!"
+      '';
     };
   };
 
