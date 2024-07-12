@@ -6,15 +6,15 @@
       PORT = 3495;
       PRIVACY_COUNTRY = "BG";
       PRIVACY_PROVIDER = "ISP";
-      PRIVACY_NOT_COLLECTED = false;
-      PRIVACY_IP = true;
-      PRIVACY_URL = true;
-      PRIVACY_DEVICE = true;
-      PRIVACY_DIAGNOSTICS = true;
+      PRIVACY_NOT_COLLECTED = "0";
+      PRIVACY_IP = "1";
+      PRIVACY_URL = "1";
+      PRIVACY_DEVICE = "1";
+      PRIVACY_DIAGNOSTICS = "1";
     };
   };
   services.caddy = {
-    enable = true;
+    enable = "1";
     virtualHosts = {
       "rimgo.pwned.page".extraConfig = ''
         reverse_proxy http://localhost:3495
