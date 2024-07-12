@@ -23,6 +23,11 @@
       "test.theholytachanka.com".extraConfig = ''
         respond "Hello, world!"
       '';
+      "theholytachanka.com".extraConfig = ''
+        encode gzip
+        file_server
+        root * /var/www/theholytachanka.com
+      '';
     };
   };
 
@@ -34,6 +39,7 @@
       "vpn.theholytachanka.com"
       "mindustry.theholytachanka.com"
       "test.theholytachanka.com"
+      "theholytachanka.com"
     ];
   };
   security.acme = {
