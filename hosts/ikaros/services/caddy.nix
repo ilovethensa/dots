@@ -45,6 +45,7 @@
       "mindustry.theholytachanka.com"
       "test.theholytachanka.com"
       "theholytachanka.com"
+      "pwned.page"
     ];
   };
   security.acme = {
