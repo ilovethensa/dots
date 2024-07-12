@@ -20,6 +20,12 @@
       "mindustry.theholytachanka.com".extraConfig = ''
         reverse_proxy http://localhost:6567
       '';
+      "request.theholytachanka.com".extraConfig = ''
+        reverse_proxy http://localhost:5055
+      '';
+      "watch.theholytachanka.com".extraConfig = ''
+        reverse_proxy http://localhost:8096
+      '';
       "test.theholytachanka.com".extraConfig = ''
         respond "Hello, world!"
       '';
@@ -46,6 +52,8 @@
       "test.theholytachanka.com"
       "theholytachanka.com"
       "pwned.page"
+      "watch.theholytachanka.com"
+      "request.theholytachanka.com"
     ];
   };
   security.acme = {
@@ -60,7 +68,7 @@
     443
     80
   ];
-      environment.persistence."/nix/persist".directories = [
-      "/var/www"
-    ];
+  environment.persistence."/nix/persist".directories = [
+    "/var/www"
+  ];
 }
