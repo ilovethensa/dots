@@ -34,11 +34,6 @@
         file_server
         root * /var/www/theholytachanka.com
       '';
-      "4lrjpniedfnh3png2e5u7cqkoy7mmh3kpiky6z43jc6673tcpluuexad.onion".extraConfig = ''
-        encode gzip
-        file_server
-        root * /var/www/theholytachanka.com
-      '';
       "pwned.page".extraConfig = ''
         encode gzip
         file_server
