@@ -17,13 +17,7 @@
       "mindustry.heholytachanka.com".extraConfig = ''
         reverse_proxy http://localhost:6567
       '';
-      "localhost".extraConfig = ''
-        respond "Hello, world!"
-      '';
-      "192.168.1.111".extraConfig = ''
-        respond "Hello, world!"
-      '';
-      "91.139.255.26".extraConfig = ''
+      "test.theholytachanka.com".extraConfig = ''
         respond "Hello, world!"
       '';
     };
@@ -36,6 +30,7 @@
       "mc.theholytachanka.com"
       "vpn.theholytachanka.com"
       "mindustry.theholytachanka.com"
+      "test.theholytachanka.com"
     ];
   };
   networking.firewall.allowedTCPPorts = [
