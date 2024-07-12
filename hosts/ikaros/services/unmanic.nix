@@ -13,4 +13,7 @@
       "--device=/dev/dri"
     ];
   };
+    networking.firewall.allowedTCPPorts = [
+    8888
+  ];
 }
