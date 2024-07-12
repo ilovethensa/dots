@@ -28,6 +28,11 @@
         file_server
         root * /var/www/theholytachanka.com
       '';
+      "pwned.page".extraConfig = ''
+        encode gzip
+        file_server
+        root * /var/www/pwned.page
+      '';
     };
   };
 
@@ -54,4 +59,7 @@
     443
     80
   ];
+      environment.persistence."/nix/persist".directories = [
+      "/var/www"
+    ];
 }
