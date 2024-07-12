@@ -30,13 +30,6 @@
           };
         };
       };
-      "request.theholytachanka.com" = {
-        locations = {
-          "/" = {
-            proxyPass = "http://192.168.1.111:5055";
-          };
-        };
-      };
     };
   };
 
@@ -47,7 +40,6 @@
       "mc.theholytachanka.com"
       "vpn.theholytachanka.com"
       "mindustry.theholytachanka.com"
-      "request.theholytachanka.com"
     ];
   };
   networking.firewall.allowedTCPPorts = [
