@@ -1,7 +1,8 @@
-{ inputs
-, outputs
-, pkgs
-, ...
+{
+  inputs,
+  outputs,
+  pkgs,
+  ...
 }: {
   # Import modules and configuration pieces
   imports = [
@@ -65,6 +66,14 @@
       "intel_idle.max_cstate=1"
       "i915.enable_dc=0"
       "ahci.mobile_lpm_policy=1"
+    ];
+  };
+  networking.firewall = {
+    allowedTCPPorts = [
+      3366
+    ];
+    allowedUDPPorts = [
+      3366
     ];
   };
   # System state version
