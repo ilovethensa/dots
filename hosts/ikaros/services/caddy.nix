@@ -7,6 +7,7 @@
   '';
   sops.templates."acme_env".content = ''
     CLOUDFLARE_DNS_API_TOKEN="${config.sops.placeholder.cloudflare_key}"
+    CLOUDFLARE_API_TOKEN="${config.sops.placeholder.cloudflare_key}"
   '';
 
   services.caddy = {
@@ -59,7 +60,7 @@
   };
   security.acme = {
     acceptTerms = true;
-    defaults.email = config.sops.secrets."cloudflare_email";
+    defaults.email = "me@theholytachanka.com";
     defaults.dnsProvider = "cloudflare";
     defaults.environmentFile = config.sops.templates."acme_env".path;
     certs = {
