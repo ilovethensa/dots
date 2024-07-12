@@ -4,6 +4,13 @@
     settings = {
       ADDRESS = "0.0.0.0";
       PORT = 3495;
+      PRIVACY_COUNTRY = "BG";
+      PRIVACY_PROVIDER = "ISP";
+      PRIVACY_NOT_COLLECTED = false;
+      PRIVACY_IP = true;
+      PRIVACY_URL = true;
+      PRIVACY_DEVICE = true;
+      PRIVACY_DIAGNOSTICS = true;
     };
   };
   services.caddy = {
