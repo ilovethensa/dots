@@ -6,7 +6,7 @@
       PORT = 3495;
       PRIVACY_COUNTRY = "BG";
       PRIVACY_PROVIDER = "ISP";
-      PRIVACY_NOT_COLLECTED = "0";
+      PRIVACY_NOT_COLLECTED = "1";
       PRIVACY_IP = "1";
       PRIVACY_URL = "1";
       PRIVACY_DEVICE = "1";
