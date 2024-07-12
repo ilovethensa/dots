@@ -61,7 +61,15 @@
     defaults.email = "ame@theholytachanka.com";
     defaults.dnsProvider = "cloudflare";
     defaults.environmentFile = config.sops.templates."acme_env".path;
-    certs."test.theholytachanka.com" = {
+    certs = {
+      "mc.theholytachanka.com" = {};
+      "vpn.theholytachanka.com" = {};
+      "mindustry.theholytachanka.com" = {};
+      "test.theholytachanka.com" = {};
+      "theholytachanka.com" = {};
+      "pwned.page" = {};
+      "watch.theholytachanka.com" = {};
+      "request.theholytachanka.com" = {};
     };
   };
   networking.firewall.allowedTCPPorts = [
