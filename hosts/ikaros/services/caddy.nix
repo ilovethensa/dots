@@ -5,37 +5,18 @@
     CLOUDFLARE_API_TOKEN="${config.sops.placeholder.cloudflare_key}"
   '';
 
-  # Nginx service configuration
-  services.nginx = {
+  services.caddy = {
     enable = true;
-    locations."/" = {
-      return = "200 '<html><body>It works</body></html>'";
-      extraConfig = ''
-        default_type text/html;
-      '';
-    };
     virtualHosts = {
-      "mc.theholytachanka.com" = {
-        locations = {
-          "/" = {
-            proxyPass = "http://192.168.1.111:25565";
-          };
-        };
-      };
-      "vpn.theholytachanka.com" = {
-        locations = {
-          "/" = {
-            proxyPass = "http://192.168.1.111:51821";
-          };
-        };
-      };
-      "mindustry.theholytachanka.com" = {
-        locations = {
-          "/" = {
-            proxyPass = "http://192.168.1.111:6567";
-          };
-        };
-      };
+      "mc.heholytachanka.com".extraConfig = ''
+        reverse_proxy http://localhost:25565
+      '';
+      "vpn.heholytachanka.com".extraConfig = ''
+        reverse_proxy http://localhost:51821
+      '';
+      "mindustry.heholytachanka.com".extraConfig = ''
+        reverse_proxy http://localhost:6567
+      '';
     };
   };
 
