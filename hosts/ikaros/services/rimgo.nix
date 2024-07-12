@@ -14,7 +14,7 @@
     };
   };
   services.caddy = {
-    enable = "1";
+    enable = true;
     virtualHosts = {
       "rimgo.pwned.page".extraConfig = ''
         reverse_proxy http://localhost:3495
