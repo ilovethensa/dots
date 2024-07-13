@@ -20,9 +20,9 @@
       ENABLE_CLAMAV = "0";
       ENABLE_FAIL2BAN = "0";
     };
-    extraOptions = [
-      "--cap-add NET_ADMIN"
-    ];
+    #extraOptions = [
+    #  "--cap-add NET_ADMIN"
+    #];
   };
   services.caddy = {
     enable = true;
