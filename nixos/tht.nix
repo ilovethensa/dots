@@ -25,7 +25,10 @@
       };
     };
   };
-  #environment.variables = {
-  #  NIX_PATH = lib.mkForce "nixpkgs=/nix/var/nix/profiles/per-user/root/channels"; # Until i can figure out how to fix it
-  #};
+  # don't install documentation i don't use
+  documentation.enable = false; # documentation of packages
+  documentation.nixos.enable = false; # nixos documentation
+  documentation.man.enable = false; # manual pages and the man command
+  documentation.info.enable = false; # info pages and the info command
+  documentation.doc.enable = false; # documentation distributed in packages' /share/doc
 }
