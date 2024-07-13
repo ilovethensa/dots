@@ -1,20 +1,17 @@
-{...}: {
-  virtualisation.oci-containers.containers."stalwart" = {
-    image = "stalwartlabs/mail-server:v0.8.5";
-    ports = [
-      "8080:8080"
-      "25:25"
-      "587:587"
-      "465:465"
-      "143:146"
-      "993:993"
-      "4190:4190"
-      "110:110"
-      "995:995"
+{pkgs, ...}: {
+  services.maddy = {
+    enable = true;
+    primaryDomain = "mail.pwned.page";
+    ensureAccounts = [
+      "user1@example.org"
+      "postmaster@example.org"
     ];
-    volumes = [
-      "/mnt/data/mail:/opt/stalwart-mail"
-    ];
+    ensureCredentials = {
+      # Do not use this in production. This will make passwords world-readable
+      # in the Nix store
+      "user1@example.org".passwordFile = "${pkgs.writeText "postmaster" "test"}";
+      "postmaster@example.org".passwordFile = "${pkgs.writeText "postmaster" "test"}";
+    };
   };
   services.caddy = {
     enable = true;
