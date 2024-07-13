@@ -15,15 +15,15 @@
     #./services/playit.nix
     ./services/caddy.nix
     ./services/jellyseerr.nix
-    ./services/glance.nix
+    #./services/glance.nix
     ./services/cron.nix
     #./services/wireguard.nix
-    ./services/homepage.nix
+    #./services/homepage.nix
     #./services/minecraft.nix
     #./services/grafana.nix
     #./services/n8n.nix
     #./services/miniflux.nix
-    ./services/glances.nix
+    #./services/glances.nix
     #./services/changedetection.nix
     #./services/speedtest-tracker.nix
     #./services/syncthing.nix
