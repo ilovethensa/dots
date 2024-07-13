@@ -106,7 +106,6 @@
 
   environment.systemPackages = with pkgs; [
     jdk17
-    playit
     git
     btop
   ];
