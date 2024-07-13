@@ -11,7 +11,7 @@
     transmission = {
       enable = true;
       peerPort = 32456;
-      flood.enable = true;
+      #flood.enable = true;
       openFirewall = true;
     };
     bazarr = {
