@@ -67,7 +67,7 @@
     };
   };
   services.fail2ban = {
-    enable = true;
+    enable = false;
     # Ban IP after 5 failures
     maxretry = 5;
     ignoreIP = [
