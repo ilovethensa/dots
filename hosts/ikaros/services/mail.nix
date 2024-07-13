@@ -9,7 +9,7 @@
     # nix-shell -p mkpasswd --run 'mkpasswd -sm bcrypt'
     loginAccounts = {
       "tht@pwned.page" = {
-        hashedPassword = config.sops.secrets.email_pass;
+        hashedPasswordFile = config.sops.secrets.email_pass.path;
         aliases = ["postmaster@pwned.page"];
       };
     };
