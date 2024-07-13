@@ -127,7 +127,6 @@
           nixarr.nixosModules.default
           comin.nixosModules.comin
           simple-nixos-mailserver.nixosModule
-          nixos-hardware.nixosModules.common-cpu-intel-kaby-lake
           nixos-hardware.nixosModules.common-pc-ssd
           ./hosts/ikaros
         ];
