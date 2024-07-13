@@ -1,29 +1,25 @@
-{...}: {
-  virtualisation.oci-containers.containers."mailserver" = {
-    image = "ghcr.io/docker-mailserver/docker-mailserver:latest";
-    hostname = "mail.pwned.page";
-    ports = [
-      "25:25"
-      "465:465"
-      "587:587"
-      "993:993"
-    ];
-    volumes = [
-      "/mnt/data/mail/mail-data/:/var/mail/"
-      "/mnt/data/mail/mail-state/:/var/mail-state/"
-      "/mnt/data/mail/mail-logs/:/var/log/mail/"
-      "/mnt/data/mail/config/:/tmp/docker-mailserver/"
-      "/etc/localtime:/etc/localtime:ro"
-    ];
-    environment = {
-      ENABLE_RSPAMD = "0";
-      ENABLE_CLAMAV = "0";
-      ENABLE_FAIL2BAN = "0";
+{config, ...}: {
+  sops.secrets.email_pass = {};
+  mailserver = {
+    enable = true;
+    fqdn = "mail.pwned.page";
+    domains = ["pwned.page"];
+
+    # A list of all login accounts. To create the password hashes, use
+    # nix-shell -p mkpasswd --run 'mkpasswd -sm bcrypt'
+    loginAccounts = {
+      "tht@pwned.page" = {
+        hashedPassword = config.sops.secrets.email_pass;
+        aliases = ["postmaster@pwned.page"];
+      };
     };
-    #extraOptions = [
-    #  "--cap-add NET_ADMIN"
-    #];
+
+    # Use Let's Encrypt certificates. Note that this needs to set up a stripped
+    # down nginx and opens port 80.
+    certificateScheme = "acme";
   };
+  security.acme.acceptTerms = true;
+  security.acme.defaults.email = "security@example.com";
   services.caddy = {
     enable = true;
     virtualHosts = {
