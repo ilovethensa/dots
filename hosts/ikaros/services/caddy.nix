@@ -1,4 +1,4 @@
-{config, ...}: {
+{config, lib, ...}: {
   # Secrets
   sops.secrets.cloudflare_key = {};
   sops.secrets.cloudflare_email = {};
@@ -60,7 +60,7 @@
   };
   security.acme = {
     acceptTerms = true;
-    defaults.email = "me@theholytachanka.com";
+    defaults.email = lib.mkForce "me@theholytachanka.com";
     defaults.dnsProvider = "cloudflare";
     defaults.environmentFile = config.sops.templates."acme_env".path;
     certs = {
