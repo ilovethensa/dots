@@ -1,5 +1,5 @@
 {...}: {
-  virtualisation.oci-containers.containers."-mailserver" = {
+  virtualisation.oci-containers.containers."mailserver" = {
     image = "ghcr.io/docker-mailserver/docker-mailserver:latest";
     hostname = "mail.pwned.page";
     ports = [
