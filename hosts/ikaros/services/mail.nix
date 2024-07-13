@@ -1,17 +1,28 @@
-{pkgs, ...}: {
-  services.maddy = {
-    enable = true;
-    primaryDomain = "mail.pwned.page";
-    ensureAccounts = [
-      "user1@example.org"
-      "postmaster@example.org"
+{...}: {
+  virtualisation.oci-containers.containers."docker-mailserver" = {
+    image = "ghcr.io/docker-mailserver/docker-mailserver:latest";
+    ports = [
+      "25:25"
+      "465:465"
+      "587:587"
+      "993:993"
     ];
-    ensureCredentials = {
-      # Do not use this in production. This will make passwords world-readable
-      # in the Nix store
-      "user1@example.org".passwordFile = "${pkgs.writeText "postmaster" "test"}";
-      "postmaster@example.org".passwordFile = "${pkgs.writeText "postmaster" "test"}";
+    volumes = [
+      "/mnt/data/mail/mail-data/:/var/mail/"
+      "/mnt/data/mail/mail-state/:/var/mail-state/"
+      "/mnt/data/mail/mail-logs/:/var/log/mail/"
+      "/mnt/data/mail/config/:/tmp/docker-mailserver/"
+      "/etc/localtime:/etc/localtime:ro"
+    ];
+    environment = {
+      ENABLE_RSPAMD = "0";
+      ENABLE_CLAMAV = "0";
+      ENABLE_FAIL2BAN = "0";
     };
+    extraOptions = [
+      "--hostname mail.pwned.page"
+      "--cap-add NET_ADMIN"
+    ];
   };
   services.caddy = {
     enable = true;
