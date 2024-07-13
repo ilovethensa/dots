@@ -1,6 +1,7 @@
 {...}: {
   virtualisation.oci-containers.containers."docker-mailserver" = {
     image = "ghcr.io/docker-mailserver/docker-mailserver:latest";
+    hostname = "mail.pwned.page";
     ports = [
       "25:25"
       "465:465"
@@ -20,7 +21,6 @@
       ENABLE_FAIL2BAN = "0";
     };
     extraOptions = [
-      "--hostname mail.pwned.page"
       "--cap-add NET_ADMIN"
     ];
   };
