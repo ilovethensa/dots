@@ -17,7 +17,7 @@ in {
     services.openssh = {
       enable = true;
       ports = [
-        69 # Funny number
+        22
       ];
       banner = ''
         ----------------------------------------------------------------------
@@ -93,7 +93,7 @@ in {
     # Timeout TTY after 1 hour
     programs.bash.interactiveShellInit = "if [[ $(tty) =~ /dev\\/tty[1-6] ]]; then TMOUT=3600; fi";
     networking.firewall.allowedTCPPorts = [
-      69
+      22
     ];
   };
 }
