@@ -32,8 +32,8 @@ in {
       '';
       # require public key authentication for better security
       settings = {
-        PasswordAuthentication = false;
-        KbdInteractiveAuthentication = false;
+        PasswordAuthentication = true;
+        KbdInteractiveAuthentication = true;
         PermitRootLogin = "yes";
         LogLevel = "VERBOSE";
         Ciphers = [
