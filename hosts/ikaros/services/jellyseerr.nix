@@ -1,6 +1,6 @@
 {...}: {
   virtualisation.oci-containers.containers."jellyseerr" = {
-    image = "fallenbagel/jellyseerr:2.5.2";
+    image = "fallenbagel/jellyseerr:2.6.0";
     autoStart = true;
     volumes = [
       "/mnt/data/jellyseerr:/app/config"
