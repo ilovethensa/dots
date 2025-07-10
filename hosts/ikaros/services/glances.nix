@@ -1,6 +1,6 @@
 {...}: {
   virtualisation.oci-containers.containers."glances" = {
-    image = "nicolargo/glances:ubuntu-4.3.2-full";
+    image = "nicolargo/glances:ubuntu-4.3.3-full";
     autoStart = true;
     ports = [
       "61208-61209:61208-61209"
